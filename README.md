@@ -1,8 +1,17 @@
 # OpenCast Studio
 
+[![Follow @akatz_ai on X](https://img.shields.io/badge/Follow-%40akatz__ai-111111?style=flat-square&logo=x&logoColor=white)](https://x.com/akatz_ai)
+[![Patreon](https://img.shields.io/badge/Support-Patreon-FF424D?style=flat-square&logo=patreon&logoColor=white)](https://www.patreon.com/Akatz)
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub-EA4AAA?style=flat-square&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/akatz-ai)
+[![Ko-fi](https://img.shields.io/badge/Tip-Ko--fi-FF5E5B?style=flat-square&logo=kofi&logoColor=white)](https://ko-fi.com/akatz)
+
 **OpenCast Studio** is an open-source app by Akatz Labs for creating character reference sheets and using those characters in video. This repository includes the frontend, local API, local GPU executor, workflows, and model manifests. It runs on your own workstation or a GPU workstation you connect over SSH. Account, billing, object-storage and cloud execution implementations belong in a separate repository.
 
 Source: [akatz-labs/opencast-studio](https://github.com/akatz-labs/opencast-studio). Generation availability depends on the configured executor and its installed or deployed workflows.
+
+[![Eighteen selected Krea 2 OpenCast character portraits](docs/assets/opencast-mosaic.webp)](docs/assets/opencast-mosaic.png)
+
+Selected portraits generated with the [Krea 2 OpenCast LoRA](https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA) at strength 1.0. Click the collage for the full-resolution image. Exact prompts, seeds, original images, and workflows are available in the [model’s example index](https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA/blob/main/examples/README.md).
 
 ## Run the interface and API
 
@@ -80,3 +89,17 @@ The source archive includes source, workflows, resource identities and UI assets
 ## Project naming
 
 The product is **OpenCast Studio**, the package and repository name is `opencast-studio`, and the GitHub namespace is `akatz-labs`. Existing `OPENCAST_*` configuration variables, the `opencast` executor app ID, browser preferences and data directories stay stable for compatibility. Optional source bundles are created in `artifacts/opencast-studio-source.zip` and are not committed.
+
+## 💜 Support Akatz Labs
+
+I build and release AI tools, models, LoRAs, and workflows so others can experiment, create, and build upon them.
+
+If OpenCast Studio has been useful to you, consider helping fund the next experiment!
+
+Your support goes toward GPU compute, software development, and future open-source releases.
+
+**Support the lab:** [GitHub Sponsors](https://github.com/sponsors/akatz-ai) · [Patreon](https://www.patreon.com/Akatz) · [Ko-fi](https://ko-fi.com/akatz)
+
+Thanks for helping keep independent creative AI development moving! 💜
+
+[Explore Akatz Labs →](https://akatz.ai)
