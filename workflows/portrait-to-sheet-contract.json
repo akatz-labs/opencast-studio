@@ -1,0 +1,134 @@
+{
+  "version": 3,
+  "default_contract": "character",
+  "contracts": {
+    "character": {
+      "inputs": [
+        {
+          "name": "source_image",
+          "type": "string",
+          "api_node_id": "8",
+          "api_field_key": "image",
+          "required": true,
+          "default": "portrait.png"
+        },
+        {
+          "name": "output_prefix",
+          "type": "string",
+          "node_id": "9",
+          "required": true,
+          "api_node_id": "9",
+          "api_field_key": "filename_prefix",
+          "default": "cast-studio/character"
+        },
+        {
+          "name": "full_body_prompt",
+          "type": "string",
+          "node_id": "12",
+          "required": true,
+          "api_node_id": "12",
+          "api_field_key": "prompt",
+          "default": ""
+        },
+        {
+          "name": "body_seed",
+          "type": "integer",
+          "node_id": "17",
+          "required": true,
+          "api_node_id": "17",
+          "api_field_key": "seed",
+          "default": 271829
+        },
+        {
+          "name": "portrait_prefix",
+          "type": "string",
+          "node_id": "21",
+          "required": true,
+          "api_node_id": "21",
+          "api_field_key": "filename_prefix",
+          "default": "cast-studio/portrait"
+        },
+        {
+          "name": "full_body_prefix",
+          "type": "string",
+          "node_id": "22",
+          "required": true,
+          "api_node_id": "22",
+          "api_field_key": "filename_prefix",
+          "default": "cast-studio/full-body"
+        },
+        {
+          "name": "raw_body_prefix",
+          "type": "string",
+          "node_id": "23",
+          "required": true,
+          "api_node_id": "23",
+          "api_field_key": "filename_prefix",
+          "default": "cast-studio/raw-body"
+        },
+        {
+          "name": "reference_height",
+          "type": "string",
+          "node_id": "27",
+          "api_node_id": "27",
+          "api_field_key": "height",
+          "required": true,
+          "default": "Average"
+        },
+        {
+          "name": "reference_proportions",
+          "type": "string",
+          "node_id": "27",
+          "api_node_id": "27",
+          "api_field_key": "proportions",
+          "required": true,
+          "default": "Natural"
+        },
+        {
+          "name": "reference_top",
+          "type": "integer",
+          "node_id": "11",
+          "api_node_id": "11",
+          "api_field_key": "top",
+          "required": true,
+          "default": 48,
+          "min": 0,
+          "max": 512
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "image",
+          "node_id": "9",
+          "selector": "images"
+        },
+        {
+          "name": "portrait",
+          "type": "image",
+          "node_id": "21",
+          "selector": "images"
+        },
+        {
+          "name": "full-body",
+          "type": "image",
+          "node_id": "22",
+          "selector": "images"
+        },
+        {
+          "name": "raw-body",
+          "type": "image",
+          "node_id": "23",
+          "selector": "images"
+        }
+      ],
+      "display_name": "Existing portrait to character sheet",
+      "description": "Portrait \u2192 registered full-body outpainting \u2192 source-pixel restoration \u2192 combined 2048 \u00d7 1536 character sheet. Two 8-step Euler/simple passes, CFG 1. CAST LoRA 1.0; outpaint LoRA 1.0."
+    }
+  },
+  "comfyui_version": "0.41.0",
+  "api_prompt_file": "portrait-to-sheet-api.json",
+  "api_prompt_source": "ComfyUI frontend graphToPrompt; executable inputs checked after export and reload",
+  "recipe": "cast-krea-character-sheet-v2",
+  "ui_workflow_file": "portrait-to-sheet.json"
+}

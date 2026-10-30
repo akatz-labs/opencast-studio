@@ -1,0 +1,51 @@
+[
+  {
+    "id": "labs",
+    "label": "Akatz Labs",
+    "href": "https://akatz.ai",
+    "color": "#393F46",
+    "iconSource": null
+  },
+  {
+    "id": "hugging-face",
+    "label": "Hugging Face",
+    "href": "https://huggingface.co/akatz-ai",
+    "color": "#66501E",
+    "iconSource": "https://cdn.simpleicons.org/huggingface/ffffff"
+  },
+  {
+    "id": "github",
+    "label": "GitHub",
+    "href": "https://github.com/akatz-ai",
+    "color": "#30363D",
+    "iconSource": "https://cdn.simpleicons.org/github/ffffff"
+  },
+  {
+    "id": "x",
+    "label": "X \u00b7 @akatz_ai",
+    "href": "https://x.com/akatz_ai",
+    "color": "#202328",
+    "iconSource": "https://cdn.simpleicons.org/x/ffffff"
+  },
+  {
+    "id": "patreon",
+    "label": "Patreon",
+    "href": "https://www.patreon.com/Akatz",
+    "color": "#A62D39",
+    "iconSource": "https://cdn.simpleicons.org/patreon/ffffff"
+  },
+  {
+    "id": "ko-fi",
+    "label": "Ko-fi",
+    "href": "https://ko-fi.com/akatz",
+    "color": "#8E3544",
+    "iconSource": "https://cdn.simpleicons.org/kofi/ffffff"
+  },
+  {
+    "id": "sponsors",
+    "label": "GitHub Sponsors",
+    "href": "https://github.com/sponsors/akatz-ai",
+    "color": "#793563",
+    "iconSource": "https://cdn.simpleicons.org/githubsponsors/ffffff"
+  }
+]

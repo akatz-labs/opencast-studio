@@ -1,0 +1,31 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import gallery from '../src/gallery.json' with {type:'json'};
+const {chromium}=await import(process.env.OPENCAST_PLAYWRIGHT_MODULE||'playwright');
+const out=process.env.OPENCAST_TEST_OUTPUT;if(!out)throw new Error('Set OPENCAST_TEST_OUTPUT to an allocated evidence directory.');
+const base=process.env.OPENCAST_TEST_BASE||'http://127.0.0.1:8393/cast-studio/';
+const browser=await chromium.launch({headless:true,executablePath:process.env.OPENCAST_CHROMIUM});
+const traits=gallery.find(c=>c.id==='cast-ines').traits;
+const page=await browser.newPage({viewport:{width:1500,height:1050}});
+await page.addInitScript(t=>localStorage.setItem('cast-draft-v1',JSON.stringify({traits:t})),traits);
+const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(base);
+const chips=page.locator('#picked-values > button:not(.picked-toggle)');
+const checks=[];
+for(const width of [1500,390,320]){
+ await page.setViewportSize({width,height:width===1500?1050:844});
+ if(width===390)await page.getByRole('navigation',{name:'Mobile navigation'}).getByRole('button',{name:'Create',exact:true}).click();
+ const more=page.getByRole('button',{name:'Show more',exact:true});await more.waitFor();
+ await page.waitForFunction(()=>new Set(Array.from(document.querySelectorAll('#picked-values > button')).map(b=>b.offsetTop)).size===2);
+ assert((await chips.count())<Object.keys(traits).length);const collapsed=await chips.count();
+ await page.locator('.creator-footer').screenshot({path:`${out}/picked-${width}-collapsed.png`});
+ await more.click();assert.equal(await chips.count(),Object.keys(traits).length);
+ const less=page.getByRole('button',{name:'Show less',exact:true});assert.equal(await less.getAttribute('aria-expanded'),'true');
+ await page.locator('.creator-footer').screenshot({path:`${out}/picked-${width}-expanded.png`});
+ await less.click();assert.equal(await chips.count(),collapsed);
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ checks.push({width,collapsed,expanded:Object.keys(traits).length});
+}
+await page.getByRole('button',{name:'Show more',exact:true}).click();const name=await chips.last().getAttribute('aria-label');await chips.last().click();assert.equal(await page.getByRole('button',{name,exact:true}).count(),0);assert.equal(await chips.count(),Object.keys(traits).length-1);
+await page.getByRole('button',{name:'Reset all',exact:true}).click();assert.equal(await chips.count(),0);await page.getByText('Choose traits above',{exact:true}).waitFor();assert.equal(await page.getByRole('button',{name:'Show less',exact:true}).count(),0);assert.equal(await page.getByRole('button',{name:'Show more',exact:true}).count(),0);
+await page.getByRole('button',{name:'Natural',exact:true}).click();assert.equal(await chips.count(),1);assert.equal(await page.getByRole('button',{name:'Show more',exact:true}).count(),0);assert(await page.getByRole('button',{name:'Generate',exact:true}).isVisible());assert.deepEqual(errors,[]);
+fs.writeFileSync(out+'/picked-checks.json',JSON.stringify({base,checks,removal:true,reset:true,singleChip:true,errors},null,2));await browser.close();console.log('PASS: responsive two-row fit, expand/collapse, removal, reset, empty and single selection');

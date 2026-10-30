@@ -1,0 +1,6 @@
+{
+  "Very short": {"default": 448, "oversized": 448},
+  "Short": {"default": 384, "oversized": 448},
+  "Average": {"default": 224, "oversized": 384},
+  "Tall": {"default": 192, "oversized": 288}
+}

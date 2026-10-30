@@ -1,0 +1,1147 @@
+{
+  "10": {
+    "inputs": {
+      "file": "source.mp4"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Load Video · source performance"
+    }
+  },
+  "12": {
+    "inputs": {
+      "image": "character.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image · character / Picture 1"
+    }
+  },
+  "13": {
+    "inputs": {
+      "image": "background.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image · environment / Picture 2"
+    }
+  },
+  "23": {
+    "inputs": {
+      "filename_prefix": "OpenCast/video",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "8074:8058",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "SaveVideo · native result"
+    }
+  },
+  "25": {
+    "inputs": {
+      "value": "Replace the main person in the video."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Your instructions · prepended first"
+    }
+  },
+  "30": {
+    "inputs": {
+      "expression": "a / 24",
+      "values.a": [
+        "1104",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Aligned output duration · frames / 24"
+    }
+  },
+  "31": {
+    "inputs": {
+      "start_time": 0,
+      "duration": [
+        "30",
+        0
+      ],
+      "strict_duration": false,
+      "video": [
+        "1101",
+        0
+      ]
+    },
+    "class_type": "Video Slice",
+    "_meta": {
+      "title": "Align video and audio to output duration"
+    }
+  },
+  "248": {
+    "inputs": {
+      "filename_prefix": "OpenCast/anchor",
+      "images": [
+        "8072:7108",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save opening anchor"
+    }
+  },
+  "501": {
+    "inputs": {
+      "value": 904234
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Anchor seed"
+    }
+  },
+  "502": {
+    "inputs": {
+      "value": 904234
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Video seed"
+    }
+  },
+  "503": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Mode · ON motion transfer / OFF character swap"
+    }
+  },
+  "504": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Separate background · ON upload / OFF character reference"
+    }
+  },
+  "505": {
+    "inputs": {
+      "value": false
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Video quality · OFF Medium / ON High"
+    }
+  },
+  "1101": {
+    "inputs": {
+      "start_time": 0,
+      "duration": 15,
+      "strict_duration": false,
+      "video": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "Video Slice",
+    "_meta": {
+      "title": "Source segment · maximum 15 seconds"
+    }
+  },
+  "1102": {
+    "inputs": {
+      "video": [
+        "1101",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Read capped video · frames and source FPS"
+    }
+  },
+  "1103": {
+    "inputs": {
+      "image": [
+        "1102",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Count source frames"
+    }
+  },
+  "1104": {
+    "inputs": {
+      "expression": "max(5, 5 + 17 * floor((floor(min(15, a / b) * 24 + 0.000001) - 5) / 17))",
+      "values.a": [
+        "1103",
+        2
+      ],
+      "values.b": [
+        "1102",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Automatic H3 frames · 24 fps · round down"
+    }
+  },
+  "8073:8044": {
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNETLoader · H3 Ref2VA"
+    }
+  },
+  "8073:8045": {
+    "inputs": {
+      "lora_name": "pika_h3_flex_ref2va_comfy_bf16.safetensors",
+      "strength_model": 1,
+      "model": [
+        "8073:8044",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Pika Flex Ref2VA · required strength 1"
+    }
+  },
+  "8073:8046": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "CLIPLoader · Qwen H3 text encoder"
+    }
+  },
+  "8073:8047": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAELoader · video"
+    }
+  },
+  "8073:8048": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAELoader · audio"
+    }
+  },
+  "8073:8049": {
+    "inputs": {
+      "sampler_name": "lcm"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect · LCM"
+    }
+  },
+  "8073:8050": {
+    "inputs": {
+      "sigmas": "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0"
+    },
+    "class_type": "ManualSigmas",
+    "_meta": {
+      "title": "ManualSigmas · Pika six-step schedule"
+    }
+  },
+  "8073:8051": {
+    "inputs": {
+      "shift_video": 12,
+      "shift_audio": 3,
+      "model": [
+        "8073:8045",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3SigmaShift",
+    "_meta": {
+      "title": "MiniMaxH3SigmaShift · 12 / 3"
+    }
+  },
+  "8072:7000": {
+    "inputs": {
+      "video": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Get Video Components"
+    }
+  },
+  "8072:7001": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "8072:7000",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Get Image from Batch"
+    }
+  },
+  "8072:7002": {
+    "inputs": {
+      "switch": [
+        "504",
+        0
+      ],
+      "on_false": [
+        "12",
+        0
+      ],
+      "on_true": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "If/Else Switch"
+    }
+  },
+  "8072:7003": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "8072:7001",
+        0
+      ],
+      "on_true": [
+        "8072:7002",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "If/Else Switch"
+    }
+  },
+  "8072:7010": {
+    "inputs": {
+      "value": "Edit Image 1 using the character from Image 2. Keep the target’s exact pose, expression, gaze, screen position, scale and camera framing. Preserve the reference character’s identity, distinctive proportions, hairstyle, complete outfit and accessories. Image 2 shows multiple views of one character. Keep the background, other people and scene lighting unchanged. Produce one finished scene, not a character sheet."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Text (Multiline)"
+    }
+  },
+  "8072:7011": {
+    "inputs": {
+      "value": "Edit Image 1 using the character from Image 2. Keep the target’s exact pose, expression, gaze, screen position, scale and camera framing. Preserve the reference character’s identity, distinctive proportions, hairstyle, complete outfit and accessories. Image 2 shows multiple views of one character. Replace the entire background with Image 3, remove all other people, and match its lighting. Produce one finished scene, not a character sheet."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Text (Multiline)"
+    }
+  },
+  "8072:7012": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "8072:7010",
+        0
+      ],
+      "on_true": [
+        "8072:7011",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "If/Else Switch"
+    }
+  },
+  "8072:7013": {
+    "inputs": {
+      "string_a": [
+        "25",
+        0
+      ],
+      "string_b": [
+        "8072:7012",
+        0
+      ],
+      "delimiter": " "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate Text"
+    }
+  },
+  "8072:7014": {
+    "inputs": {
+      "value": "You are the prompt upsampler of an image-editing model. You see the reference image(s), attached in order (the first image, the second image, ...), and the user's short request. Expand it into ONE detailed, self-contained instruction: the caption the editing model receives together with the same images. Output only the instruction as one continuous English prose block, with no greetings, explanations, Markdown, JSON, coordinates, ids or angle-bracket tokens. Read a vague or conversational request as the most plausible edit of the supplied images.\n\nPick the voice by task shape. When one reference stays and gets bounded changes, write an imperative editing instruction on it (\"Remove the ...\", \"Change the ... to ...\", \"Zoom in on ...\"); a whole-image transformation opens with its scope (\"Convert the entire image into ...\", \"Apply a ... filter over the entire scene\", \"Horizontally flip the entire image so that ...\", \"Shift the camera viewpoint to ...\", then where the major elements should now be). When the references are drawn into a newly composed frame (combining subjects, a new scene, a garment, object or style donor), write a generation request (\"Create a photograph of ...\", \"Create an anime-style illustration of ...\", \"Generate a new image featuring ...\") that says what to take from each image, by ordinal, and what is newly generated.\n\nKeep every explicit edit, constraint, count, position, style cue and piece of wording, and decide what is left open as one concrete plan. Ground everything in what is actually visible: identify each referent unambiguously by its real appearance, never mention content that is not there, and use every image the user attached. State every end state concretely (which color, how large, which pose, which material) and give new content enough appearance to be generated. Cover the knock-on effects of the change (shadows, reflections, occlusion, perspective, scale, lighting) and say what fills a removed region. A zoom-in names what stays in frame and which neighbors are cropped out; an outpainting continues the scene in the same medium. Describe the change, not the whole scene, and close an editing instruction with one compact clause naming what stays unchanged; transferred people keep their identity, face and accessories unless asked otherwise. Transcribe on-image text verbatim in its original language inside double quotes, with line breaks as \\n, and match the original font, size and color when replacing it. Name recognizable public figures, brands and landmarks you can see. Directions are frame-relative; use no evaluative or quality words. Typical length is 50 to 150 words.\n\nOutput only the instruction."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Text (Multiline)"
+    }
+  },
+  "8072:7101": {
+    "inputs": {
+      "unet_name": "flux3-image-klein-int8-convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "8072:7102": {
+    "inputs": {
+      "clip_name": "qwen3vl_4b_int8_convrot.safetensors",
+      "type": "flux3",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "8072:7103": {
+    "inputs": {
+      "vae_name": "flux2-vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "8072:7104": {
+    "inputs": {
+      "text": [
+        "8072:7147",
+        0
+      ],
+      "clip": [
+        "8072:7102",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8072:7107": {
+    "inputs": {
+      "seed": [
+        "501",
+        0
+      ],
+      "steps": 16,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "8072:7101",
+        0
+      ],
+      "positive": [
+        "8072:7160",
+        0
+      ],
+      "negative": [
+        "8072:7161",
+        0
+      ],
+      "latent_image": [
+        "8072:7162",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "8072:7108": {
+    "inputs": {
+      "samples": [
+        "8072:7107",
+        0
+      ],
+      "vae": [
+        "8072:7103",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "8072:7117": {
+    "inputs": {
+      "resolution": "resize",
+      "resolution.megapixels": 1,
+      "positive": [
+        "8072:7104",
+        0
+      ],
+      "negative": [
+        "8072:7132",
+        0
+      ],
+      "vae": [
+        "8072:7103",
+        0
+      ],
+      "images.image0": [
+        "8072:7001",
+        0
+      ],
+      "images.image1": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "ReferenceMultiLatent",
+    "_meta": {
+      "title": "Set Reference Multi Latent"
+    }
+  },
+  "8072:7118": {
+    "inputs": {
+      "resolution": "resize",
+      "resolution.megapixels": 1,
+      "positive": [
+        "8072:7104",
+        0
+      ],
+      "negative": [
+        "8072:7132",
+        0
+      ],
+      "vae": [
+        "8072:7103",
+        0
+      ],
+      "images.image0": [
+        "8072:7001",
+        0
+      ],
+      "images.image1": [
+        "12",
+        0
+      ],
+      "images.image2": [
+        "8072:7002",
+        0
+      ]
+    },
+    "class_type": "ReferenceMultiLatent",
+    "_meta": {
+      "title": "Set Reference Multi Latent"
+    }
+  },
+  "8072:7132": {
+    "inputs": {
+      "conditioning": [
+        "8072:7104",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Conditioning Zero Out"
+    }
+  },
+  "8072:7146": {
+    "inputs": {
+      "clip_name": "qwen3.5_9b_flux3_prompt_upsampler_int8_convrot.safetensors",
+      "type": "flux3",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "8072:7147": {
+    "inputs": {
+      "prompt": [
+        "8072:7013",
+        0
+      ],
+      "max_length": 3584,
+      "sampling_mode": "on",
+      "sampling_mode.temperature": 1,
+      "sampling_mode.top_k": 1,
+      "sampling_mode.top_p": 0.95,
+      "sampling_mode.min_p": 0,
+      "sampling_mode.repetition_penalty": 1.05,
+      "sampling_mode.seed": 0,
+      "sampling_mode.presence_penalty": 0,
+      "thinking": false,
+      "use_default_template": true,
+      "mtp": "off",
+      "clip": [
+        "8072:7146",
+        0
+      ],
+      "image": [
+        "8072:7153",
+        0
+      ],
+      "system_prompt": [
+        "8072:7014",
+        0
+      ]
+    },
+    "class_type": "TextGenerate",
+    "_meta": {
+      "title": "Generate Text"
+    }
+  },
+  "8072:7150": {
+    "inputs": {
+      "images.image0": [
+        "8072:7001",
+        0
+      ],
+      "images.image1": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "BatchImagesNode",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "8072:7151": {
+    "inputs": {
+      "images.image0": [
+        "8072:7001",
+        0
+      ],
+      "images.image1": [
+        "12",
+        0
+      ],
+      "images.image2": [
+        "8072:7002",
+        0
+      ]
+    },
+    "class_type": "BatchImagesNode",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "8072:7152": {
+    "inputs": {
+      "source": [
+        "8072:7147",
+        0
+      ]
+    },
+    "class_type": "PreviewAny",
+    "_meta": {
+      "title": "Preview as Text"
+    }
+  },
+  "8072:7153": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "8072:7150",
+        0
+      ],
+      "on_true": [
+        "8072:7151",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "If/Else Switch"
+    }
+  },
+  "8072:7160": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "8072:7117",
+        0
+      ],
+      "on_true": [
+        "8072:7118",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "If/Else Switch"
+    }
+  },
+  "8072:7161": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "8072:7117",
+        1
+      ],
+      "on_true": [
+        "8072:7118",
+        1
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "If/Else Switch"
+    }
+  },
+  "8072:7162": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "8072:7117",
+        2
+      ],
+      "on_true": [
+        "8072:7118",
+        2
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "If/Else Switch"
+    }
+  },
+  "8074:8052": {
+    "inputs": {
+      "video": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Get Video Components · video + audio"
+    }
+  },
+  "8074:8053": {
+    "inputs": {
+      "prompt": [
+        "8074:8061",
+        0
+      ],
+      "width": [
+        "8074:8068",
+        1
+      ],
+      "height": [
+        "8074:8069",
+        1
+      ],
+      "length": [
+        "1104",
+        1
+      ],
+      "ref_image_size": "match",
+      "clip": [
+        "8073:8046",
+        0
+      ],
+      "vae": [
+        "8073:8047",
+        0
+      ],
+      "audio_vae": [
+        "8073:8048",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "12",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "8072:7003",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "8072:7108",
+        0
+      ],
+      "ref_videos.ref_video_0": [
+        "8074:8052",
+        0
+      ],
+      "ref_video_audios.ref_video_audio_0": [
+        "8074:8052",
+        1
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video · audio ON"
+    }
+  },
+  "8074:8054": {
+    "inputs": {
+      "model": [
+        "8073:8051",
+        0
+      ],
+      "conditioning": [
+        "8074:8062",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider · CFG 1"
+    }
+  },
+  "8074:8055": {
+    "inputs": {
+      "noise_seed": [
+        "502",
+        0
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise · seed"
+    }
+  },
+  "8074:8056": {
+    "inputs": {
+      "noise": [
+        "8074:8055",
+        0
+      ],
+      "guider": [
+        "8074:8054",
+        0
+      ],
+      "sampler": [
+        "8073:8049",
+        0
+      ],
+      "sigmas": [
+        "8073:8050",
+        0
+      ],
+      "latent_image": [
+        "8074:8053",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "8074:8057": {
+    "inputs": {
+      "samples": [
+        "8074:8056",
+        0
+      ],
+      "vae": [
+        "8073:8047",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEDecode · picture"
+    }
+  },
+  "8074:8058": {
+    "inputs": {
+      "fps": 24,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "8074:8057",
+        0
+      ],
+      "audio": [
+        "8074:8059",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "CreateVideo · 24 fps + generated audio"
+    }
+  },
+  "8074:8059": {
+    "inputs": {
+      "samples": [
+        "8074:8056",
+        0
+      ],
+      "vae": [
+        "8073:8048",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAEDecodeAudio · native sound"
+    }
+  },
+  "8074:8060": {
+    "inputs": {
+      "value": "References: @Image1 is the character sheet (front view of ONE character). @Image2 is the environment. @Image3 is the starting Frame 0 image that is a guide for how the exact start of the video should look. @Video1 is the motion reference only. Make a new video of the character from @Image1, inside the environment from @Image2, performing exactly the body motion, choreography, timing and camera movement of the person in @Video1. Use @Image3 as the starting frame. Take NOTHING else from @Video1 - not the person's face, body, clothes, props, location, background, colours or photographic look. Keep the character exactly as designed in @Image1 - same face, proportions, outfit, colours - and render the whole video in the exact art style of @Image1 and @Image2. Only ONE character in frame. Style: exactly as @Image1 and @Image2. Audio: same as the reference video @Video1. Normal real-time speed, NO slow motion. No text, no captions, no logos.\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Video template · motion transfer"
+    }
+  },
+  "8074:8061": {
+    "inputs": {
+      "string_a": [
+        "25",
+        0
+      ],
+      "string_b": [
+        "8074:8071",
+        0
+      ],
+      "delimiter": "\n\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate Text · instructions then template"
+    }
+  },
+  "8074:8062": {
+    "inputs": {
+      "frame_idx": 0,
+      "positive": [
+        "8074:8053",
+        0
+      ],
+      "latent": [
+        "8074:8053",
+        1
+      ],
+      "vae": [
+        "8073:8047",
+        0
+      ],
+      "audio_vae": [
+        "8073:8048",
+        0
+      ],
+      "image": [
+        "8072:7108",
+        0
+      ],
+      "audio": [
+        "8074:8052",
+        1
+      ]
+    },
+    "class_type": "MiniMaxH3AddGuide",
+    "_meta": {
+      "title": "Add Guide for MiniMax H3"
+    }
+  },
+  "8074:8063": {
+    "inputs": {
+      "expression": "500000 + 500000 * a",
+      "values.a": [
+        "505",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Pixel budget · 500000 / 1000000"
+    }
+  },
+  "8074:8064": {
+    "inputs": {
+      "image": [
+        "8072:7001",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Read source dimensions"
+    }
+  },
+  "8074:8065": {
+    "inputs": {
+      "expression": "max(32, min(16352, floor(sqrt(c * a / b) / 32) * 32))",
+      "values.a": [
+        "8074:8064",
+        0
+      ],
+      "values.b": [
+        "8074:8064",
+        1
+      ],
+      "values.c": [
+        "8074:8063",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Lower aligned width · nearby candidates"
+    }
+  },
+  "8074:8066": {
+    "inputs": {
+      "expression": "max(32, min(16352, floor(sqrt(c * b / a) / 32) * 32))",
+      "values.a": [
+        "8074:8064",
+        0
+      ],
+      "values.b": [
+        "8074:8064",
+        1
+      ],
+      "values.c": [
+        "8074:8063",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Lower aligned height · nearby candidates"
+    }
+  },
+  "8074:8067": {
+    "inputs": {
+      "expression": "((a)*32768+(b)) if (abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a+32)*32768+(b)) if (abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a)*32768+(b+32)) if (abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a+32)*32768+(b+32))",
+      "values.a": [
+        "8074:8065",
+        1
+      ],
+      "values.b": [
+        "8074:8066",
+        1
+      ],
+      "values.c": [
+        "8074:8063",
+        0
+      ],
+      "values.d": [
+        "8074:8064",
+        0
+      ],
+      "values.e": [
+        "8074:8064",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Choose closest aspect · four grid candidates"
+    }
+  },
+  "8074:8068": {
+    "inputs": {
+      "expression": "floor(a / 32768)",
+      "values.a": [
+        "8074:8067",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Automatic output width"
+    }
+  },
+  "8074:8069": {
+    "inputs": {
+      "expression": "a % 32768",
+      "values.a": [
+        "8074:8067",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Automatic output height"
+    }
+  },
+  "8074:8070": {
+    "inputs": {
+      "value": "Replace the selected person in @Video1 with the character in @Image1. Preserve the person's exact motion, facial performance, timing and camera movement. Keep the original scene, background, lighting, props and all other people unchanged. @Image2 shows the original environment. @Image3 is the edited starting frame; use it as the starting-frame guide. Use only the character design from @Image1, not its pose or background. Audio: same as the reference video @Video1. Normal real-time speed, NO slow motion. No added text, captions or logos."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Video template · character swap"
+    }
+  },
+  "8074:8071": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "8074:8070",
+        0
+      ],
+      "on_true": [
+        "8074:8060",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Video template · select mode"
+    }
+  }
+}

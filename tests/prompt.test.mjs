@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {compilePrompt,presets} from '../shared/prompt.mjs';import traits from '../shared/traits.json' with {type:'json'};
+test('every selectable trait compiles; unsupported settings reject instead of disappearing',()=>{for(const c of traits)for(const o of c.options)assert.ok(compilePrompt({[c.name]:o.label}).prompt.length>100);assert.throws(()=>compilePrompt({Height:'Invisible'}));});
+test('explicit color and height win over composite legacy labels',()=>{const r=compilePrompt({Hairstyle:'Silver curls','Hair color':'Pink',Build:'Tall',Height:'Short'});assert.match(r.prompt,/pink hair/);assert.doesNotMatch(r.prompt,/silver hair|tall, elongated/);assert.match(r.prompt,/Short height/);assert.equal(r.notes.length,2)});
+test('animal species is retained alongside gender and ethnicity choices',()=>{const r=compilePrompt({'Character type':'Fox',Gender:'Female',Ethnicity:'East Asian',Hairstyle:'Blue bob'});assert.match(r.prompt,/anthropomorphic fox/);assert.match(r.prompt,/East Asian/);assert.match(r.prompt,/above the animal face/)});
+test('all preset inputs survive compilation unchanged and output is deterministic',()=>{for(const p of presets){const a=compilePrompt(p.traits),b=compilePrompt(p.traits);assert.deepEqual(a.traits,p.traits);assert.deepEqual(a,b)}});

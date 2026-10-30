@@ -1,0 +1,20 @@
+const {chromium}=await import(process.env.OPENCAST_PLAYWRIGHT_MODULE||'playwright');
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const out=process.env.OPENCAST_TEST_OUTPUT;if(!out)throw new Error('Set OPENCAST_TEST_OUTPUT to allocated evidence storage.');
+const base=process.env.OPENCAST_TEST_BASE||'http://127.0.0.1:8391/cast-studio/';
+const b=await chromium.launch({headless:true,executablePath:process.env.OPENCAST_CHROMIUM});
+const p=await b.newPage({viewport:{width:1500,height:1050},acceptDownloads:true});
+const errors=[];p.on('pageerror',e=>errors.push(e.message));
+await p.goto(base);await p.getByRole('button',{name:'Extreme',exact:true}).click();await p.getByRole('button',{name:/Edit prompt/}).click();await p.getByLabel('Generation seed').fill('2026102911');
+const prompt=await p.getByLabel('Exact prompt',{exact:true}).inputValue();const bodyPrompt=await p.getByLabel('Full-body prompt',{exact:true}).inputValue();
+await p.screenshot({path:out+'/prompt-controls.png'});await p.getByRole('button',{name:'Use this prompt',exact:true}).click();
+const res=p.waitForResponse(r=>r.request().method()==='POST'&&r.url().endsWith('/api/jobs'));await p.getByRole('button',{name:'Generate',exact:true}).click();const response=await res;assert.equal(response.status(),202);const j=(await response.json()).jobs[0];fs.writeFileSync(out+'/browser-job.json',JSON.stringify(j,null,2));
+const repeated=await p.request.post(base+'api/jobs',{data:JSON.parse(response.request().postData())});assert.equal((await repeated.json()).jobs[0].id,j.id);
+console.log('SUBMITTED',j.id);
+await p.reload();await p.getByRole('navigation',{name:'Workspace',exact:true}).getByRole('button',{name:'History',exact:true}).click();await p.locator('.live-history-row').filter({hasText:'2026102911'}).locator('button').first().click();await p.getByRole('heading',{name:'Your character is ready',exact:true}).waitFor({timeout:300000});
+const img=p.getByRole('dialog').getByAltText('Generated character',{exact:true});await img.evaluate(i=>i.decode());assert.deepEqual(await img.evaluate(i=>[i.naturalWidth,i.naturalHeight]),[2048,1536]);
+const manifest=await(await p.request.get(base+'api/jobs/'+j.id+'/manifest')).json();assert.equal(manifest.graph['4'].inputs.text,prompt);assert.equal(manifest.graph['12'].inputs.prompt,bodyPrompt);
+for(const [label,name] of [['Download character sheet','sheet'],['Download close-up','portrait'],['Download full body','body']]){const d=p.waitForEvent('download');await p.getByRole('link',{name:label,exact:true}).click();await(await d).saveAs(out+'/'+name+'.png')}
+await p.screenshot({path:out+'/result-desktop.png'});await p.getByRole('button',{name:'Reuse settings & seed',exact:true}).click();await p.getByRole('button',{name:/Edit prompt/}).click();assert.equal(await p.getByLabel('Exact prompt',{exact:true}).inputValue(),prompt);assert.equal(await p.getByLabel('Full-body prompt',{exact:true}).inputValue(),bodyPrompt);
+await p.setViewportSize({width:390,height:844});await p.screenshot({path:out+'/prompt-mobile.png'});assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
+fs.writeFileSync(out+'/browser-validation.json',JSON.stringify({job:j.id,checks:['real generation through UI','idempotent submission','reload and history','2048x1536 sheet','all three downloads','exact prompts preserved and reused','mobile no overflow'],errors},null,2));await b.close();console.log('PASS');

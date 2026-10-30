@@ -1,0 +1,46 @@
+{
+  "comfyui_commit": "c9ea36b9d2140c89b2ef84f93f428df474e72ba5",
+  "comfyui_version": "0.41.0",
+  "frontend_version": "1.55.17",
+  "torch_version": "2.14.1+cu130",
+  "transformers_version": "5.20.1",
+  "render_flags": [
+    "--reserve-vram",
+    "0",
+    "--enable-triton-backend"
+  ],
+  "memory_mode": "smart memory; preserved from the tested recipe after measured LoRA patching OOM with highvram",
+  "resource_limits": {
+    "MemoryMax": "infinity",
+    "MemoryHigh": "infinity",
+    "MemorySwapMax": "infinity",
+    "CPUQuotaPerSecUSec": "infinity"
+  },
+  "recipe": "cast-krea-character-sheet-v2",
+  "previous_comfygit_snapshot": "1ae9ed1f96f10f097accf807afb4fd567e838786",
+  "custom_nodes": [
+    {
+      "path": "custom_nodes/cast-character-sheet",
+      "upstream": "https://github.com/RealRebelAI/ComfyUI-Rebels-Krea2-Outpaint",
+      "retained_source_version": "asv_0632378b493942959e1397d6306ba3be",
+      "local_extensions": [
+        "CastRegisteredCanvas",
+        "CastCharacterSheet",
+        "CastReferenceSize"
+      ],
+      "files_sha256": {
+        "LICENSE": "7754e27922ab9542f119449d7c5800b688c28a0a62f287dba14b202b05cc0340",
+        "NOTICE": "fa3ade80a10f1d47a8f1c59757261ae4a9259aed36a85b0f7648b9257a9a9f5b",
+        "README.md": "ec90c385b00195ae51dd074dd0e51efe67cc487f781f221fe2506d0feb7c2e98",
+        "__init__.py": "7306d7f8c862a6108ed90a4635129457c498665a2bbcee6a9ed6d7c1f7440158",
+        "cast_canvas.py": "358e43adf5d8959768e75f0be68cd1f5ef613bdf42c9b03e6678d1a1b5806d6a",
+        "krea2_registered_core.py": "0da66ac85a7b8b0f69b13440577d2e27f014e6a24ccd87a2e012d48958e823c0",
+        "nodes.py": "9a571ea480c042f62933ecf695c9707f2f238717ea5cda831e827bd032884bc2",
+        "outpaint_helpers.py": "1694a4cfd4742cca759a5a8f5fd40713561413a4f90ae1b7a0742c07a427c195",
+        "pyproject.toml": "35ff8fb96cff4a7a9ee30cd9064216252ed72178a487e0b28d1e659895030853",
+        "reference-placement.json": "065ee23096001f37c7561a2b11da3505516801e49474d84d4f2784fd95a91f38"
+      }
+    }
+  ],
+  "comfygit_snapshot": "844c92eb80c89b93f0b9b7dd4b4e23db7ab8ac13"
+}

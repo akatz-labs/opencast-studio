@@ -1,0 +1,919 @@
+{
+  "schemaVersion": 1,
+  "recipe": "cast-krea-character-sheet-v2",
+  "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+  "characters": [
+    {
+      "characterId": "cast-ramon",
+      "sourceJob": "b04be6bd-92a8-497e-b61a-f3002e19afc0",
+      "sourceStorageVersion": "asv_606fe0bda40045c1879874ce40f9e371",
+      "sourceSha256": "300552aa156ca722ab19b31bb5fc8cdd22832d5298b31ee915fbb2f1a0ded64b",
+      "mode": "existing-portrait",
+      "renderId": "cast-ramon",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-ramon/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-ramon/sheet.png",
+        "portrait": "renders/cast-ramon/portrait.png",
+        "body": "renders/cast-ramon/body.png"
+      },
+      "sha256": {
+        "sheet": "bb7a40c53174e2f92c00e2152ce0e6193fcf3c03c18a8ff8681e34786304e285",
+        "portrait": "fd9735ab603404b5881a2261d4dddcda68cf94fa3c9144fd318f54cde6690ba0",
+        "body": "cd4e7dbec5280424aafa01fd35a3e3598e684f6ed48a4515b8a336aa9f7ad959"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-nala",
+      "sourceJob": "9203b9e7-fd78-4720-b735-f984b75b7f77",
+      "sourceStorageVersion": "asv_bc509931a0c741cfa380f4e8c92106ff",
+      "sourceSha256": "e1c976ec9333ea44f72daac87ead61c6f2f765a1aa8cd329f3476bf174205b50",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-nala",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-nala/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-nala/sheet.png",
+        "portrait": "renders/cast-nala/portrait.png",
+        "body": "renders/cast-nala/body.png"
+      },
+      "sha256": {
+        "sheet": "ba226045c3f884defd4bf03fcda2f5ed4ff1d9d6afb097d6824b4e96403edf13",
+        "portrait": "24e4d66293651b34337cb4397929493625689e4b30a4d593ddb5ccfefbcbfffe",
+        "body": "e28c292e7ada88615e6b8221eb9ecf49cc61e2eaeb53948d79749392fe03fd34"
+      },
+      "placement": {
+        "height": "Tall",
+        "proportions": "Long-limbed",
+        "sourceWidth": 192,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-basil",
+      "sourceJob": "414ac6d4-a81c-44a9-8985-d0798248108a",
+      "sourceStorageVersion": "asv_890f08530939482394ce2999a1266edd",
+      "sourceSha256": "72788207e1d3c2567434224364aef610f0c3e36ffe79e3b933baa45f75ac0591",
+      "mode": "existing-portrait",
+      "renderId": "cast-basil",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-basil/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-basil/sheet.png",
+        "portrait": "renders/cast-basil/portrait.png",
+        "body": "renders/cast-basil/body.png"
+      },
+      "sha256": {
+        "sheet": "664158eb448875dd214f3ba68974599302f7c1aff36936ec0301d13cd2440ea5",
+        "portrait": "e8e51f0ac303b217e26767f9a38587f2d8d8f93bd5ae66737fe297140739643e",
+        "body": "ea84f00234f2f26aee458ee0993358605d0688fec696af48893675fc1342b1e1"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-ines",
+      "sourceJob": "a68b290c-5b0c-4534-96ca-af82143d12e1",
+      "sourceStorageVersion": "asv_9b870f3a145a4af7a94dc60e1204c1c0",
+      "sourceSha256": "f5d99b99646f2b6ae8a780beb1ec5b57e7db43f0001ee106d460a589fff71206",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-ines",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-ines/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-ines/sheet.png",
+        "portrait": "renders/cast-ines/portrait.png",
+        "body": "renders/cast-ines/body.png"
+      },
+      "sha256": {
+        "sheet": "23e9bc4170229b1d685eea533faa42ac4be0ceb50d390a6ef29e01600b80dc26",
+        "portrait": "66aa3af46d6877c35f94ed73431048f6db249c9b670b56116df9ae1b18d6b6a5",
+        "body": "b78433683d4ce67b3770f234dd2611d483b2009ef6fec75387521079f202e85c"
+      },
+      "placement": {
+        "height": "Short",
+        "proportions": "Oversized head",
+        "sourceWidth": 448,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-imani",
+      "sourceJob": "94c1dc15-9785-4fdc-a98f-f85b039a2bc3",
+      "sourceStorageVersion": "asv_69814a4f0a3b46168f5820f0b73f16ba",
+      "sourceSha256": "f1bbb8b80371f85e371dac3005bcd16125d11315adbfec862467e5929a528588",
+      "mode": "existing-portrait",
+      "renderId": "cast-imani",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-imani/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-imani/sheet.png",
+        "portrait": "renders/cast-imani/portrait.png",
+        "body": "renders/cast-imani/body.png"
+      },
+      "sha256": {
+        "sheet": "939bef3cd18072e7436977823d3f419a8e7ecb6f40ba1d10cdfa4bcb5fb75c46",
+        "portrait": "62e991e19b82155f4152c37e9f4a908a39fa1d4a61549ca066d7d1419662e69a",
+        "body": "bcbb7df3c58783c1ca3a9acb77d847ac894bc2999eb43a3d6db529d81b75e135"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-frog",
+      "sourceJob": "92d0feac-130e-44a3-b556-d592d03fb8c3",
+      "sourceStorageVersion": "asv_6a13c73aa79e484eb790ed4290490ffd",
+      "sourceSha256": "c4db6e64a122197a11335296483a0cc7fd1b194c8af489decd829deebfa084a9",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-frog",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-frog/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-frog/sheet.png",
+        "portrait": "renders/cast-frog/portrait.png",
+        "body": "renders/cast-frog/body.png"
+      },
+      "sha256": {
+        "sheet": "7fd186069dd50227d3b1c1b7d51de9403e4dfa1bf22330a456fc3a8af25ce07b",
+        "portrait": "b55c2186afd0a159df274343d41da6005202d7a36cd07c0842999d872e1afa7b",
+        "body": "7fada4bfb6d75a454d5a9c0623e72a91901320c1a41c4869c430a7149e922e8b"
+      },
+      "placement": {
+        "height": "Short",
+        "proportions": "Compact",
+        "sourceWidth": 384,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-asha",
+      "sourceJob": "741d55dc-d8be-4da3-949b-d960772c9b78",
+      "sourceStorageVersion": "asv_8db63d41123b4a108db4f9cd6e8ba020",
+      "sourceSha256": "935adf487c86d46aaa1ee00bb5390672244407d0def897f04041ce69dd2eb3f6",
+      "mode": "existing-portrait",
+      "renderId": "cast-asha",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-asha/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-asha/sheet.png",
+        "portrait": "renders/cast-asha/portrait.png",
+        "body": "renders/cast-asha/body.png"
+      },
+      "sha256": {
+        "sheet": "5f44b7acd413f134ab7082087a4b75d92197ee9b8fa45326474825a42be58eec",
+        "portrait": "9b4da707ac7cbba1ae904cb38681fb4588af8b93589c763482dce206874a5738",
+        "body": "df055e25de151c799129d3f0a64c51de5394f2c3518bef1f9ab4e483797dd597"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-bruno",
+      "sourceJob": "5b295511-38f4-4f0c-b072-fbefafcd2d35",
+      "sourceStorageVersion": "asv_1ff477e4e1344df5a0e072720bb5d23f",
+      "sourceSha256": "2e28c857ab8938d829800242fd7ffb2f888936e56f0cf578c0137cbdf184c82d",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-bruno",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-bruno/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-bruno/sheet.png",
+        "portrait": "renders/cast-bruno/portrait.png",
+        "body": "renders/cast-bruno/body.png"
+      },
+      "sha256": {
+        "sheet": "6582fdec522f22aa142a6bfb34bcdce35372771f12041882b09744f9e1b7584f",
+        "portrait": "4108faf41aec28bde88ed2804461e79aa5521b52a50f649bc99cfb2ab26b75a9",
+        "body": "44c890143506f9e6150325ed9f4db6633a8e424a3504b31cbf13c02d82a890c5"
+      },
+      "placement": {
+        "height": "Tall",
+        "proportions": "Compact",
+        "sourceWidth": 192,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-celeste",
+      "sourceJob": "f5c280e1-4671-4c4f-bb06-f3c830f9a54f",
+      "sourceStorageVersion": "asv_bff84d012db646cfa061e42e7f1db0f3",
+      "sourceSha256": "b7e06e7a3906c165d460e283ac2bb04941255cf1f4ed4d1981207954c2a72750",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-celeste",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-celeste/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-celeste/sheet.png",
+        "portrait": "renders/cast-celeste/portrait.png",
+        "body": "renders/cast-celeste/body.png"
+      },
+      "sha256": {
+        "sheet": "2ca4282a8412ea13f142a8295b143436f50d5f99a84cc57ac54ade42c1aaf7f8",
+        "portrait": "e6bae47fc7cdb540823e0da47335a43b392adf638a00bc8710535d0575417bfb",
+        "body": "4b936e665bbc726d389cea4442a376c4a8c62397f488b3f30f3ac24ea74fd987"
+      },
+      "placement": {
+        "height": "Short",
+        "proportions": "Natural",
+        "sourceWidth": 384,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-kenji",
+      "sourceJob": "983cd1c1-965f-4b8b-9513-316abc4a8530",
+      "sourceStorageVersion": "asv_5143331b98894cd28144a000fb73f73d",
+      "sourceSha256": "d1a08bbddefc4a181b2c1dc2cd9def521ad76dae9f39a45280cfc80d53c33638",
+      "mode": "existing-portrait",
+      "renderId": "cast-kenji",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-kenji/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-kenji/sheet.png",
+        "portrait": "renders/cast-kenji/portrait.png",
+        "body": "renders/cast-kenji/body.png"
+      },
+      "sha256": {
+        "sheet": "16c13fa5ab915468a276a05efc7e0b13294c3654a646f842877abf27b86b949b",
+        "portrait": "4d21fddbdf7ad3eb29ef56e7f9b9f60284e4358a77c9b7ede298d32f689996ac",
+        "body": "0719d744bf4db70f1c7a80a9ea6a64ed8ae85a2e4297e97321fe58614ab63dd1"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-pippa",
+      "sourceJob": "0c047cce-4ea1-428f-86e8-c4190d94ec0b",
+      "sourceStorageVersion": "asv_ff28d548e1ca456ab27aca565d89ded3",
+      "sourceSha256": "d30cd2f0419fde9711428a322a7afefb75083075c53a32be804bbab21b1ad144",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-pippa",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-pippa/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-pippa/sheet.png",
+        "portrait": "renders/cast-pippa/portrait.png",
+        "body": "renders/cast-pippa/body.png"
+      },
+      "sha256": {
+        "sheet": "04d2bba1ee449fbfc33b0313e02d2cd0fc8ba42c472c1831957d1e5fc0002604",
+        "portrait": "72527d1c8b0186794a8a5bcdaf229eda7606d4acef3a3a5c5a01f10ebe3e42c1",
+        "body": "32de15f31760d63490c06769048aec216a6dbfebdf062fc6d40e568d175c7996"
+      },
+      "placement": {
+        "height": "Tall",
+        "proportions": "Long-limbed",
+        "sourceWidth": 192,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-dev",
+      "sourceJob": "d1476c19-87c3-4eae-9b91-971c157c5bf5",
+      "sourceStorageVersion": "asv_95e52302c0704f0bbeae92927b77933b",
+      "sourceSha256": "bc6170e67fac645819be9ca8fc7602af18ade96b445aa48520dc50f79a5e9216",
+      "mode": "existing-portrait",
+      "renderId": "cast-dev-repair-2",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-dev-repair-2/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-dev-repair-2/sheet.png",
+        "portrait": "renders/cast-dev-repair-2/portrait.png",
+        "body": "renders/cast-dev-repair-2/body.png"
+      },
+      "sha256": {
+        "sheet": "efaec4d0bb4e28a11a338653d5b67dcf4d80535944277c750269d827a8768730",
+        "portrait": "25b5bc1d9fd197ba7b1446b39c184c72d3d55aa0e6bfb20936b4c810ef71a0e1",
+        "body": "b797eb41a4262584bbb12c9926785110dc11e512fccb6ce13bc68c4098eb302d"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 240,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible. Extra top room preserves full hairstyle or crest."
+    },
+    {
+      "characterId": "cast-otto",
+      "sourceJob": "6bf553e8-2b2e-492b-b833-c0519e92799b",
+      "sourceStorageVersion": "asv_90637ca327fb419a9860dae66312980c",
+      "sourceSha256": "9caf0f3e046ca7e85fed270c4ac78ffdcf868fce8483be8ca301afa8ecbc6c61",
+      "mode": "existing-portrait",
+      "renderId": "cast-otto",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-otto/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-otto/sheet.png",
+        "portrait": "renders/cast-otto/portrait.png",
+        "body": "renders/cast-otto/body.png"
+      },
+      "sha256": {
+        "sheet": "d78cdefa76400e9bb91ce7df6becfc4c51cf4fff54debdd6814b1d82e7db9696",
+        "portrait": "33faa40ac783f36380d87a19f0c14556849b53e4f05f70ec86dd151cd1cc8de0",
+        "body": "663381989d196d48dc08ca8e0fd25b0556ca1b56fadaf0697353b594f14f4674"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-yuna",
+      "sourceJob": "b8579874-a444-4b11-b0b9-238c42c36e83",
+      "sourceStorageVersion": "asv_d193cc412a0843568b4c3af5134f602d",
+      "sourceSha256": "f36036d396d64820ec90996e31175a0bf704888134dab00b5361de514720514a",
+      "mode": "existing-portrait",
+      "renderId": "cast-yuna",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-yuna/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-yuna/sheet.png",
+        "portrait": "renders/cast-yuna/portrait.png",
+        "body": "renders/cast-yuna/body.png"
+      },
+      "sha256": {
+        "sheet": "f6fd88ce6fe9c4f98ca608985d0c1f11645b7d8325c5ce9e48320086bb608876",
+        "portrait": "0025dd90ac5331f2fd7072cd4b7e249d1e3b4fa280f65862610ee6c226489964",
+        "body": "c5c4f7e6492ade9aa602be89b41ba065cd69f58b5cf518fad4f44b38959fdb9e"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-hugo",
+      "sourceJob": "379ca60e-2030-4814-b70c-d66059911649",
+      "sourceStorageVersion": "asv_30a2e0a502c04b7f80962686c6690325",
+      "sourceSha256": "9053092dd0b9eca9e532e7c3cfe228e61927d72d733abf8b36d295121a32d380",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-hugo",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-hugo/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-hugo/sheet.png",
+        "portrait": "renders/cast-hugo/portrait.png",
+        "body": "renders/cast-hugo/body.png"
+      },
+      "sha256": {
+        "sheet": "9df364b4c006065d705488ef5e7cdf29ea8db1b256fbce671c77e09144b98a1c",
+        "portrait": "bfb545f73937554d29e03cdaf64402912c0e3e042fb193a20152593fade8375f",
+        "body": "d409d99e4e2fc5360befd6d2523c02e1ee3056acab591969d7b9895e518dafa6"
+      },
+      "placement": {
+        "height": "Short",
+        "proportions": "Oversized head",
+        "sourceWidth": 448,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-fox",
+      "sourceJob": "6daf2955-010c-4957-954a-64823a93bbf4",
+      "sourceStorageVersion": "asv_5ce3154d2725400d9d5866b7b6c86e67",
+      "sourceSha256": "9ef5af9121ff8acc354f2b6ff10d753acfbdd8e6a005c0fda2d1796b3c38d4d0",
+      "mode": "existing-portrait",
+      "renderId": "cast-fox",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-fox/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-fox/sheet.png",
+        "portrait": "renders/cast-fox/portrait.png",
+        "body": "renders/cast-fox/body.png"
+      },
+      "sha256": {
+        "sheet": "8ff7203f14a9cd0289c9fce9a0c830f0b2a8ed640a8042a27e56b70aa258abbb",
+        "portrait": "44204a85c1334bcf5873642de4753836d228c2f21b00ce7188cc6628879443c5",
+        "body": "3b489fcdca19692285b2936d1c156b669032c26473dfe1fc8b732899c28c05e4"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-ida",
+      "sourceJob": "e7d95d99-d2af-4fdd-9a3c-bfe4be9e6d57",
+      "sourceStorageVersion": "asv_364922aa244b431ea5427d042d51436c",
+      "sourceSha256": "0d1d9b9b3005c649fbaf56f07a9beba8add9861c312bc88fde56c0463a980d58",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-ida",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-ida/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-ida/sheet.png",
+        "portrait": "renders/cast-ida/portrait.png",
+        "body": "renders/cast-ida/body.png"
+      },
+      "sha256": {
+        "sheet": "3dbcb0e42fe382bc73708cee4ec15ce2bc117bc6bc67d923f0f4200289c86b24",
+        "portrait": "877677631e4ac805b72b708217fc12919120224232bdfbbf284790093f69043c",
+        "body": "7ae340b0d58485f46e40c20e04e718ff032a72f8b3106084ca61147eb656f5fb"
+      },
+      "placement": {
+        "height": "Tall",
+        "proportions": "Natural",
+        "sourceWidth": 192,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-rafi",
+      "sourceJob": "757bebbc-72bc-4253-8350-1ddfac319eef",
+      "sourceStorageVersion": "asv_be396df9b5974b6e9647d20884c58a16",
+      "sourceSha256": "a09ae9dce0ecf91250e99c1581600654f6f3b246eb90e61b311848a029d55ba6",
+      "mode": "existing-portrait",
+      "renderId": "cast-rafi",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-rafi/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-rafi/sheet.png",
+        "portrait": "renders/cast-rafi/portrait.png",
+        "body": "renders/cast-rafi/body.png"
+      },
+      "sha256": {
+        "sheet": "d86efe213da5b3f4894436ae16c364a9453f17d890989a74e161551f1e583961",
+        "portrait": "0597edd5eb035538010e13dbd3942d6f6a056a83aada37981c062db2070e7093",
+        "body": "ec62b4f604f0543df6c6584d48fbd852381c3bdb937fc99a03171cff1e6c144c"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-dahlia",
+      "sourceJob": "15b9f51b-9e7c-42b6-b8a5-2c234de8dd1d",
+      "sourceStorageVersion": "asv_a882277fbc674bb896c2f200d6d130a2",
+      "sourceSha256": "2ff79b2c371b601ea4482d532a6b72f1ff495092382387290323f3d088d98f6b",
+      "mode": "existing-portrait",
+      "renderId": "cast-dahlia",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-dahlia/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-dahlia/sheet.png",
+        "portrait": "renders/cast-dahlia/portrait.png",
+        "body": "renders/cast-dahlia/body.png"
+      },
+      "sha256": {
+        "sheet": "27e10afac5da9ab54131f5db37e25981a1cc2d0cecc45f99d273c459ac2c9ef3",
+        "portrait": "7e03fe0ad9fc0387dda7bcb51dc3bc407a2c923f592e343f5dd825f35d666bcb",
+        "body": "4cb9183a12e87056b141d79fe53acf17b1b05b9c23cd643fc45817c2c9775334"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-bird",
+      "sourceJob": "3bc250de-a404-4eec-9c87-da56f99eaec5",
+      "sourceStorageVersion": "asv_0922627ebff74e279b74f539307dca03",
+      "sourceSha256": "accb666fbfbfa723d849296e849c5da8b358fdaa61546067d8ca8dd8eb5bcf9a",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-bird-repair-3",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-bird-repair-3/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-bird-repair-3/sheet.png",
+        "portrait": "renders/cast-bird-repair-3/portrait.png",
+        "body": "renders/cast-bird-repair-3/body.png"
+      },
+      "sha256": {
+        "sheet": "b938d86e6c0d73f4c657d2862c57487f6f0a9ff3ac6012d028dbf3c12cb27a2d",
+        "portrait": "b47cb8d6d40fe231af7c78065b62bc3a7685a1ee9d89dcc7842ec76d82304549",
+        "body": "f3241d42cf5a688cace067ede02ec2378bcb33c9f85df3eee0cd3164501224f9"
+      },
+      "placement": {
+        "height": "Tall",
+        "proportions": "Long-limbed",
+        "sourceWidth": 192,
+        "top": 96,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible. Extra top room preserves full hairstyle or crest."
+    },
+    {
+      "characterId": "cast-luca",
+      "sourceJob": "bbebaa9a-af09-4a79-8d70-604e7cbbc58f",
+      "sourceStorageVersion": "asv_cfa636c23508489baae996cb2a6a8de6",
+      "sourceSha256": "20e6b5f451f9bb535c17b37a19a7fb8cc44caa3d1236f718bd703e9510cb7c3d",
+      "mode": "existing-portrait",
+      "renderId": "cast-luca",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-luca/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-luca/sheet.png",
+        "portrait": "renders/cast-luca/portrait.png",
+        "body": "renders/cast-luca/body.png"
+      },
+      "sha256": {
+        "sheet": "34d52710e6bc191621e2da47fee5bc09a50b936203c2b0f67915c789f1d25ced",
+        "portrait": "0e5e69360c16ba4d76d7ed85b90bc24e45b7646a3a18ede5a0ed991b9e94848d",
+        "body": "262ace1c38fd30263d780ffe09b0e3fe39a00d37801bfe781a10a7d669ce8cc0"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-cat",
+      "sourceJob": "c9693a07-6917-48a9-b149-ea6ba49e04cb",
+      "sourceStorageVersion": "asv_a9ac28177bc54961beb9b887fb8b1bcb",
+      "sourceSha256": "1bb3e1fa94a21a90a0e708f7a6f90ded63ce7012858c1e5f0e246c38479cb052",
+      "mode": "existing-portrait",
+      "renderId": "cast-cat",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-cat/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-cat/sheet.png",
+        "portrait": "renders/cast-cat/portrait.png",
+        "body": "renders/cast-cat/body.png"
+      },
+      "sha256": {
+        "sheet": "53d7cc5843d292b53b486f0a1c6e18f437a4b39dce4d9ed18b5d4e8f620c10c2",
+        "portrait": "da7d90b42bfc5941532fc75cec5a5968ddaca7448e8fe75eabb4ead75a4c4d74",
+        "body": "9a10b0ee122d8df1d8885a966cfcbf80bb4f797cf8dd9e2d1e502d4e3297e6d8"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-morgan",
+      "sourceJob": "be4a1f14-b6d2-4890-8402-e7be3ee43562",
+      "sourceStorageVersion": "asv_79779cf654ca4f3c8d4d43ac856c9ab6",
+      "sourceSha256": "beb55d455d31381df3c92efb6e8eb7a2f7fcc720948271855e11b3b59944f112",
+      "mode": "existing-portrait",
+      "renderId": "cast-morgan",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-morgan/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-morgan/sheet.png",
+        "portrait": "renders/cast-morgan/portrait.png",
+        "body": "renders/cast-morgan/body.png"
+      },
+      "sha256": {
+        "sheet": "e698b64b6278ff855463209a495b24734a6ef5bb387314d92c3f601ccdd43bef",
+        "portrait": "862d38921a20a05d52e2daeec1c58f14f1456e83cde661c87c7e53792737e052",
+        "body": "9a7b0256367fafd3ac7916d3875511aec6e871f8d6d9629c462e0fb4155dc6d8"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-theo",
+      "sourceJob": "d6659574-a525-4144-aea2-93f134090ca9",
+      "sourceStorageVersion": "asv_6ecc41ff5ed246dbaca138da23f18352",
+      "sourceSha256": "d81162a842ec59cc692c838062c7fe72ae9ad832a253fe35c81fc7f9972ee191",
+      "mode": "regenerate-portrait",
+      "renderId": "cast-theo",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-theo/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-theo/sheet.png",
+        "portrait": "renders/cast-theo/portrait.png",
+        "body": "renders/cast-theo/body.png"
+      },
+      "sha256": {
+        "sheet": "d224fd66c43c4b46a346baeb73c54a29f58c4ff0305bc2f9a4a52a3318f6b89a",
+        "portrait": "237d40ac3bf1a9cda5c2cbcedde1e89559825201867e24ffb14dc20f8e52da26",
+        "body": "8b769886910eed18b08655a25d7fef2fac19b0eda52ca630a76c5cac175e5865"
+      },
+      "placement": {
+        "height": "Short",
+        "proportions": "Compact",
+        "sourceWidth": 384,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Regenerated portrait approximates the original character; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-tess",
+      "sourceJob": "913ac9f3-d983-45fe-a9fb-1c49ea33ca3f",
+      "sourceStorageVersion": "asv_549d98e6f88f4ceb9cd435217e786e90",
+      "sourceSha256": "dd6ab762e6c65481dfb5f949cb9a31dbb8cac2312e1cd4721ab9ffde97a72e26",
+      "mode": "existing-portrait",
+      "renderId": "cast-tess",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-tess/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-tess/sheet.png",
+        "portrait": "renders/cast-tess/portrait.png",
+        "body": "renders/cast-tess/body.png"
+      },
+      "sha256": {
+        "sheet": "3c75c3e3b60f359189e1713f3d253e3d034a22c57a43da26190e9a0aa0cf0085",
+        "portrait": "21085da1774e04264e0b7abdf5ae530b6319e13a3437f759deb82b10e6bf69fb",
+        "body": "b65b4e779b0218997fdfc649289947dd36a0e9ae2a6b93adf6f237f48e5e4e8d"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    },
+    {
+      "characterId": "cast-amir",
+      "sourceJob": "d81bc539-00db-40c6-883a-b894184e115d",
+      "sourceStorageVersion": "asv_c9c423af4b114be7a41ea6fdf174a8b2",
+      "sourceSha256": "45f5a39183e18af5fc8dcd16e057508ced113db271dea808b5a993e9ec259c87",
+      "mode": "existing-portrait",
+      "renderId": "cast-amir",
+      "storageVersion": "asv_4ffacf958279486bbd0173a3c815ff02",
+      "manifest": "renders/cast-amir/receipt.json",
+      "outputs": {
+        "sheet": "renders/cast-amir/sheet.png",
+        "portrait": "renders/cast-amir/portrait.png",
+        "body": "renders/cast-amir/body.png"
+      },
+      "sha256": {
+        "sheet": "d6c408b08731c86ce56e26954bf610fc466db18a4229204d549f87e994dffddb",
+        "portrait": "ab620a52b924905a656b35f6d1ac4d24cee15d938a38e980c33944943c71d16a",
+        "body": "ddc53bfc45a3e151e0dd661734bd32737edada8f82fecfa88d89dbe99a38b6ba"
+      },
+      "placement": {
+        "height": "Average",
+        "proportions": "Natural",
+        "sourceWidth": 224,
+        "top": 48,
+        "seam": 16
+      },
+      "review": "Original close-up preserved; matching full body, feet visible."
+    }
+  ],
+  "review": {
+    "schemaVersion": 1,
+    "reviewer": "agent visual review; user acceptance not claimed",
+    "characters": [
+      {
+        "characterId": "cast-ramon",
+        "renderId": "cast-ramon",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-nala",
+        "renderId": "cast-nala",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-basil",
+        "renderId": "cast-basil",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-ines",
+        "renderId": "cast-ines",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-imani",
+        "renderId": "cast-imani",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-frog",
+        "renderId": "cast-frog",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-asha",
+        "renderId": "cast-asha",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-bruno",
+        "renderId": "cast-bruno",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-celeste",
+        "renderId": "cast-celeste",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-kenji",
+        "renderId": "cast-kenji",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-pippa",
+        "renderId": "cast-pippa",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-dev",
+        "renderId": "cast-dev-repair-2",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible. Extra top room preserves full hairstyle or crest."
+      },
+      {
+        "characterId": "cast-otto",
+        "renderId": "cast-otto",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-yuna",
+        "renderId": "cast-yuna",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-hugo",
+        "renderId": "cast-hugo",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-fox",
+        "renderId": "cast-fox",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-ida",
+        "renderId": "cast-ida",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-rafi",
+        "renderId": "cast-rafi",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-dahlia",
+        "renderId": "cast-dahlia",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-bird",
+        "renderId": "cast-bird-repair-3",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible. Extra top room preserves full hairstyle or crest."
+      },
+      {
+        "characterId": "cast-luca",
+        "renderId": "cast-luca",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-cat",
+        "renderId": "cast-cat",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-morgan",
+        "renderId": "cast-morgan",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-theo",
+        "renderId": "cast-theo",
+        "accepted": true,
+        "notes": "Regenerated portrait approximates the original character; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-tess",
+        "renderId": "cast-tess",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      },
+      {
+        "characterId": "cast-amir",
+        "renderId": "cast-amir",
+        "accepted": true,
+        "notes": "Original close-up preserved; matching full body, feet visible."
+      }
+    ],
+    "rejected": [
+      {
+        "renderId": "cast-dev",
+        "reason": "Hair cropped at top"
+      },
+      {
+        "renderId": "cast-dev-repair-1",
+        "reason": "Hair still cropped"
+      },
+      {
+        "renderId": "cast-bird",
+        "reason": "Species changed to human"
+      },
+      {
+        "renderId": "cast-bird-repair-1",
+        "reason": "Crest cropped"
+      },
+      {
+        "renderId": "cast-bird-repair-2",
+        "reason": "Duplicate character in body panel"
+      }
+    ]
+  }
+}

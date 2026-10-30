@@ -1,0 +1,1128 @@
+{
+  "10": {
+    "inputs": {
+      "file": "selfie-fox.mkv"
+    },
+    "class_type": "LoadVideo",
+    "_meta": {
+      "title": "Load Video · source performance"
+    }
+  },
+  "12": {
+    "inputs": {
+      "image": "fox-girl.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image · character / Picture 1"
+    }
+  },
+  "13": {
+    "inputs": {
+      "image": "skyport.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image · environment / Picture 2"
+    }
+  },
+  "23": {
+    "inputs": {
+      "filename_prefix": "OpenCast/motion-transfer",
+      "format": "auto",
+      "format.codec": "auto",
+      "codec": "auto",
+      "video": [
+        "510:22",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "SaveVideo · native result"
+    }
+  },
+  "25": {
+    "inputs": {
+      "value": "Replace the foreground woman holding the selfie camera."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Your instructions · prepended first"
+    }
+  },
+  "30": {
+    "inputs": {
+      "expression": "a / 24",
+      "values.a": [
+        "1104",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Aligned output duration · frames / 24"
+    }
+  },
+  "31": {
+    "inputs": {
+      "start_time": 0,
+      "duration": [
+        "30",
+        0
+      ],
+      "strict_duration": false,
+      "video": [
+        "1101",
+        0
+      ]
+    },
+    "class_type": "Video Slice",
+    "_meta": {
+      "title": "Align video and audio to output duration"
+    }
+  },
+  "248": {
+    "inputs": {
+      "filename_prefix": "OpenCast/anchor",
+      "images": [
+        "508:247",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save opening anchor"
+    }
+  },
+  "501": {
+    "inputs": {
+      "value": 904234
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Anchor seed"
+    }
+  },
+  "502": {
+    "inputs": {
+      "value": 904234
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Video seed"
+    }
+  },
+  "503": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Mode · ON motion transfer / OFF character swap"
+    }
+  },
+  "504": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Separate background · ON upload / OFF character reference"
+    }
+  },
+  "505": {
+    "inputs": {
+      "value": false
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Video quality · OFF Medium / ON High"
+    }
+  },
+  "1101": {
+    "inputs": {
+      "start_time": 0,
+      "duration": 15,
+      "strict_duration": false,
+      "video": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "Video Slice",
+    "_meta": {
+      "title": "Source segment · maximum 15 seconds"
+    }
+  },
+  "1102": {
+    "inputs": {
+      "video": [
+        "1101",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Read capped video · frames and source FPS"
+    }
+  },
+  "1103": {
+    "inputs": {
+      "image": [
+        "1102",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Count source frames"
+    }
+  },
+  "1104": {
+    "inputs": {
+      "expression": "max(5, 5 + 17 * floor((floor(min(15, a / b) * 24 + 0.000001) - 5) / 17))",
+      "values.a": [
+        "1103",
+        2
+      ],
+      "values.b": [
+        "1102",
+        2
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Automatic H3 frames · 24 fps · round down"
+    }
+  },
+  "509:1": {
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNETLoader · H3 Ref2VA"
+    }
+  },
+  "509:2": {
+    "inputs": {
+      "lora_name": "pika_h3_flex_ref2va_comfy_bf16.safetensors",
+      "strength_model": 1,
+      "model": [
+        "509:1",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Pika Flex Ref2VA · required strength 1"
+    }
+  },
+  "509:4": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "CLIPLoader · Qwen H3 text encoder"
+    }
+  },
+  "509:5": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAELoader · video"
+    }
+  },
+  "509:6": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAELoader · audio"
+    }
+  },
+  "509:17": {
+    "inputs": {
+      "sampler_name": "lcm"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect · LCM"
+    }
+  },
+  "509:18": {
+    "inputs": {
+      "sigmas": "1.0, 0.972973, 0.923077, 0.8, 0.571429, 0.333333, 0.0"
+    },
+    "class_type": "ManualSigmas",
+    "_meta": {
+      "title": "ManualSigmas · Pika six-step schedule"
+    }
+  },
+  "509:35": {
+    "inputs": {
+      "shift_video": 12,
+      "shift_audio": 3,
+      "model": [
+        "509:2",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3SigmaShift",
+    "_meta": {
+      "title": "MiniMaxH3SigmaShift · 12 / 3"
+    }
+  },
+  "508:211": {
+    "inputs": {
+      "video": [
+        "508:231",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Get Video Components · video + audio"
+    }
+  },
+  "508:216": {
+    "inputs": {
+      "noise_seed": [
+        "501",
+        0
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise · seed"
+    }
+  },
+  "508:231": {
+    "inputs": {
+      "num_frames": 5,
+      "strategy": "head",
+      "seed": 0,
+      "video": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "VideoFrameSample",
+    "_meta": {
+      "title": "First five source frames · any source FPS"
+    }
+  },
+  "508:240": {
+    "inputs": {
+      "value": "Recreate <Video 1> with two changes: replace the selected person with the character in <Picture 1>, and replace the background with <Picture 2>. Preserve the exact pose, expression, camera angle, subject scale and crop from <Video 1>. Use only character design from <Picture 1>, NOT its pose. One finished image. Use the pose information from <Picture 3> to guide the character pose."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Anchor edit prompt"
+    }
+  },
+  "508:241": {
+    "inputs": {
+      "string_a": [
+        "25",
+        0
+      ],
+      "string_b": [
+        "508:323",
+        0
+      ],
+      "delimiter": "\n\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Anchor target + edit instructions"
+    }
+  },
+  "508:242": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 5,
+      "image": [
+        "508:211",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "First five source frames · video reference"
+    }
+  },
+  "508:243": {
+    "inputs": {
+      "prompt": [
+        "508:241",
+        0
+      ],
+      "width": [
+        "508:317",
+        1
+      ],
+      "height": [
+        "508:318",
+        1
+      ],
+      "length": 5,
+      "ref_image_size": "match",
+      "clip": [
+        "509:4",
+        0
+      ],
+      "vae": [
+        "509:5",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "12",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "508:321",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "508:307",
+        0
+      ],
+      "ref_videos.ref_video_0": [
+        "508:242",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "Anchor conditioning · 5 frames · source / character / environment"
+    }
+  },
+  "508:244": {
+    "inputs": {
+      "model": [
+        "509:35",
+        0
+      ],
+      "conditioning": [
+        "508:243",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "Anchor guide · CFG 1"
+    }
+  },
+  "508:245": {
+    "inputs": {
+      "noise": [
+        "508:216",
+        0
+      ],
+      "guider": [
+        "508:244",
+        0
+      ],
+      "sampler": [
+        "509:17",
+        0
+      ],
+      "sigmas": [
+        "509:18",
+        0
+      ],
+      "latent_image": [
+        "508:243",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Anchor sampler · Pika six steps"
+    }
+  },
+  "508:246": {
+    "inputs": {
+      "samples": [
+        "508:245",
+        0
+      ],
+      "vae": [
+        "509:5",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Decode short anchor window"
+    }
+  },
+  "508:247": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "508:246",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Select anchor · frame 0 (first of five)"
+    }
+  },
+  "508:305": {
+    "inputs": {
+      "model_name": "depth_anything_3_base.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "LoadDA3Model",
+    "_meta": {
+      "title": "Load Depth Anything 3"
+    }
+  },
+  "508:306": {
+    "inputs": {
+      "resolution": 1022,
+      "resize_method": "upper_bound_resize",
+      "mode": "mono",
+      "da3_model": [
+        "508:305",
+        0
+      ],
+      "image": [
+        "508:309",
+        0
+      ]
+    },
+    "class_type": "DA3Inference",
+    "_meta": {
+      "title": "Run Depth Anything 3"
+    }
+  },
+  "508:307": {
+    "inputs": {
+      "output": "depth",
+      "output.normalization": "v2_style",
+      "output.apply_sky_clip": false,
+      "da3_geometry": [
+        "508:306",
+        0
+      ]
+    },
+    "class_type": "DA3Render",
+    "_meta": {
+      "title": "Render Depth Anything 3"
+    }
+  },
+  "508:309": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "508:242",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "Source frame 0 · depth and sizing only"
+    }
+  },
+  "508:310": {
+    "inputs": {
+      "value": true
+    },
+    "class_type": "PrimitiveBoolean",
+    "_meta": {
+      "title": "Anchor quality · fixed High / 1 MP"
+    }
+  },
+  "508:311": {
+    "inputs": {
+      "expression": "500000 + 500000 * a",
+      "values.a": [
+        "508:310",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Pixel budget · 500000 / 1000000"
+    }
+  },
+  "508:312": {
+    "inputs": {
+      "image": [
+        "508:309",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Read source dimensions"
+    }
+  },
+  "508:313": {
+    "inputs": {
+      "expression": "max(32, min(16352, floor(sqrt(c * a / b) / 32) * 32))",
+      "values.a": [
+        "508:312",
+        0
+      ],
+      "values.b": [
+        "508:312",
+        1
+      ],
+      "values.c": [
+        "508:311",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Lower aligned width · nearby candidates"
+    }
+  },
+  "508:315": {
+    "inputs": {
+      "expression": "max(32, min(16352, floor(sqrt(c * b / a) / 32) * 32))",
+      "values.a": [
+        "508:312",
+        0
+      ],
+      "values.b": [
+        "508:312",
+        1
+      ],
+      "values.c": [
+        "508:311",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Lower aligned height · nearby candidates"
+    }
+  },
+  "508:316": {
+    "inputs": {
+      "expression": "((a)*32768+(b)) if (abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a+32)*32768+(b)) if (abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a)*32768+(b+32)) if (abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a+32)*32768+(b+32))",
+      "values.a": [
+        "508:313",
+        1
+      ],
+      "values.b": [
+        "508:315",
+        1
+      ],
+      "values.c": [
+        "508:311",
+        0
+      ],
+      "values.d": [
+        "508:312",
+        0
+      ],
+      "values.e": [
+        "508:312",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Choose closest aspect · four grid candidates"
+    }
+  },
+  "508:317": {
+    "inputs": {
+      "expression": "floor(a / 32768)",
+      "values.a": [
+        "508:316",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Automatic output width"
+    }
+  },
+  "508:318": {
+    "inputs": {
+      "expression": "a % 32768",
+      "values.a": [
+        "508:316",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Automatic output height"
+    }
+  },
+  "508:320": {
+    "inputs": {
+      "switch": [
+        "504",
+        0
+      ],
+      "on_false": [
+        "12",
+        0
+      ],
+      "on_true": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Optional background · character-reference fallback"
+    }
+  },
+  "508:321": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "508:309",
+        0
+      ],
+      "on_true": [
+        "508:320",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Environment · preserve source for character swap"
+    }
+  },
+  "508:322": {
+    "inputs": {
+      "value": "Recreate <Video 1> with one change: replace the selected person with the character in <Picture 1>. Preserve the exact pose, expression, camera angle, subject scale and crop from <Video 1>. Keep the original background, lighting, props and all other people unchanged; <Picture 2> shows the original scene. Use only character design from <Picture 1>, NOT its pose or background. One finished image. Use the pose information from <Picture 3> to guide the character pose."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Anchor template · character swap"
+    }
+  },
+  "508:323": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "508:322",
+        0
+      ],
+      "on_true": [
+        "508:240",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Anchor template · select mode"
+    }
+  },
+  "510:11": {
+    "inputs": {
+      "video": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "GetVideoComponents",
+    "_meta": {
+      "title": "Get Video Components · video + audio"
+    }
+  },
+  "510:14": {
+    "inputs": {
+      "prompt": [
+        "510:28",
+        0
+      ],
+      "width": [
+        "510:417",
+        1
+      ],
+      "height": [
+        "510:418",
+        1
+      ],
+      "length": [
+        "1104",
+        1
+      ],
+      "ref_image_size": "match",
+      "clip": [
+        "509:4",
+        0
+      ],
+      "vae": [
+        "509:5",
+        0
+      ],
+      "audio_vae": [
+        "509:6",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "12",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "508:321",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "508:247",
+        0
+      ],
+      "ref_videos.ref_video_0": [
+        "510:11",
+        0
+      ],
+      "ref_video_audios.ref_video_audio_0": [
+        "510:11",
+        1
+      ]
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMax H3 Reference to Video · audio ON"
+    }
+  },
+  "510:15": {
+    "inputs": {
+      "model": [
+        "509:35",
+        0
+      ],
+      "conditioning": [
+        "510:105",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider · CFG 1"
+    }
+  },
+  "510:16": {
+    "inputs": {
+      "noise_seed": [
+        "502",
+        0
+      ]
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise · seed"
+    }
+  },
+  "510:19": {
+    "inputs": {
+      "noise": [
+        "510:16",
+        0
+      ],
+      "guider": [
+        "510:15",
+        0
+      ],
+      "sampler": [
+        "509:17",
+        0
+      ],
+      "sigmas": [
+        "509:18",
+        0
+      ],
+      "latent_image": [
+        "510:14",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "510:21": {
+    "inputs": {
+      "samples": [
+        "510:19",
+        0
+      ],
+      "vae": [
+        "509:5",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEDecode · picture"
+    }
+  },
+  "510:22": {
+    "inputs": {
+      "fps": 24,
+      "bit_depth": "auto",
+      "color_space": "sRGB",
+      "codec": "none",
+      "images": [
+        "510:21",
+        0
+      ],
+      "audio": [
+        "510:24",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "CreateVideo · 24 fps + generated audio"
+    }
+  },
+  "510:24": {
+    "inputs": {
+      "samples": [
+        "510:19",
+        0
+      ],
+      "vae": [
+        "509:6",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAEDecodeAudio · native sound"
+    }
+  },
+  "510:26": {
+    "inputs": {
+      "value": "References: @Image1 is the character sheet (front view of ONE character). @Image2 is the environment. @Image3 is the starting Frame 0 image that is a guide for how the exact start of the video should look. @Video1 is the motion reference only. Make a new video of the character from @Image1, inside the environment from @Image2, performing exactly the body motion, choreography, timing and camera movement of the person in @Video1. Use @Image3 as the starting frame. Take NOTHING else from @Video1 - not the person's face, body, clothes, props, location, background, colours or photographic look. Keep the character exactly as designed in @Image1 - same face, proportions, outfit, colours - and render the whole video in the exact art style of @Image1 and @Image2. Only ONE character in frame. Style: exactly as @Image1 and @Image2. Audio: same as the reference video @Video1. Normal real-time speed, NO slow motion. No text, no captions, no logos.\n"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Video template · motion transfer"
+    }
+  },
+  "510:28": {
+    "inputs": {
+      "string_a": [
+        "25",
+        0
+      ],
+      "string_b": [
+        "510:507",
+        0
+      ],
+      "delimiter": "\n\n"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate Text · instructions then template"
+    }
+  },
+  "510:105": {
+    "inputs": {
+      "frame_idx": 0,
+      "positive": [
+        "510:14",
+        0
+      ],
+      "latent": [
+        "510:14",
+        1
+      ],
+      "vae": [
+        "509:5",
+        0
+      ],
+      "audio_vae": [
+        "509:6",
+        0
+      ],
+      "image": [
+        "508:247",
+        0
+      ],
+      "audio": [
+        "510:11",
+        1
+      ]
+    },
+    "class_type": "MiniMaxH3AddGuide",
+    "_meta": {
+      "title": "Add Guide for MiniMax H3"
+    }
+  },
+  "510:411": {
+    "inputs": {
+      "expression": "500000 + 500000 * a",
+      "values.a": [
+        "505",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Pixel budget · 500000 / 1000000"
+    }
+  },
+  "510:412": {
+    "inputs": {
+      "image": [
+        "508:309",
+        0
+      ]
+    },
+    "class_type": "GetImageSize",
+    "_meta": {
+      "title": "Read source dimensions"
+    }
+  },
+  "510:413": {
+    "inputs": {
+      "expression": "max(32, min(16352, floor(sqrt(c * a / b) / 32) * 32))",
+      "values.a": [
+        "510:412",
+        0
+      ],
+      "values.b": [
+        "510:412",
+        1
+      ],
+      "values.c": [
+        "510:411",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Lower aligned width · nearby candidates"
+    }
+  },
+  "510:415": {
+    "inputs": {
+      "expression": "max(32, min(16352, floor(sqrt(c * b / a) / 32) * 32))",
+      "values.a": [
+        "510:412",
+        0
+      ],
+      "values.b": [
+        "510:412",
+        1
+      ],
+      "values.c": [
+        "510:411",
+        0
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Lower aligned height · nearby candidates"
+    }
+  },
+  "510:416": {
+    "inputs": {
+      "expression": "((a)*32768+(b)) if (abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a+32)*32768+(b)) if (abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a)*32768+(b+32)) if (abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1))==min((abs(log(((a)/(b))/(d/e)))+0.000001*abs(((a)*(b))/c-1) if abs(((a)*(b))/c-1)<=0.05 else 100+abs(((a)*(b))/c-1)),(abs(log(((a+32)/(b))/(d/e)))+0.000001*abs(((a+32)*(b))/c-1) if abs(((a+32)*(b))/c-1)<=0.05 else 100+abs(((a+32)*(b))/c-1)),(abs(log(((a)/(b+32))/(d/e)))+0.000001*abs(((a)*(b+32))/c-1) if abs(((a)*(b+32))/c-1)<=0.05 else 100+abs(((a)*(b+32))/c-1)),(abs(log(((a+32)/(b+32))/(d/e)))+0.000001*abs(((a+32)*(b+32))/c-1) if abs(((a+32)*(b+32))/c-1)<=0.05 else 100+abs(((a+32)*(b+32))/c-1))) else ((a+32)*32768+(b+32))",
+      "values.a": [
+        "510:413",
+        1
+      ],
+      "values.b": [
+        "510:415",
+        1
+      ],
+      "values.c": [
+        "510:411",
+        0
+      ],
+      "values.d": [
+        "510:412",
+        0
+      ],
+      "values.e": [
+        "510:412",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Choose closest aspect · four grid candidates"
+    }
+  },
+  "510:417": {
+    "inputs": {
+      "expression": "floor(a / 32768)",
+      "values.a": [
+        "510:416",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Automatic output width"
+    }
+  },
+  "510:418": {
+    "inputs": {
+      "expression": "a % 32768",
+      "values.a": [
+        "510:416",
+        1
+      ]
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "Automatic output height"
+    }
+  },
+  "510:506": {
+    "inputs": {
+      "value": "Replace the selected person in @Video1 with the character in @Image1. Preserve the person's exact motion, facial performance, timing and camera movement. Keep the original scene, background, lighting, props and all other people unchanged. @Image2 shows the original environment. @Image3 is the edited starting frame; use it as the starting-frame guide. Use only the character design from @Image1, not its pose or background. Audio: same as the reference video @Video1. Normal real-time speed, NO slow motion. No added text, captions or logos."
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "Video template · character swap"
+    }
+  },
+  "510:507": {
+    "inputs": {
+      "switch": [
+        "503",
+        0
+      ],
+      "on_false": [
+        "510:506",
+        0
+      ],
+      "on_true": [
+        "510:26",
+        0
+      ]
+    },
+    "class_type": "ComfySwitchNode",
+    "_meta": {
+      "title": "Video template · select mode"
+    }
+  }
+}

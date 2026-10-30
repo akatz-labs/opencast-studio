@@ -1,0 +1,6 @@
+import {spawnSync} from 'node:child_process';
+import fs from 'node:fs';
+const models=JSON.parse(fs.readFileSync(new URL('../resources/models.json',import.meta.url))).models;
+const version=process.versions.node.split('.').map(Number);
+const commands=Object.fromEntries(['git','python3','uv','g++','ffmpeg','ffprobe','nvidia-smi'].map(name=>{const result=spawnSync(name,[name==='nvidia-smi'?'--query-gpu=name,memory.total,driver_version':['ffmpeg','ffprobe'].includes(name)?'-version':'--version',...(name==='nvidia-smi'?['--format=csv,noheader']:[])],{encoding:'utf8',timeout:10000});return [name,{available:result.status===0,...(name==='nvidia-smi'&&result.status===0?{devices:result.stdout.trim().split('\n')}:{})}]}));
+console.log(JSON.stringify({node:{version:process.versions.node,supported:version[0]>22||version[0]===22&&version[1]>=18},platform:process.platform,architecture:process.arch,automaticGpuSetup:process.platform==='linux'&&process.arch==='x64',commands,modelGiB:Number((models.reduce((n,m)=>n+m.sizeBytes,0)/1024**3).toFixed(1)),manualModels:models.filter(m=>m.acquisition==='manual').map(m=>({name:m.name,source:m.sourcePage})),next:'See docs/LOCAL_SETUP.md. This check does not install or download anything.'},null,2));

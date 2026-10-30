@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {releaseFiles} from './release-files.mjs';
+execFileSync(process.execPath,['scripts/audit-release.mjs'],{stdio:'inherit'});
+const files=releaseFiles();fs.mkdirSync('artifacts',{recursive:true});
+const archive=path.resolve('artifacts/opencast-studio-source.zip'),temporary=archive+'.tmp.zip';
+fs.rmSync(temporary,{force:true});
+execFileSync('zip',['-q','-X',temporary,'-@'],{input:files.join('\n')+'\n'});
+fs.renameSync(temporary,archive);
+console.log(`Packaged ${files.length} files: artifacts/opencast-studio-source.zip`);

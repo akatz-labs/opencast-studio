@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "validated ComfyUI exports; OpenCast backend integration not yet implemented",
+  "templates": {
+    "motion-transfer": "motion-transfer.api.json",
+    "character-swap": "character-swap.api.json",
+    "anchor-component": "anchor-component.api.json",
+    "motion-transfer-character-background": "motion-transfer-character-background.api.json"
+  },
+  "inputs": {
+    "source_video": {
+      "node": "10",
+      "input": "file"
+    },
+    "character_image": {
+      "node": "12",
+      "input": "image"
+    },
+    "background_image": {
+      "node": "13",
+      "input": "image",
+      "optional": true,
+      "note": "Use the character-background API template if omitted; character-swap template has no node 13."
+    },
+    "target_instructions": {
+      "node": "25",
+      "input": "value"
+    },
+    "start_seconds": {
+      "node": "1101",
+      "input": "start_time",
+      "not_in": "anchor-component"
+    },
+    "anchor_seed": {
+      "node": "501",
+      "input": "value"
+    },
+    "video_seed": {
+      "node": "502",
+      "input": "value"
+    },
+    "motion_transfer": {
+      "node": "503",
+      "input": "value",
+      "type": "boolean"
+    },
+    "separate_background": {
+      "node": "504",
+      "input": "value",
+      "type": "boolean"
+    },
+    "high_video_resolution": {
+      "node": "505",
+      "input": "value",
+      "false": "0.5 MP",
+      "true": "1 MP"
+    }
+  },
+  "fixed_anchor": {
+    "pixel_target": 1000000,
+    "generated_frames": 5,
+    "selected_frame": 0,
+    "guide_frame": 0,
+    "depth_resolution": 1022
+  },
+  "outputs": {
+    "anchor": "248",
+    "video": "23"
+  },
+  "comfyui_revision": "63be2f9b82ad0dac88a7ceaa28a9cf3154125a18",
+  "api_usage": "Upload assets with ComfyUI, set the returned filenames at these input nodes, use unique filename_prefix values on output nodes 248 and 23, then submit the API graph. Preserve nested execution IDs. For anchor-only execution select the anchor-component template. Do not require a background file for character-swap.",
+  "automatic_timing": {
+    "source_cap_seconds": 15,
+    "source_fps_node": "1102:output 2",
+    "frame_count_node": "1104:output 1",
+    "formula": "max(5, 5 + 17 * floor((floor(min(15, source_frames / source_fps) * 24 + 0.000001) - 5) / 17))",
+    "output_fps": 24,
+    "maximum_output_frames": 345,
+    "maximum_output_seconds": 14.375,
+    "note": "Native minimum is five frames. Use 24 fps source video for faithful motion reference; duration calculation itself uses the source FPS. Anchor remains five generated frames, selected frame 0."
+  }
+}

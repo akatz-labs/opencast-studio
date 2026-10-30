@@ -1,0 +1,31 @@
+[
+  {
+    "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+    "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+  },
+  {
+    "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+    "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+  },
+  {
+    "file": "vae/qwen_image_vae.safetensors",
+    "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+    "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+  },
+  {
+    "file": "loras/krea2_opencast_v1.safetensors",
+    "sha256": "98f8b6d41969b312037cc09090e7283051cdf7686963346e04eb985d4bda84f6",
+    "strength": 1.0,
+    "source": "akatz-ai/Krea-2-OpenCast-LoRA",
+    "revision": "dc064a15f6b4dbb04fa8a384c866be49d8dc3c51",
+    "url": "https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA/resolve/dc064a15f6b4dbb04fa8a384c866be49d8dc3c51/krea2_opencast_v1.safetensors"
+  },
+  {
+    "file": "loras/krea2_outpaint_rank32.safetensors",
+    "sha256": "1de7c106ae978de21433152bdb4ba6b09118b33be81b7ee4851420f0013a7e76",
+    "storage_version": "asv_f8bb8015661a48a0b532fd49e42ab705",
+    "strength": 1.0,
+    "source": "yijunwang2/krea2-outpaint",
+    "revision": "89693244a3d284d98083bd03c648e7b141298a65"
+  }
+]

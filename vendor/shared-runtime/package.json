@@ -1,0 +1,135 @@
+{
+  "name": "@akatz/app-config",
+  "version": "0.11.0-alpha.10-source.3",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    "./managed-comfy-driver": {
+      "types": "./dist/managed-comfy-driver.d.ts",
+      "default": "./dist/managed-comfy-driver.js"
+    },
+    "./executor-resources": {
+      "types": "./src/executor-resources.d.mts",
+      "default": "./src/executor-resources.mjs"
+    },
+    "./executor-ui": {
+      "types": "./src/executor-ui.d.ts",
+      "default": "./src/executor-ui.jsx"
+    },
+    "./app-executors": {
+      "types": "./src/app-executors.d.mts",
+      "default": "./src/app-executors.mjs"
+    },
+    "./executor-client": {
+      "types": "./src/executor-client.d.mts",
+      "default": "./src/executor-client.mjs"
+    },
+    "./executor-bootstrap": {
+      "types": "./src/executor-bootstrap.d.mts",
+      "default": "./src/executor-bootstrap.mjs"
+    },
+    "./executor": "./src/executor.mjs",
+    "./executor-server": {
+      "types": "./src/executor-server.d.mts",
+      "default": "./src/executor-server.mjs"
+    },
+    "./storage": {
+      "types": "./src/storage.d.mts",
+      "default": "./src/storage.mjs"
+    },
+    ".": {
+      "types": "./src/index.d.mts",
+      "default": "./src/index.mjs"
+    },
+    "./runtime": {
+      "types": "./src/runtime.d.mts",
+      "default": "./src/runtime.mjs"
+    },
+    "./manifest": {
+      "types": "./src/manifest.d.mts",
+      "default": "./src/manifest.mjs"
+    },
+    "./targets": {
+      "types": "./src/targets.d.mts",
+      "default": "./src/targets.mjs"
+    },
+    "./media": {
+      "types": "./src/media.d.mts",
+      "default": "./src/media.mjs"
+    },
+    "./media-client": {
+      "types": "./src/media-client.d.mts",
+      "default": "./src/media-client.mjs"
+    },
+    "./comfygit": {
+      "types": "./src/comfygit.d.mts",
+      "default": "./src/comfygit.mjs"
+    },
+    "./media-server": "./src/media-server.mjs",
+    "./desktop-apps": {
+      "types": "./src/desktop-apps.d.mts",
+      "default": "./src/desktop-apps.mjs"
+    },
+    "./desktop-runtime": {
+      "types": "./src/desktop-runtime.d.mts",
+      "default": "./src/desktop-runtime.mjs"
+    },
+    "./model-resources": {
+      "types": "./src/model-resources.d.mts",
+      "default": "./src/model-resources.mjs"
+    },
+    "./resources-ui": {
+      "types": "./src/resources-ui.d.ts",
+      "default": "./src/resources-ui.jsx"
+    },
+    "./comfygit-release": "./src/comfygit-release.mjs",
+    "./auto-placement": {
+      "types": "./dist/auto-placement.d.ts",
+      "default": "./dist/auto-placement.js"
+    },
+    "./session-contracts": {
+      "types": "./dist/session-contracts.d.ts",
+      "default": "./dist/session-contracts.js"
+    },
+    "./runtime-sessions": {
+      "types": "./dist/runtime-sessions.d.ts",
+      "default": "./dist/runtime-sessions.js"
+    },
+    "./ecosystem": {
+      "types": "./dist/ecosystem.d.ts",
+      "default": "./dist/ecosystem.js"
+    },
+    "./local-services": {
+      "types": "./dist/local-services.d.ts",
+      "default": "./dist/local-services.js"
+    }
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "npm run build && node --check src/index.mjs",
+    "media:serve": "node src/media-server.mjs",
+    "executor:serve": "node src/executor-server.mjs",
+    "build": "tsc -p tsconfig.json"
+  },
+  "engines": {
+    "node": ">=22.16"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "files": [
+    "src/",
+    "docs/",
+    "dist/"
+  ],
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.19.19"
+  }
+}

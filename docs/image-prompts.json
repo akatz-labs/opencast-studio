@@ -1,0 +1,37 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    {
+      "key": "nyra",
+      "prompt": "Generate a single original fictional adult fashion character photo for a creator app gallery. Photorealistic high-end editorial studio photography, softly lit seamless pastel ivory-white background #F4F0E9, no text, no watermark, no border, no collage. Natural detailed skin and fabric, memorable individual style, beautifully composed. Vertical portrait image. Full body head-to-toe with shoes visible, confident Black woman age 35 with large sculptural silver curly afro, oversized olive green tailored suit, white tank top, hands in pockets, standing slightly asymmetrically. Fashion editorial, graceful strong silhouette. Leave whitespace around full body."
+    },
+    {
+      "key": "ren",
+      "prompt": "Generate a single original fictional adult fashion character photo for a creator app gallery. Photorealistic high-end editorial studio photography, softly lit seamless pastel ivory-white background #F4F0E9, no text, no watermark, no border, no collage. Natural detailed skin and fabric, memorable individual style, beautifully composed. Vertical portrait image. Waist-up portrait of an East Asian man age 28 with sharp dark electric-blue bob haircut, rust orange corduroy overshirt over black turtleneck, calm direct expression, delicate silver earring, subtle 3/4 pose."
+    },
+    {
+      "key": "elise",
+      "prompt": "Generate a single original fictional adult fashion character photo for a creator app gallery. Photorealistic high-end editorial studio photography, softly lit seamless pastel ivory-white background #F4F0E9, no text, no watermark, no border, no collage. Natural detailed skin and fabric, memorable individual style, beautifully composed. Vertical portrait image. Waist-up portrait of a striking elegant older woman age 68 with swept silver hair, sculptural pleated black architectural jacket and high collar, fine realistic wrinkles, confident kind expression."
+    },
+    {
+      "key": "jasper",
+      "prompt": "Generate a single original fictional adult fashion character photo for a creator app gallery. Photorealistic high-end editorial studio photography, softly lit seamless pastel ivory-white background #F4F0E9, no text, no watermark, no border, no collage. Natural detailed skin and fabric, memorable individual style, beautifully composed. Vertical portrait image. Close-up chest-up portrait of a fictional androgynous adult age 26 with bright curly copper hair, abundant natural freckles, pale blue eyes, cream workwear jacket and a patterned neck scarf, gaze slightly off camera. Beautiful natural skin."
+    },
+    {
+      "key": "milo",
+      "prompt": "Single original fictional character fashion editorial photo, vertical portrait, seamless pastel ivory-white studio backdrop, soft natural studio light, high photographic realism, no text, no watermark, no border, no collage. Full body head-to-toe, broad stocky adult man age 32 with short pale pink hair, neatly trimmed beard, midnight blue loose tailored suit over black t-shirt, one hand in trouser pocket, white sneakers, stylish relaxed stance, shoes and whole body visible."
+    },
+    {
+      "key": "zuri",
+      "prompt": "Single original fictional character fashion editorial photo, vertical portrait, seamless pastel ivory-white studio backdrop, soft natural studio light, high photographic realism, no text, no watermark, no border, no collage. Full body head-to-toe portrait of a Black woman age 30 with short geometric sculptural braids adorned with subtle gold rings, loose cream blouse, voluminous ochre-gold wide-leg trousers and black boots, confident poised stance, editorial avant-garde fashion, shoes visible."
+    },
+    {
+      "key": "felix",
+      "prompt": "Single original fictional character fashion editorial photo, vertical portrait, seamless pastel ivory-white studio backdrop, soft natural studio light, high photographic realism, no text, no watermark, no border, no collage. Waist-up anthropomorphic red fox character with realistic copper fur and pointed ears, expressive intelligent eyes, tweed brown tailored blazer, cream waistcoat and vintage silk neck scarf. Charming sophisticated fashion muse, believable detailed materials, standing upright, paws natural."
+    },
+    {
+      "key": "mei",
+      "prompt": "Single original fictional character fashion editorial photo, vertical portrait, seamless pastel ivory-white studio backdrop, soft natural studio light, high photographic realism, no text, no watermark, no border, no collage. Waist-up portrait of an East Asian woman age 29 with sculptural spiky jet-black updo, ivory layered ruffle fashion jacket, subtle silver jewelry, elegant angular face, confident side glance. Beautiful fine fabric textures and natural skin."
+    }
+  ]
+}

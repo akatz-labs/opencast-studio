@@ -1,0 +1,45 @@
+{
+  "generator": "built-in image_gen",
+  "assets": [
+    {
+      "character": "elise",
+      "original": "elise.png",
+      "sha256": "fa4ca7fc7817807596501164cbb122b9e7f6f7f13f1a6c87b88be81e99c8fa75"
+    },
+    {
+      "character": "felix",
+      "original": "felix.png",
+      "sha256": "f14984e5ba0c87bb93e9e267880926de6c4901236e894c24da4b02a018e6a30c"
+    },
+    {
+      "character": "jasper",
+      "original": "jasper.png",
+      "sha256": "ea9f71c05a224b7f7a2bbedbcf5e6929d80273f34726d837313dffa84ea8b11a"
+    },
+    {
+      "character": "mei",
+      "original": "mei.png",
+      "sha256": "5d83242b4f929e440b809f57557c086dc9ba858be5848f0bcf63f884e71033fb"
+    },
+    {
+      "character": "milo",
+      "original": "milo.png",
+      "sha256": "20c85b4549042d9ae8ae4306c737652000ed6402978ef5113fd2810eb834eccb"
+    },
+    {
+      "character": "nyra",
+      "original": "nyra.png",
+      "sha256": "1c76b34991a4609356bca6fe5e7d91701ab3abb4c94905975a1bccae6f7da936"
+    },
+    {
+      "character": "ren",
+      "original": "ren.png",
+      "sha256": "d0cf33b137e670e8fa0da9b75b9468206506528c7d9071bbae71978f33ded2b2"
+    },
+    {
+      "character": "zuri",
+      "original": "zuri.png",
+      "sha256": "255577fc3c64f5e6e824c08fe8bec9729f03f8a8ceb6c1dbf1b6206b8158a4e3"
+    }
+  ]
+}

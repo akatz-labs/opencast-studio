@@ -1,0 +1,1612 @@
+{
+  "id": "1b28a9e2-e513-43e6-bb63-89863e742c96",
+  "revision": 0,
+  "last_node_id": 27,
+  "last_link_id": 33,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        650,
+        200
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "krea2_turbo_fp8_scaled.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "krea2_turbo_fp8_scaled.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        650,
+        400
+      ],
+      "size": [
+        340,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1,
+            12,
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_4b_fp8_scaled.safetensors",
+        "krea2",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+        "type": "krea2",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        650,
+        630
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8,
+            13,
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_vae.safetensors"
+      }
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        0,
+        320
+      ],
+      "size": [
+        520,
+        600
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            2,
+            4
+          ]
+        }
+      ],
+      "title": "01 · Close-up prompt — CLIPTextEncode",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Tightly cropped front-facing studio headshot. The complete hairstyle and face occupy nearly all of the image. Only the tops of the shoulders and the garment neckline appear along the lower edge. The photograph shows one original fictional adult man around forty years old. warm tan skin with consistent natural coloration. A slender torso and narrow shoulders. a narrow forehead and slim upper face, a very long slender neck, one full head-length between jaw and collarbones. Enormous jaw corners project far beyond the cheekbones, forming a wide shelf below the narrow upper face. Two enormous rounded chin lobes hang far below the mouth, separated by a deep vertical cleft. Clearly defined cheekbones and lean upper cheeks. A tiny mouth sits high above the chin. a curly mullet with short curls on top and long curls behind the shoulders, black hair. A thin pencil mustache. The subject wears a cobalt technical jacket with a sculpted collar, tailored to the chosen build. The face is turned slightly toward the camera, with a composed self-possessed expression. A playfully absurd sculptural character, with the specified extraordinary facial anatomy as the defining feature. Lifelike human skin and real clothing. Plain white seamless background, soft broad frontal light, gentle contact shadows, individual hair strands, visible pores and detailed fabric. Quiet neutral color. One character, without lettering, logos, borders or collage."
+      ],
+      "widgets_values_named": {
+        "text": "Tightly cropped front-facing studio headshot. The complete hairstyle and face occupy nearly all of the image. Only the tops of the shoulders and the garment neckline appear along the lower edge. The photograph shows one original fictional adult man around forty years old. warm tan skin with consistent natural coloration. A slender torso and narrow shoulders. a narrow forehead and slim upper face, a very long slender neck, one full head-length between jaw and collarbones. Enormous jaw corners project far beyond the cheekbones, forming a wide shelf below the narrow upper face. Two enormous rounded chin lobes hang far below the mouth, separated by a deep vertical cleft. Clearly defined cheekbones and lean upper cheeks. A tiny mouth sits high above the chin. a curly mullet with short curls on top and long curls behind the shoulders, black hair. A thin pencil mustache. The subject wears a cobalt technical jacket with a sculpted collar, tailored to the chosen build. The face is turned slightly toward the camera, with a composed self-possessed expression. A playfully absurd sculptural character, with the specified extraordinary facial anatomy as the defining feature. Lifelike human skin and real clothing. Plain white seamless background, soft broad frontal light, gentle contact shadows, individual hair strands, visible pores and detailed fabric. Quiet neutral color. One character, without lettering, logos, borders or collage."
+      }
+    },
+    {
+      "id": 5,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1060,
+        680
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      }
+    },
+    {
+      "id": 6,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1060,
+        830
+      ],
+      "size": [
+        340,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1536,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1536,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        1060,
+        200
+      ],
+      "size": [
+        340,
+        262
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 3
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 5
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "title": "01 · Portrait sampler (8 steps)",
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        271828,
+        "fixed",
+        8,
+        1,
+        "euler",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 271828,
+        "control_after_generate": "fixed",
+        "steps": 8,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1450,
+        650
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            11,
+            28,
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        3150,
+        220
+      ],
+      "size": [
+        500,
+        530
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "FINAL · Combined character sheet",
+      "properties": {},
+      "widgets_values": [
+        "cast-studio/character"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "cast-studio/character"
+      }
+    },
+    {
+      "id": 10,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        650,
+        790
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            3,
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "krea2_opencast_v1.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "krea2_opencast_v1.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 11,
+      "type": "CastRegisteredCanvas",
+      "pos": [
+        1450,
+        200
+      ],
+      "size": [
+        340,
+        234
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "source_width",
+          "type": "INT",
+          "widget": {
+            "name": "source_width"
+          },
+          "link": 33
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            26
+          ]
+        },
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            17,
+            27
+          ]
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "title": "Place portrait at the selected reference size",
+      "properties": {
+        "Node name for S&R": "CastRegisteredCanvas"
+      },
+      "widgets_values": [
+        1024,
+        1536,
+        320,
+        48,
+        16
+      ],
+      "widgets_values_named": {
+        "target_width": 1024,
+        "target_height": 1536,
+        "source_width": 320,
+        "top": 48,
+        "seam_px": 16
+      }
+    },
+    {
+      "id": 12,
+      "type": "RebelsKrea2OutpaintEncode",
+      "pos": [
+        0,
+        1050
+      ],
+      "size": [
+        520,
+        600
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 12
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 13
+        },
+        {
+          "name": "condition",
+          "type": "IMAGE",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "title": "02 · Full-body prompt — OutpaintEncode",
+      "properties": {
+        "Node name for S&R": "RebelsKrea2OutpaintEncode"
+      },
+      "widgets_values": [
+        "Full-body front-facing studio photograph, showing the complete hairstyle and both shoes with space around the silhouette. One character centered at eye level. The photograph shows one original fictional adult man around forty years old. warm tan skin with consistent natural coloration. A slender torso and narrow shoulders. a narrow forehead and slim upper face, a very long slender neck, one full head-length between jaw and collarbones. Enormous jaw corners project far beyond the cheekbones, forming a wide shelf below the narrow upper face. Two enormous rounded chin lobes hang far below the mouth, separated by a deep vertical cleft. Clearly defined cheekbones and lean upper cheeks. A tiny mouth sits high above the chin. a curly mullet with short curls on top and long curls behind the shoulders, black hair. A thin pencil mustache. The subject wears a sculptural cobalt cropped technical jacket, wide charcoal trousers and sculpted white sneakers, tailored to the chosen build. A calm front-facing standing pose with a slight shift of weight, relaxed arms, clearly separated hands, a self-possessed deadpan expression. A playfully absurd sculptural character, with the specified extraordinary facial anatomy as the defining feature. Lifelike human skin and real clothing. Plain white seamless background, soft broad frontal light, gentle contact shadows, individual hair strands, visible pores and detailed fabric. Quiet neutral color. One character, without lettering, logos, borders or collage.",
+        false
+      ],
+      "widgets_values_named": {
+        "prompt": "Full-body front-facing studio photograph, showing the complete hairstyle and both shoes with space around the silhouette. One character centered at eye level. The photograph shows one original fictional adult man around forty years old. warm tan skin with consistent natural coloration. A slender torso and narrow shoulders. a narrow forehead and slim upper face, a very long slender neck, one full head-length between jaw and collarbones. Enormous jaw corners project far beyond the cheekbones, forming a wide shelf below the narrow upper face. Two enormous rounded chin lobes hang far below the mouth, separated by a deep vertical cleft. Clearly defined cheekbones and lean upper cheeks. A tiny mouth sits high above the chin. a curly mullet with short curls on top and long curls behind the shoulders, black hair. A thin pencil mustache. The subject wears a sculptural cobalt cropped technical jacket, wide charcoal trousers and sculpted white sneakers, tailored to the chosen build. A calm front-facing standing pose with a slight shift of weight, relaxed arms, clearly separated hands, a self-possessed deadpan expression. A playfully absurd sculptural character, with the specified extraordinary facial anatomy as the defining feature. Lifelike human skin and real clothing. Plain white seamless background, soft broad frontal light, gentle contact shadows, individual hair strands, visible pores and detailed fabric. Quiet neutral color. One character, without lettering, logos, borders or collage.",
+        "vlm_reference": false
+      }
+    },
+    {
+      "id": 13,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        1850,
+        640
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "krea2_outpaint_rank32.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "krea2_outpaint_rank32.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 14,
+      "type": "RebelsKrea2OutpaintModelPatch",
+      "pos": [
+        2250,
+        200
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 16
+        },
+        {
+          "name": "placement",
+          "type": "STRING",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RebelsKrea2OutpaintModelPatch"
+      },
+      "widgets_values": [
+        true
+      ],
+      "widgets_values_named": {
+        "kv_cache": true
+      }
+    },
+    {
+      "id": 15,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1850,
+        880
+      ],
+      "size": [
+        340,
+        200
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "text": ""
+      }
+    },
+    {
+      "id": 16,
+      "type": "EmptyLatentImage",
+      "pos": [
+        2250,
+        780
+      ],
+      "size": [
+        340,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1536,
+        1
+      ],
+      "widgets_values_named": {
+        "width": 1024,
+        "height": 1536,
+        "batch_size": 1
+      }
+    },
+    {
+      "id": 17,
+      "type": "KSampler",
+      "pos": [
+        2250,
+        370
+      ],
+      "size": [
+        340,
+        262
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 19
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 20
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 21
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "title": "02 · Body sampler (8 steps)",
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        271829,
+        "fixed",
+        8,
+        1,
+        "euler",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 271829,
+        "control_after_generate": "fixed",
+        "steps": 8,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 18,
+      "type": "VAEDecode",
+      "pos": [
+        2700,
+        300
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 23
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            25,
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 19,
+      "type": "RebelsKrea2OutpaintComposite",
+      "pos": [
+        2700,
+        460
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "generated",
+          "type": "IMAGE",
+          "link": 25
+        },
+        {
+          "name": "placed_source",
+          "type": "IMAGE",
+          "link": 26
+        },
+        {
+          "name": "placement",
+          "type": "STRING",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            29,
+            31
+          ]
+        }
+      ],
+      "title": "Restore original face pixels",
+      "properties": {
+        "Node name for S&R": "RebelsKrea2OutpaintComposite"
+      }
+    },
+    {
+      "id": 20,
+      "type": "CastCharacterSheet",
+      "pos": [
+        2700,
+        650
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "portrait",
+          "type": "IMAGE",
+          "link": 28
+        },
+        {
+          "name": "full_body",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "title": "Portrait + full body → 2048 × 1536",
+      "properties": {
+        "Node name for S&R": "CastCharacterSheet"
+      }
+    },
+    {
+      "id": 21,
+      "type": "SaveImage",
+      "pos": [
+        1450,
+        900
+      ],
+      "size": [
+        340,
+        530
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "Retain close-up",
+      "properties": {},
+      "widgets_values": [
+        "cast-studio/portrait"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "cast-studio/portrait"
+      }
+    },
+    {
+      "id": 22,
+      "type": "SaveImage",
+      "pos": [
+        3150,
+        900
+      ],
+      "size": [
+        500,
+        530
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "Retain full body",
+      "properties": {},
+      "widgets_values": [
+        "cast-studio/full-body"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "cast-studio/full-body"
+      }
+    },
+    {
+      "id": 23,
+      "type": "SaveImage",
+      "pos": [
+        2700,
+        950
+      ],
+      "size": [
+        340,
+        530
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 32
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "Retain raw outpaint",
+      "properties": {},
+      "widgets_values": [
+        "cast-studio/raw-body"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "cast-studio/raw-body"
+      }
+    },
+    {
+      "id": 24,
+      "type": "MarkdownNote",
+      "pos": [
+        0,
+        -100
+      ],
+      "size": [
+        520,
+        290
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "CAST · Character sheet",
+      "properties": {},
+      "widgets_values": [
+        "Edit both prompts to describe the same character. Queue once: close-up → body outpaint → restore face → combined sheet. The final PNG contains the original portrait on the left and full-body reference on the right. Two seeds are fixed for reproducibility. Individual views and raw body are also retained."
+      ],
+      "widgets_values_named": {
+        "text": "Edit both prompts to describe the same character. Queue once: close-up → body outpaint → restore face → combined sheet. The final PNG contains the original portrait on the left and full-body reference on the right. Two seeds are fixed for reproducibility. Individual views and raw body are also retained."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 25,
+      "type": "MarkdownNote",
+      "pos": [
+        -650,
+        200
+      ],
+      "size": [
+        560,
+        640
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Models and custom nodes",
+      "properties": {},
+      "widgets_values": [
+        "Install the included custom_nodes/cast-character-sheet folder through ComfyGit. Retain LICENSE and NOTICE.\n\nComfyUI/models/\n- diffusion_models/krea2_turbo_fp8_scaled.safetensors\n- text_encoders/qwen3vl_4b_fp8_scaled.safetensors\n- vae/qwen_image_vae.safetensors\n- loras/krea2_opencast_v1.safetensors\n- loras/krea2_outpaint_rank32.safetensors\n\nExact SHA-256 and managed asset versions: models.json. OpenCast LoRA: https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA.\n\n[Outpaint model](https://huggingface.co/yijunwang2/krea2-outpaint) · [Upstream nodes](https://github.com/RealRebelAI/ComfyUI-Rebels-Krea2-Outpaint)"
+      ],
+      "widgets_values_named": {
+        "text": "Install the included custom_nodes/cast-character-sheet folder through ComfyGit. Retain LICENSE and NOTICE.\n\nComfyUI/models/\n- diffusion_models/krea2_turbo_fp8_scaled.safetensors\n- text_encoders/qwen3vl_4b_fp8_scaled.safetensors\n- vae/qwen_image_vae.safetensors\n- loras/krea2_opencast_v1.safetensors\n- loras/krea2_outpaint_rank32.safetensors\n\nExact SHA-256 and managed asset versions: models.json. OpenCast LoRA: https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA.\n\n[Outpaint model](https://huggingface.co/yijunwang2/krea2-outpaint) · [Upstream nodes](https://github.com/RealRebelAI/ComfyUI-Rebels-Krea2-Outpaint)"
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 26,
+      "type": "MarkdownNote",
+      "pos": [
+        -650,
+        900
+      ],
+      "size": [
+        560,
+        510
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Sizes and reference preservation",
+      "properties": {},
+      "widgets_values": [
+        "Each view: 1024 × 1536. Sheet: 2048 × 1536.\n\nReference width by height: Tall 192 px, Average 224 px, Short 384 px, Very short 448 px. Oversized head: Tall 288, Average 384, Short 448. Body height is inferred visually from these relative proportions.\n\nOriginal close-up stays unchanged on the left. Body reference is resized and restored with a 16 px inward feather. Both samplers: 8 Euler/simple steps, CFG 1."
+      ],
+      "widgets_values_named": {
+        "text": "Each view: 1024 × 1536. Sheet: 2048 × 1536.\n\nReference width by height: Tall 192 px, Average 224 px, Short 384 px, Very short 448 px. Oversized head: Tall 288, Average 384, Short 448. Body height is inferred visually from these relative proportions.\n\nOriginal close-up stays unchanged on the left. Body reference is resized and restored with a 16 px inward feather. Both samplers: 8 Euler/simple steps, CFG 1."
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 27,
+      "type": "CastReferenceSize",
+      "pos": [
+        650,
+        1060
+      ],
+      "size": [
+        340,
+        120
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "source_width",
+          "type": "INT",
+          "links": [
+            33
+          ]
+        }
+      ],
+      "title": "Body height and head proportions",
+      "properties": {
+        "Node name for S&R": "CastReferenceSize"
+      },
+      "widgets_values": [
+        "Average",
+        "Natural"
+      ],
+      "widgets_values_named": {
+        "height": "Average",
+        "proportions": "Natural"
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      4,
+      0,
+      5,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      3,
+      10,
+      0,
+      7,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      4,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      5,
+      5,
+      0,
+      7,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      6,
+      0,
+      7,
+      3,
+      "LATENT"
+    ],
+    [
+      7,
+      7,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      8,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      9,
+      20,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      10,
+      1,
+      0,
+      10,
+      0,
+      "MODEL"
+    ],
+    [
+      11,
+      8,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      2,
+      0,
+      12,
+      0,
+      "CLIP"
+    ],
+    [
+      13,
+      3,
+      0,
+      12,
+      1,
+      "VAE"
+    ],
+    [
+      14,
+      11,
+      0,
+      12,
+      2,
+      "IMAGE"
+    ],
+    [
+      15,
+      10,
+      0,
+      13,
+      0,
+      "MODEL"
+    ],
+    [
+      16,
+      13,
+      0,
+      14,
+      0,
+      "MODEL"
+    ],
+    [
+      17,
+      11,
+      2,
+      14,
+      1,
+      "STRING"
+    ],
+    [
+      18,
+      2,
+      0,
+      15,
+      0,
+      "CLIP"
+    ],
+    [
+      19,
+      14,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      20,
+      12,
+      0,
+      17,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      21,
+      15,
+      0,
+      17,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      22,
+      16,
+      0,
+      17,
+      3,
+      "LATENT"
+    ],
+    [
+      23,
+      17,
+      0,
+      18,
+      0,
+      "LATENT"
+    ],
+    [
+      24,
+      3,
+      0,
+      18,
+      1,
+      "VAE"
+    ],
+    [
+      25,
+      18,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      11,
+      1,
+      19,
+      1,
+      "IMAGE"
+    ],
+    [
+      27,
+      11,
+      2,
+      19,
+      2,
+      "STRING"
+    ],
+    [
+      28,
+      8,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      19,
+      0,
+      20,
+      1,
+      "IMAGE"
+    ],
+    [
+      30,
+      8,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      19,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      32,
+      18,
+      0,
+      23,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      27,
+      0,
+      11,
+      1,
+      "INT"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Prompts",
+      "bounding": [
+        -30,
+        270,
+        590,
+        1450
+      ],
+      "color": "#465a50",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Models",
+      "bounding": [
+        620,
+        140,
+        400,
+        1100
+      ],
+      "color": "#465261",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Portrait",
+      "bounding": [
+        1030,
+        140,
+        380,
+        980
+      ],
+      "color": "#536149",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Reference placement",
+      "bounding": [
+        1420,
+        140,
+        400,
+        1320
+      ],
+      "color": "#5d5545",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Body conditioning",
+      "bounding": [
+        1820,
+        580,
+        400,
+        640
+      ],
+      "color": "#5d5545",
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Full-body sampling",
+      "bounding": [
+        2220,
+        140,
+        400,
+        850
+      ],
+      "color": "#465261",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "Assembly",
+      "bounding": [
+        2670,
+        240,
+        400,
+        1280
+      ],
+      "color": "#536149",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "Saved character sheet",
+      "bounding": [
+        3120,
+        150,
+        570,
+        1380
+      ],
+      "color": "#465a50",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9,
+      "offset": [
+        416,
+        110
+      ]
+    },
+    "cast_widget_map": {
+      "1": {
+        "unet_name": 0,
+        "weight_dtype": 1
+      },
+      "2": {
+        "clip_name": 0,
+        "type": 1,
+        "device": 2
+      },
+      "3": {
+        "vae_name": 0
+      },
+      "4": {
+        "text": 0
+      },
+      "5": {},
+      "6": {
+        "width": 0,
+        "height": 1,
+        "batch_size": 2
+      },
+      "7": {
+        "seed": 0,
+        "steps": 2,
+        "cfg": 3,
+        "sampler_name": 4,
+        "scheduler": 5,
+        "denoise": 6
+      },
+      "8": {},
+      "9": {
+        "filename_prefix": 0
+      },
+      "10": {
+        "lora_name": 0,
+        "strength_model": 1
+      },
+      "11": {
+        "target_width": 0,
+        "target_height": 1,
+        "source_width": 2,
+        "top": 3,
+        "seam_px": 4
+      },
+      "12": {
+        "prompt": 0,
+        "vlm_reference": 1
+      },
+      "13": {
+        "lora_name": 0,
+        "strength_model": 1
+      },
+      "14": {
+        "kv_cache": 0
+      },
+      "15": {
+        "text": 0
+      },
+      "16": {
+        "width": 0,
+        "height": 1,
+        "batch_size": 2
+      },
+      "17": {
+        "seed": 0,
+        "steps": 2,
+        "cfg": 3,
+        "sampler_name": 4,
+        "scheduler": 5,
+        "denoise": 6
+      },
+      "18": {},
+      "19": {},
+      "20": {},
+      "21": {
+        "filename_prefix": 0
+      },
+      "22": {
+        "filename_prefix": 0
+      },
+      "23": {
+        "filename_prefix": 0
+      },
+      "27": {
+        "height": 0,
+        "proportions": 1
+      }
+    },
+    "cast_recipe": "cast-krea-character-sheet-v2",
+    "frontendVersion": "1.55.17"
+  },
+  "version": 0.4
+}

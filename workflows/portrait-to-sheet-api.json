@@ -1,0 +1,296 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": "krea2_turbo_fp8_scaled.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "2": {
+    "inputs": {
+      "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "3": {
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "8": {
+    "inputs": {
+      "image": "portrait.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Existing close-up · preserve identity"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "cast-studio/character",
+      "images": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "FINAL · Combined character sheet"
+    }
+  },
+  "10": {
+    "inputs": {
+      "lora_name": "krea2_opencast_v1.safetensors",
+      "strength_model": 1,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "11": {
+    "inputs": {
+      "target_width": 1024,
+      "target_height": 1536,
+      "source_width": [
+        "27",
+        0
+      ],
+      "top": 48,
+      "seam_px": 16,
+      "source": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "CastRegisteredCanvas",
+    "_meta": {
+      "title": "Place portrait at the selected reference size"
+    }
+  },
+  "12": {
+    "inputs": {
+      "prompt": "Full-body front-facing studio photograph, showing the complete hairstyle and both shoes with space around the silhouette. One character centered at eye level. The photograph shows one original fictional adult man around forty years old. warm tan skin with consistent natural coloration. A slender torso and narrow shoulders. a narrow forehead and slim upper face, a very long slender neck, one full head-length between jaw and collarbones. Enormous jaw corners project far beyond the cheekbones, forming a wide shelf below the narrow upper face. Two enormous rounded chin lobes hang far below the mouth, separated by a deep vertical cleft. Clearly defined cheekbones and lean upper cheeks. A tiny mouth sits high above the chin. a curly mullet with short curls on top and long curls behind the shoulders, black hair. A thin pencil mustache. The subject wears a sculptural cobalt cropped technical jacket, wide charcoal trousers and sculpted white sneakers, tailored to the chosen build. A calm front-facing standing pose with a slight shift of weight, relaxed arms, clearly separated hands, a self-possessed deadpan expression. A playfully absurd sculptural character, with the specified extraordinary facial anatomy as the defining feature. Lifelike human skin and real clothing. Plain white seamless background, soft broad frontal light, gentle contact shadows, individual hair strands, visible pores and detailed fabric. Quiet neutral color. One character, without lettering, logos, borders or collage.",
+      "vlm_reference": false,
+      "clip": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "condition": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "RebelsKrea2OutpaintEncode",
+    "_meta": {
+      "title": "02 · Full-body prompt — OutpaintEncode"
+    }
+  },
+  "13": {
+    "inputs": {
+      "lora_name": "krea2_outpaint_rank32.safetensors",
+      "strength_model": 1,
+      "model": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "14": {
+    "inputs": {
+      "kv_cache": true,
+      "model": [
+        "13",
+        0
+      ],
+      "placement": [
+        "11",
+        2
+      ]
+    },
+    "class_type": "RebelsKrea2OutpaintModelPatch",
+    "_meta": {
+      "title": "Rebels Krea2 Outpaint Model Patch"
+    }
+  },
+  "15": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "16": {
+    "inputs": {
+      "width": 1024,
+      "height": 1536,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "17": {
+    "inputs": {
+      "seed": 271829,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "14",
+        0
+      ],
+      "positive": [
+        "12",
+        0
+      ],
+      "negative": [
+        "15",
+        0
+      ],
+      "latent_image": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "02 · Body sampler (8 steps)"
+    }
+  },
+  "18": {
+    "inputs": {
+      "samples": [
+        "17",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "19": {
+    "inputs": {
+      "generated": [
+        "18",
+        0
+      ],
+      "placed_source": [
+        "11",
+        1
+      ],
+      "placement": [
+        "11",
+        2
+      ]
+    },
+    "class_type": "RebelsKrea2OutpaintComposite",
+    "_meta": {
+      "title": "Restore original face pixels"
+    }
+  },
+  "20": {
+    "inputs": {
+      "portrait": [
+        "8",
+        0
+      ],
+      "full_body": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "CastCharacterSheet",
+    "_meta": {
+      "title": "Portrait + full body → 2048 × 1536"
+    }
+  },
+  "21": {
+    "inputs": {
+      "filename_prefix": "cast-studio/portrait",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Retain close-up"
+    }
+  },
+  "22": {
+    "inputs": {
+      "filename_prefix": "cast-studio/full-body",
+      "images": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Retain full body"
+    }
+  },
+  "23": {
+    "inputs": {
+      "filename_prefix": "cast-studio/raw-body",
+      "images": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Retain raw outpaint"
+    }
+  },
+  "27": {
+    "inputs": {
+      "height": "Average",
+      "proportions": "Natural"
+    },
+    "class_type": "CastReferenceSize",
+    "_meta": {
+      "title": "Body height and head proportions"
+    }
+  }
+}

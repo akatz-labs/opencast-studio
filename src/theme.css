@@ -1,0 +1,12 @@
+/* Change this one line to switch the accent; green: #2CFF05, pink: #D553FF. */
+:root { --accent: #2CFF05; }
+
+/* Supporting colors follow the accent automatically. */
+:root {
+  --accent-hover: color-mix(in srgb, var(--accent) 82%, white);
+  --accent-ink: #17181c;
+  --accent-surface: color-mix(in srgb, var(--accent) 14%, #2c3038);
+  --accent-label: color-mix(in srgb, var(--accent) 24%, white);
+  --accent-paper-ink: color-mix(in srgb, var(--accent) 40%, black);
+  --accent-link: color-mix(in srgb, var(--accent) 50%, white);
+}

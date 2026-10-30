@@ -1,0 +1,116 @@
+{
+  "status": "success",
+  "workflow": "CAST-MOSS-SFT-character",
+  "contract_summary": {
+    "has_contract": true,
+    "input_count": 7,
+    "output_count": 1,
+    "status": "valid"
+  },
+  "execution_contract": {
+    "version": 1,
+    "default_contract": "character",
+    "contracts": {
+      "character": {
+        "inputs": [
+          {
+            "name": "prompt",
+            "type": "string",
+            "node_id": "17",
+            "required": true,
+            "widget_idx": 0,
+            "api_node_id": "18:17",
+            "api_field_key": "value",
+            "default": "",
+            "ui_control": "textarea"
+          },
+          {
+            "name": "seed",
+            "type": "integer",
+            "node_id": "7",
+            "required": true,
+            "widget_idx": 0,
+            "api_node_id": "18:7",
+            "api_field_key": "seed",
+            "default": 271828,
+            "min": 0,
+            "max": 2147483647
+          },
+          {
+            "name": "steps",
+            "type": "integer",
+            "node_id": "7",
+            "required": true,
+            "widget_idx": 2,
+            "api_node_id": "18:7",
+            "api_field_key": "steps",
+            "default": 25,
+            "min": 25,
+            "max": 50
+          },
+          {
+            "name": "cfg",
+            "type": "number",
+            "node_id": "7",
+            "required": true,
+            "widget_idx": 3,
+            "api_node_id": "18:7",
+            "api_field_key": "cfg",
+            "default": 2.5,
+            "min": 2.5,
+            "max": 2.5
+          },
+          {
+            "name": "width",
+            "type": "integer",
+            "node_id": "6",
+            "required": true,
+            "widget_idx": 0,
+            "api_node_id": "18:6",
+            "api_field_key": "width",
+            "default": 1024,
+            "min": 1024,
+            "max": 1024
+          },
+          {
+            "name": "height",
+            "type": "integer",
+            "node_id": "6",
+            "required": true,
+            "widget_idx": 1,
+            "api_node_id": "18:6",
+            "api_field_key": "height",
+            "default": 1536,
+            "min": 1536,
+            "max": 1536
+          },
+          {
+            "name": "output_prefix",
+            "type": "string",
+            "node_id": "9",
+            "required": true,
+            "widget_idx": 0,
+            "api_node_id": "9",
+            "api_field_key": "filename_prefix",
+            "default": "cast-studio/character"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "image",
+            "type": "image",
+            "node_id": "9",
+            "selector": "images"
+          }
+        ],
+        "display_name": "CAST character",
+        "description": "Immutable MOSS SFT caption-to-image contract. Fixed INT8 model, er_sde/simple, no LLM rewriting, no SLG."
+      }
+    },
+    "api_prompt_file": "workflow_api/CAST-MOSS-SFT-character.api.json",
+    "api_prompt_source": "comfyui_frontend",
+    "api_prompt_generated_by": "comfygit-manager",
+    "api_prompt_generated_at": "2026-10-17T23:39:36.781453Z",
+    "comfyui_version": "0.41.0"
+  }
+}

@@ -1,0 +1,749 @@
+[
+  {
+    "name": "Character type",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "character-type-natural-dd4b8c29c7"
+      },
+      {
+        "label": "Bold",
+        "thumbnail": "character-type-bold-6cf20c419e"
+      },
+      {
+        "label": "Extreme",
+        "thumbnail": "character-type-extreme-182930e00d"
+      },
+      {
+        "label": "Fox",
+        "thumbnail": "character-type-fox-fd46d24c83"
+      },
+      {
+        "label": "Cat",
+        "symbol": "🐈",
+        "thumbnail": "character-type-cat-7ef945574a"
+      },
+      {
+        "label": "Dog",
+        "symbol": "🐕",
+        "thumbnail": "character-type-dog-74ce7cd00b"
+      },
+      {
+        "label": "Bird",
+        "symbol": "🐦",
+        "thumbnail": "character-type-bird-adf6a28e5e"
+      },
+      {
+        "label": "Frog",
+        "symbol": "🐸",
+        "thumbnail": "character-type-frog-e3355dde42"
+      },
+      {
+        "label": "Insect",
+        "symbol": "🦋",
+        "thumbnail": "character-type-insect-97624a6fc1"
+      },
+      {
+        "label": "Rodent",
+        "symbol": "🐹",
+        "thumbnail": "character-type-rodent-a7afed3e77"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Gender",
+    "icon": "gender",
+    "options": [
+      {
+        "label": "Female",
+        "symbol": "♀",
+        "thumbnail": "gender-female-45844a557b"
+      },
+      {
+        "label": "Male",
+        "symbol": "♂",
+        "thumbnail": "gender-male-5a6d05d063"
+      },
+      {
+        "label": "Trans man",
+        "symbol": "⚧",
+        "thumbnail": "gender-trans-man-acebb675c9"
+      },
+      {
+        "label": "Trans woman",
+        "symbol": "⚧",
+        "thumbnail": "gender-trans-woman-1da2e0f976"
+      },
+      {
+        "label": "Non-binary",
+        "symbol": "⚲",
+        "thumbnail": "gender-non-binary-f4f91986e8"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Build",
+    "icon": "body",
+    "options": [
+      {
+        "label": "Slim",
+        "thumbnail": "build-slim-fe9b2d5e42"
+      },
+      {
+        "label": "Average",
+        "thumbnail": "build-average-f13ae9b335"
+      },
+      {
+        "label": "Athletic",
+        "thumbnail": "build-athletic-e390c0ef37"
+      },
+      {
+        "label": "Broad",
+        "thumbnail": "build-broad-3a121a1647"
+      },
+      {
+        "label": "Tall",
+        "thumbnail": "build-tall-34d58e644d"
+      },
+      {
+        "label": "Strongman",
+        "thumbnail": "build-strongman-8211a14700"
+      }
+    ],
+    "thumbnailLayout": "figure"
+  },
+  {
+    "name": "Hairstyle",
+    "icon": "hair",
+    "options": [
+      {
+        "label": "Silver curls",
+        "image": "cast-4000-dev",
+        "thumbnail": "hairstyle-silver-curls-7d7d28a48c"
+      },
+      {
+        "label": "Blue bob",
+        "image": "cast-4000-mina",
+        "thumbnail": "hairstyle-blue-bob-2fc37c3211"
+      },
+      {
+        "label": "Silver swept",
+        "image": "cast-4000-amir",
+        "thumbnail": "hairstyle-silver-swept-e48d497c8f"
+      },
+      {
+        "label": "Copper curls",
+        "image": "jasper",
+        "thumbnail": "hairstyle-copper-curls-78d50f2e5a"
+      },
+      {
+        "label": "Pink crop",
+        "image": "cast-4000-imani",
+        "thumbnail": "hairstyle-pink-crop-1c0d486da5"
+      },
+      {
+        "label": "Sculpted updo",
+        "image": "cast-4000-celeste",
+        "thumbnail": "hairstyle-sculpted-updo-2520d79d60"
+      },
+      {
+        "label": "Sculpted braids",
+        "image": "cast-4000-tess",
+        "thumbnail": "hairstyle-sculpted-braids-e9217e3dd7"
+      },
+      {
+        "label": "Sculptural afro",
+        "thumbnail": "hairstyle-sculptural-afro-61c3911571"
+      },
+      {
+        "label": "Bowl cut",
+        "thumbnail": "hairstyle-bowl-cut-691e0cc044"
+      },
+      {
+        "label": "Beehive",
+        "thumbnail": "hairstyle-beehive-6a845c96d0"
+      },
+      {
+        "label": "Bald",
+        "thumbnail": "hairstyle-bald-c6a8aa37a6"
+      },
+      {
+        "label": "Curly mullet",
+        "thumbnail": "hairstyle-curly-mullet-e6135b62bc"
+      },
+      {
+        "label": "Swept quiff",
+        "thumbnail": "hairstyle-swept-quiff-d1341a4d28"
+      },
+      {
+        "label": "Flared bob",
+        "thumbnail": "hairstyle-flared-bob-8434f6f1d2"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Hair color",
+    "icon": "color",
+    "options": [
+      {
+        "label": "Black",
+        "color": "#252225",
+        "thumbnail": "hair-color-black-51ffc0c3a0"
+      },
+      {
+        "label": "Brown",
+        "color": "#684635",
+        "thumbnail": "hair-color-brown-00d1111d7e"
+      },
+      {
+        "label": "Blonde",
+        "color": "#e3c38b",
+        "thumbnail": "hair-color-blonde-b9881e9c28"
+      },
+      {
+        "label": "Red",
+        "color": "#b65332",
+        "thumbnail": "hair-color-red-61ba95d48e"
+      },
+      {
+        "label": "Silver",
+        "color": "#c8cbd1",
+        "thumbnail": "hair-color-silver-eea40ad0bc"
+      },
+      {
+        "label": "Blue",
+        "color": "#467fab",
+        "thumbnail": "hair-color-blue-27089764ad"
+      },
+      {
+        "label": "Pink",
+        "color": "#e79eae",
+        "thumbnail": "hair-color-pink-2850cb5454"
+      },
+      {
+        "label": "Green",
+        "color": "#a1c968",
+        "thumbnail": "hair-color-green-4ad5a591a9"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Style",
+    "icon": "shirt",
+    "options": [
+      {
+        "label": "Editorial",
+        "image": "cast-4000-nala",
+        "thumbnail": "style-editorial-e400b08e26"
+      },
+      {
+        "label": "Tailored",
+        "image": "cast-4000-ines",
+        "thumbnail": "style-tailored-2c81eef1ca"
+      },
+      {
+        "label": "Streetwear",
+        "image": "cast-4000-ramon",
+        "thumbnail": "style-streetwear-265f61d17f"
+      },
+      {
+        "label": "Vintage",
+        "image": "cast-4000-basil",
+        "thumbnail": "style-vintage-e4cd390c88"
+      },
+      {
+        "label": "Avant-garde",
+        "image": "cast-4000-bruno",
+        "thumbnail": "style-avant-garde-87cbee8e37"
+      },
+      {
+        "label": "Workwear",
+        "image": "cast-4000-hugo",
+        "thumbnail": "style-workwear-c4e23a0a25"
+      }
+    ],
+    "thumbnailLayout": "figure"
+  },
+  {
+    "name": "Ethnicity",
+    "icon": "globe",
+    "options": [
+      {
+        "label": "Unspecified",
+        "thumbnail": "ethnicity-unspecified-cafdfc3efe"
+      },
+      {
+        "label": "East Asian",
+        "thumbnail": "ethnicity-east-asian-7db17dfbeb"
+      },
+      {
+        "label": "Black",
+        "thumbnail": "ethnicity-black-e22bab7346"
+      },
+      {
+        "label": "South Asian",
+        "thumbnail": "ethnicity-south-asian-0e0a304bff"
+      },
+      {
+        "label": "Latino",
+        "thumbnail": "ethnicity-latino-a2d39cd82e"
+      },
+      {
+        "label": "White",
+        "thumbnail": "ethnicity-white-4d01622594"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Age",
+    "icon": "age",
+    "options": [
+      {
+        "label": "Young adult",
+        "image": "cast-4000-asha",
+        "thumbnail": "age-young-adult-50c18af108"
+      },
+      {
+        "label": "Adult",
+        "image": "cast-4000-ramon",
+        "thumbnail": "age-adult-755db980f5"
+      },
+      {
+        "label": "Older adult",
+        "image": "cast-4000-basil",
+        "thumbnail": "age-older-adult-351bb710bd"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Skin tone",
+    "icon": "color",
+    "options": [
+      {
+        "label": "Porcelain",
+        "color": "#f1d5c2",
+        "thumbnail": "skin-tone-porcelain-066186ad90"
+      },
+      {
+        "label": "Fair",
+        "color": "#e9be9b",
+        "thumbnail": "skin-tone-fair-e40cc16ecf"
+      },
+      {
+        "label": "Olive",
+        "color": "#c5a077",
+        "thumbnail": "skin-tone-olive-3d3075e981"
+      },
+      {
+        "label": "Tan",
+        "color": "#aa7451",
+        "thumbnail": "skin-tone-tan-1d3c9adfaf"
+      },
+      {
+        "label": "Deep",
+        "color": "#624234",
+        "thumbnail": "skin-tone-deep-9b6f3028eb"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Height",
+    "icon": "height",
+    "options": [
+      {
+        "label": "Short",
+        "thumbnail": "height-short-102999bdc8"
+      },
+      {
+        "label": "Average",
+        "thumbnail": "height-average-500d459d8e"
+      },
+      {
+        "label": "Tall",
+        "thumbnail": "height-tall-50060e4d43"
+      }
+    ],
+    "thumbnailLayout": "figure"
+  },
+  {
+    "name": "Proportions",
+    "icon": "body",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "proportions-natural-23acee0686"
+      },
+      {
+        "label": "Long-limbed",
+        "thumbnail": "proportions-long-limbed-8fed3c8f74"
+      },
+      {
+        "label": "Exaggerated",
+        "thumbnail": "proportions-exaggerated-5cec695e0c"
+      },
+      {
+        "label": "Compact",
+        "thumbnail": "proportions-compact-e6314bc7b2"
+      },
+      {
+        "label": "Oversized head",
+        "thumbnail": "proportions-oversized-head-b4f2cbafbf"
+      }
+    ],
+    "thumbnailLayout": "figure"
+  },
+  {
+    "name": "Head shape",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "head-shape-natural-d0fd997f04"
+      },
+      {
+        "label": "Round",
+        "thumbnail": "head-shape-round-eabac4562c"
+      },
+      {
+        "label": "Angular",
+        "thumbnail": "head-shape-angular-f35821d96c"
+      },
+      {
+        "label": "Long",
+        "thumbnail": "head-shape-long-e7865d7dea"
+      },
+      {
+        "label": "Square",
+        "thumbnail": "head-shape-square-ef667a0600"
+      },
+      {
+        "label": "Pear-shaped",
+        "thumbnail": "head-shape-pear-shaped-b9a722fc1d"
+      },
+      {
+        "label": "Narrow",
+        "thumbnail": "head-shape-narrow-4afd84e32f"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Jaw",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "jaw-natural-845a73e7ac"
+      },
+      {
+        "label": "Square",
+        "thumbnail": "jaw-square-4d27bf0e9c"
+      },
+      {
+        "label": "Wide shelf",
+        "thumbnail": "jaw-wide-shelf-1f85511dbc"
+      },
+      {
+        "label": "Tapered",
+        "thumbnail": "jaw-tapered-15fba5d185"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Chin",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "chin-natural-605ad239d5"
+      },
+      {
+        "label": "Short cleft",
+        "thumbnail": "chin-short-cleft-a38268a3d9"
+      },
+      {
+        "label": "Long cleft",
+        "thumbnail": "chin-long-cleft-3ab8e8b8e3"
+      },
+      {
+        "label": "Double-lobed",
+        "thumbnail": "chin-double-lobed-0c81348d48"
+      },
+      {
+        "label": "Pointed",
+        "thumbnail": "chin-pointed-a87474f5a7"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Cheeks",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "cheeks-natural-eda11d1caf"
+      },
+      {
+        "label": "Lean",
+        "thumbnail": "cheeks-lean-aca7fe6679"
+      },
+      {
+        "label": "Round",
+        "thumbnail": "cheeks-round-ab8a5a2c1e"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Nose",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "nose-natural-ecef0b0965"
+      },
+      {
+        "label": "Long",
+        "thumbnail": "nose-long-398745ff18"
+      },
+      {
+        "label": "Broad",
+        "thumbnail": "nose-broad-8e28250874"
+      },
+      {
+        "label": "Upturned",
+        "thumbnail": "nose-upturned-4bc7ec8207"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Brows",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "brows-natural-71191ebb4e"
+      },
+      {
+        "label": "Heavy ridge",
+        "thumbnail": "brows-heavy-ridge-7786447346"
+      },
+      {
+        "label": "Unibrow",
+        "thumbnail": "brows-unibrow-0e15f022a6"
+      },
+      {
+        "label": "Arched",
+        "thumbnail": "brows-arched-7b80627bd7"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Ears",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "ears-natural-e7a5a9e032"
+      },
+      {
+        "label": "Protruding",
+        "thumbnail": "ears-protruding-6f9863b113"
+      },
+      {
+        "label": "Oversized",
+        "thumbnail": "ears-oversized-fe3d0b6842"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Mouth",
+    "icon": "face",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "mouth-natural-1568ec2878"
+      },
+      {
+        "label": "Small",
+        "thumbnail": "mouth-small-ac2152a4b5"
+      },
+      {
+        "label": "Wide",
+        "thumbnail": "mouth-wide-6c55797e84"
+      },
+      {
+        "label": "Gap teeth",
+        "thumbnail": "mouth-gap-teeth-6abc80657a"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Eye shape",
+    "icon": "eye",
+    "options": [
+      {
+        "label": "Almond",
+        "thumbnail": "eye-shape-almond-ad3eb5e005"
+      },
+      {
+        "label": "Round",
+        "thumbnail": "eye-shape-round-08c19e924f"
+      },
+      {
+        "label": "Hooded",
+        "thumbnail": "eye-shape-hooded-314a7ef770"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Eye color",
+    "icon": "eye",
+    "options": [
+      {
+        "label": "Brown",
+        "color": "#75533c",
+        "thumbnail": "eye-color-brown-cc0d250b9b"
+      },
+      {
+        "label": "Hazel",
+        "color": "#93834d",
+        "thumbnail": "eye-color-hazel-41a74431cd"
+      },
+      {
+        "label": "Blue",
+        "color": "#729ba8",
+        "thumbnail": "eye-color-blue-189a152d90"
+      },
+      {
+        "label": "Green",
+        "color": "#7c9972",
+        "thumbnail": "eye-color-green-93ae9bb437"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Features",
+    "icon": "face",
+    "options": [
+      {
+        "label": "None",
+        "thumbnail": "features-none-ebaeb2305d"
+      },
+      {
+        "label": "Freckles",
+        "thumbnail": "features-freckles-4d48338dc5"
+      },
+      {
+        "label": "Dimples",
+        "thumbnail": "features-dimples-46ead9f41c"
+      },
+      {
+        "label": "Beauty mark",
+        "thumbnail": "features-beauty-mark-d12c5a58e2"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Facial hair",
+    "icon": "face",
+    "options": [
+      {
+        "label": "None",
+        "thumbnail": "facial-hair-none-36386bb965"
+      },
+      {
+        "label": "Stubble",
+        "thumbnail": "facial-hair-stubble-c84c62d5f4"
+      },
+      {
+        "label": "Mustache",
+        "thumbnail": "facial-hair-mustache-829a4f5bd5"
+      },
+      {
+        "label": "Beard",
+        "thumbnail": "facial-hair-beard-390f5b6bb5"
+      },
+      {
+        "label": "Horseshoe mustache",
+        "thumbnail": "facial-hair-horseshoe-mustache-81dfe3db2a"
+      },
+      {
+        "label": "Pencil mustache",
+        "thumbnail": "facial-hair-pencil-mustache-2a9a398e64"
+      },
+      {
+        "label": "Bushy mustache",
+        "thumbnail": "facial-hair-bushy-mustache-7d7b622a3e"
+      }
+    ],
+    "thumbnailLayout": "detail"
+  },
+  {
+    "name": "Accessories",
+    "icon": "accessories",
+    "options": [
+      {
+        "label": "None",
+        "thumbnail": "accessories-none-ad6ee8e123"
+      },
+      {
+        "label": "Earrings",
+        "thumbnail": "accessories-earrings-2fd220de0b"
+      },
+      {
+        "label": "Glasses",
+        "thumbnail": "accessories-glasses-3784adf599"
+      },
+      {
+        "label": "Neck scarf",
+        "thumbnail": "accessories-neck-scarf-e0d5b603cd"
+      }
+    ],
+    "thumbnailLayout": "portrait"
+  },
+  {
+    "name": "Neck",
+    "icon": "height",
+    "options": [
+      {
+        "label": "Natural",
+        "thumbnail": "neck-natural-3c4f6c7ff4"
+      },
+      {
+        "label": "Long",
+        "thumbnail": "neck-long-fb5c3355a0"
+      },
+      {
+        "label": "Column",
+        "thumbnail": "neck-column-4a1e21311f"
+      },
+      {
+        "label": "Pencil-thin",
+        "thumbnail": "neck-pencil-thin-07e1bdc59e"
+      },
+      {
+        "label": "Extra long",
+        "thumbnail": "neck-extra-long-ea4d1fff15"
+      }
+    ],
+    "thumbnailLayout": "figure"
+  }
+]

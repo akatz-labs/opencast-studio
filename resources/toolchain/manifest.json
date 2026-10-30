@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "version": "0.7.1",
+  "wheels": [
+    {
+      "filename": "comfygit-0.7.1-py3-none-any.whl",
+      "sha256": "c304a8a04129c0b949c8b43a95a832228ea41990ae2942a79886104724cf0c0f"
+    },
+    {
+      "filename": "comfygit_core-0.7.1-py3-none-any.whl",
+      "sha256": "bf5a4bc2f8adf492eac74b16ca34741d1fd6cbefe9106a00bb33f27746355000"
+    },
+    {
+      "filename": "comfygit_studio-0.7.1-py3-none-any.whl",
+      "sha256": "e53973f36af6475a3ee49014993f84260d3b5c6e23e35fc8049efa3e019a0be8"
+    }
+  ],
+  "requirements_sha256": "f2c19ba7a8b9d8d90f9379db0618c0a77571227928ffdfcf6ef04e8f70bb55ec"
+}

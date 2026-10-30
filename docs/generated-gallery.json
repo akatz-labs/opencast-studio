@@ -1,0 +1,903 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-28T16:53:56.018Z",
+  "recipe": "cast-krea-turbo-step4000-v1",
+  "selection": {
+    "reviewedBy": "assistant visual review",
+    "selected": [
+      "ramon",
+      "nala",
+      "basil",
+      "ines",
+      "imani",
+      "frog",
+      "asha",
+      "bruno",
+      "celeste",
+      "kenji",
+      "pippa",
+      "dev",
+      "otto",
+      "yuna",
+      "hugo",
+      "fox",
+      "ida",
+      "rafi",
+      "dahlia",
+      "bird",
+      "luca",
+      "cat",
+      "morgan",
+      "theo",
+      "tess",
+      "amir"
+    ],
+    "notes": {
+      "ramon": "Selected: prominent split chin and broad jaw, crisp skin and curls, strong deadpan portrait.",
+      "nala": "Selected: elegant long-neck silhouette, large afro, complete outfit and shoes.",
+      "basil": "Selected: strong comic face, oversized chin, silver mustache and spectacles; high-quality portrait.",
+      "ines": "Selected: oversized pear-shaped head, compact body and hand-on-hip pose; complete outfit.",
+      "imani": "Selected: angular jaw, expressive brows and pink crop; useful Bold contrast to the extreme figures.",
+      "frog": "Selected: squat suited frog with large eyes and webbed hands; complete figure. Unrequested bob-like hair is part of the actual output.",
+      "asha": "Selected: elongated chin, narrow neck, copper bob and patterned scarf.",
+      "bruno": "Selected: exaggerated muscular silhouette, broad jaw, silver bowl cut and emerald trousers; hands and shoes visible.",
+      "celeste": "Selected: looped pink updo and broad balloon-sleeve silhouette; full-body framing.",
+      "kenji": "Selected: imposing square jaw and tall blue quiff; high-quality material detail.",
+      "pippa": "Selected: tall thin silhouette, long face and severe sculptural outfit.",
+      "dev": "Selected: oversized green curls, round eyes and expressive face; softer Bold contrast.",
+      "otto": "Selected: weathered squared face and dramatic silver mustache; cropped hairstyle is faithful to original output.",
+      "yuna": "Selected: exaggerated rounded lower face and sharply sculpted black bob.",
+      "hugo": "Selected: highly comic head-to-body relationship, large split chin and mustache; complete silhouette.",
+      "fox": "Selected: clean fox anatomy and tailored styling; top ear tips clipped in original.",
+      "ida": "Selected: tall silver beehive, elongated neck and older adult character; full hairstyle and shoes visible.",
+      "rafi": "Selected: pointed chin, long face and projecting nose. Bald choice was not obeyed; exact source settings remain retained.",
+      "dahlia": "Selected: strong brows, sculptural silver curls and textured mature face.",
+      "bird": "Selected: formal cockatoo with long narrow silhouette and feathered hands; crest tip clipped in original.",
+      "luca": "Selected: exaggerated narrow face, bowl cut and long neck; portrait variation.",
+      "cat": "Selected: expressive cat face, exaggerated long neck and oversized earrings. Sphynx art direction yielded a furred face; source prompt is retained unchanged.",
+      "morgan": "Selected: pointed features, green crop and freckles; restrained Bold example.",
+      "theo": "Selected: broad compact build and bowl cut; less extreme than the tiny-head art direction but good figure quality.",
+      "tess": "Selected: long narrow face and neck, sculpted braids and strong portrait detail.",
+      "amir": "Selected: square jaw, unibrow and shaped beard; restrained Bold male example."
+    },
+    "excluded": {
+      "mina": "Good technical quality but conventional anatomy; excluded to keep the collection more playful.",
+      "suri": "Good technical quality but mostly ordinary proportions; excluded in favor of more distinctive silhouettes."
+    },
+    "presentation": "Original aspect ratio; no retouching or synthetic crop studies in default gallery."
+  },
+  "sources": [
+    {
+      "characterId": "cast-ramon",
+      "jobId": "b04be6bd-92a8-497e-b61a-f3002e19afc0",
+      "storageVersion": "asv_606fe0bda40045c1879874ce40f9e371",
+      "originalSha256": "300552aa156ca722ab19b31bb5fc8cdd22832d5298b31ee915fbb2f1a0ded64b",
+      "graphSha256": "d36d7b63b37aba8c3d7f69635b7a21105a78293ec0e33872206f2fa772abc835",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: prominent split chin and broad jaw, crisp skin and curls, strong deadpan portrait."
+    },
+    {
+      "characterId": "cast-nala",
+      "jobId": "9203b9e7-fd78-4720-b735-f984b75b7f77",
+      "storageVersion": "asv_bc509931a0c741cfa380f4e8c92106ff",
+      "originalSha256": "e1c976ec9333ea44f72daac87ead61c6f2f765a1aa8cd329f3476bf174205b50",
+      "graphSha256": "6f3168a63536fbf50fb186278752307408ab4525fb5a902dea02b7794232b7a2",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: elegant long-neck silhouette, large afro, complete outfit and shoes."
+    },
+    {
+      "characterId": "cast-basil",
+      "jobId": "414ac6d4-a81c-44a9-8985-d0798248108a",
+      "storageVersion": "asv_890f08530939482394ce2999a1266edd",
+      "originalSha256": "72788207e1d3c2567434224364aef610f0c3e36ffe79e3b933baa45f75ac0591",
+      "graphSha256": "418ab6fb550d3719a5db8c4420e555e305837e6e1dcce043f94175b667883692",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: strong comic face, oversized chin, silver mustache and spectacles; high-quality portrait."
+    },
+    {
+      "characterId": "cast-ines",
+      "jobId": "a68b290c-5b0c-4534-96ca-af82143d12e1",
+      "storageVersion": "asv_9b870f3a145a4af7a94dc60e1204c1c0",
+      "originalSha256": "f5d99b99646f2b6ae8a780beb1ec5b57e7db43f0001ee106d460a589fff71206",
+      "graphSha256": "f775085de3d6a7df8230e89fb715647483f6a6cc565cecf1097fb355e02267f1",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: oversized pear-shaped head, compact body and hand-on-hip pose; complete outfit."
+    },
+    {
+      "characterId": "cast-imani",
+      "jobId": "94c1dc15-9785-4fdc-a98f-f85b039a2bc3",
+      "storageVersion": "asv_69814a4f0a3b46168f5820f0b73f16ba",
+      "originalSha256": "f1bbb8b80371f85e371dac3005bcd16125d11315adbfec862467e5929a528588",
+      "graphSha256": "6f9064456d2c7d39abcd94a8ed8067f12cb2c9729e39674b205b5b965b1be932",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: angular jaw, expressive brows and pink crop; useful Bold contrast to the extreme figures."
+    },
+    {
+      "characterId": "cast-frog",
+      "jobId": "92d0feac-130e-44a3-b556-d592d03fb8c3",
+      "storageVersion": "asv_6a13c73aa79e484eb790ed4290490ffd",
+      "originalSha256": "c4db6e64a122197a11335296483a0cc7fd1b194c8af489decd829deebfa084a9",
+      "graphSha256": "7bac26b6ef14ca37edcc3a52ec9dfed2a51be150b0eef4168a5b4775872a4a41",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: squat suited frog with large eyes and webbed hands; complete figure. Unrequested bob-like hair is part of the actual output."
+    },
+    {
+      "characterId": "cast-asha",
+      "jobId": "741d55dc-d8be-4da3-949b-d960772c9b78",
+      "storageVersion": "asv_8db63d41123b4a108db4f9cd6e8ba020",
+      "originalSha256": "935adf487c86d46aaa1ee00bb5390672244407d0def897f04041ce69dd2eb3f6",
+      "graphSha256": "e427c50a91ac652224f811cfc3f97061d1014c557ac3c1bec568e1bf273b0686",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: elongated chin, narrow neck, copper bob and patterned scarf."
+    },
+    {
+      "characterId": "cast-bruno",
+      "jobId": "5b295511-38f4-4f0c-b072-fbefafcd2d35",
+      "storageVersion": "asv_1ff477e4e1344df5a0e072720bb5d23f",
+      "originalSha256": "2e28c857ab8938d829800242fd7ffb2f888936e56f0cf578c0137cbdf184c82d",
+      "graphSha256": "4a77f26551802558b978cc88e1c2c29a15f837f7e4abc87cce2bb62c9d691f47",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: exaggerated muscular silhouette, broad jaw, silver bowl cut and emerald trousers; hands and shoes visible."
+    },
+    {
+      "characterId": "cast-celeste",
+      "jobId": "f5c280e1-4671-4c4f-bb06-f3c830f9a54f",
+      "storageVersion": "asv_bff84d012db646cfa061e42e7f1db0f3",
+      "originalSha256": "b7e06e7a3906c165d460e283ac2bb04941255cf1f4ed4d1981207954c2a72750",
+      "graphSha256": "9694b0288f82b45558b787c530e410c0b70df166a45e0e93015eaa68a518f83b",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: looped pink updo and broad balloon-sleeve silhouette; full-body framing."
+    },
+    {
+      "characterId": "cast-kenji",
+      "jobId": "983cd1c1-965f-4b8b-9513-316abc4a8530",
+      "storageVersion": "asv_5143331b98894cd28144a000fb73f73d",
+      "originalSha256": "d1a08bbddefc4a181b2c1dc2cd9def521ad76dae9f39a45280cfc80d53c33638",
+      "graphSha256": "b0b12c24c4737927725f85bfb7bf0b142005e22b689881528d8180f233ff1b93",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: imposing square jaw and tall blue quiff; high-quality material detail."
+    },
+    {
+      "characterId": "cast-pippa",
+      "jobId": "0c047cce-4ea1-428f-86e8-c4190d94ec0b",
+      "storageVersion": "asv_ff28d548e1ca456ab27aca565d89ded3",
+      "originalSha256": "d30cd2f0419fde9711428a322a7afefb75083075c53a32be804bbab21b1ad144",
+      "graphSha256": "d375ea672aa98a3623a047e1775c3fa54f0d65179babfa5b4c21bbfa235979e9",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: tall thin silhouette, long face and severe sculptural outfit."
+    },
+    {
+      "characterId": "cast-dev",
+      "jobId": "d1476c19-87c3-4eae-9b91-971c157c5bf5",
+      "storageVersion": "asv_95e52302c0704f0bbeae92927b77933b",
+      "originalSha256": "bc6170e67fac645819be9ca8fc7602af18ade96b445aa48520dc50f79a5e9216",
+      "graphSha256": "107ea153c34dd92d4a17ebcac8ca473af70a1739456466708f0f4cf37880cbc9",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: oversized green curls, round eyes and expressive face; softer Bold contrast."
+    },
+    {
+      "characterId": "cast-otto",
+      "jobId": "6bf553e8-2b2e-492b-b833-c0519e92799b",
+      "storageVersion": "asv_90637ca327fb419a9860dae66312980c",
+      "originalSha256": "9caf0f3e046ca7e85fed270c4ac78ffdcf868fce8483be8ca301afa8ecbc6c61",
+      "graphSha256": "531cb5a0a4a4bbf5e5b361ed31ef04f26d71d11156cf7a5eb10647d6f6239172",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: weathered squared face and dramatic silver mustache; cropped hairstyle is faithful to original output."
+    },
+    {
+      "characterId": "cast-yuna",
+      "jobId": "b8579874-a444-4b11-b0b9-238c42c36e83",
+      "storageVersion": "asv_d193cc412a0843568b4c3af5134f602d",
+      "originalSha256": "f36036d396d64820ec90996e31175a0bf704888134dab00b5361de514720514a",
+      "graphSha256": "b1e722a38011c65ea8b33f94b144c715a91da9a9bfae5c3e54f682f7a83822e3",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: exaggerated rounded lower face and sharply sculpted black bob."
+    },
+    {
+      "characterId": "cast-hugo",
+      "jobId": "379ca60e-2030-4814-b70c-d66059911649",
+      "storageVersion": "asv_30a2e0a502c04b7f80962686c6690325",
+      "originalSha256": "9053092dd0b9eca9e532e7c3cfe228e61927d72d733abf8b36d295121a32d380",
+      "graphSha256": "4af3410e5dd3fbbbc675084a1c91aa20a35a6e24a612770d70048ff53c04587c",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: highly comic head-to-body relationship, large split chin and mustache; complete silhouette."
+    },
+    {
+      "characterId": "cast-fox",
+      "jobId": "6daf2955-010c-4957-954a-64823a93bbf4",
+      "storageVersion": "asv_5ce3154d2725400d9d5866b7b6c86e67",
+      "originalSha256": "9ef5af9121ff8acc354f2b6ff10d753acfbdd8e6a005c0fda2d1796b3c38d4d0",
+      "graphSha256": "80feb03ba60dc799b82941d99a879c94f315e23968eda04e9ca8a3159c99f71d",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: clean fox anatomy and tailored styling; top ear tips clipped in original."
+    },
+    {
+      "characterId": "cast-ida",
+      "jobId": "e7d95d99-d2af-4fdd-9a3c-bfe4be9e6d57",
+      "storageVersion": "asv_364922aa244b431ea5427d042d51436c",
+      "originalSha256": "0d1d9b9b3005c649fbaf56f07a9beba8add9861c312bc88fde56c0463a980d58",
+      "graphSha256": "204b7b4964d91232c5bccfeb91b7de0965e346f43fe0bc4db38f604ef45ce198",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: tall silver beehive, elongated neck and older adult character; full hairstyle and shoes visible."
+    },
+    {
+      "characterId": "cast-rafi",
+      "jobId": "757bebbc-72bc-4253-8350-1ddfac319eef",
+      "storageVersion": "asv_be396df9b5974b6e9647d20884c58a16",
+      "originalSha256": "a09ae9dce0ecf91250e99c1581600654f6f3b246eb90e61b311848a029d55ba6",
+      "graphSha256": "967b09eec5c1ad4aee90c6fa41144469a59f7c0bccfbabd2312bf6971b608ff2",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: pointed chin, long face and projecting nose. Bald choice was not obeyed; exact source settings remain retained."
+    },
+    {
+      "characterId": "cast-dahlia",
+      "jobId": "15b9f51b-9e7c-42b6-b8a5-2c234de8dd1d",
+      "storageVersion": "asv_a882277fbc674bb896c2f200d6d130a2",
+      "originalSha256": "2ff79b2c371b601ea4482d532a6b72f1ff495092382387290323f3d088d98f6b",
+      "graphSha256": "af87d6a89ca631e1723df2c6da5d9e4a64e9bbbbec9d5d291dac9ed5792c5434",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: strong brows, sculptural silver curls and textured mature face."
+    },
+    {
+      "characterId": "cast-bird",
+      "jobId": "3bc250de-a404-4eec-9c87-da56f99eaec5",
+      "storageVersion": "asv_0922627ebff74e279b74f539307dca03",
+      "originalSha256": "accb666fbfbfa723d849296e849c5da8b358fdaa61546067d8ca8dd8eb5bcf9a",
+      "graphSha256": "1b35364a73f324463d4a92db6c1a4828bc2c8ee1945d3ed0b34f0693a81b2ac5",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: formal cockatoo with long narrow silhouette and feathered hands; crest tip clipped in original."
+    },
+    {
+      "characterId": "cast-luca",
+      "jobId": "bbebaa9a-af09-4a79-8d70-604e7cbbc58f",
+      "storageVersion": "asv_cfa636c23508489baae996cb2a6a8de6",
+      "originalSha256": "20e6b5f451f9bb535c17b37a19a7fb8cc44caa3d1236f718bd703e9510cb7c3d",
+      "graphSha256": "615be1da266017d73e75a17ea62f48664a5930633eb5b023ecaebc459d328656",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: exaggerated narrow face, bowl cut and long neck; portrait variation."
+    },
+    {
+      "characterId": "cast-cat",
+      "jobId": "c9693a07-6917-48a9-b149-ea6ba49e04cb",
+      "storageVersion": "asv_a9ac28177bc54961beb9b887fb8b1bcb",
+      "originalSha256": "1bb3e1fa94a21a90a0e708f7a6f90ded63ce7012858c1e5f0e246c38479cb052",
+      "graphSha256": "2c4a91f533ecfe3d5e5fb9909aa521508eec0a3f6ed963aa0bb72850b37acbd4",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: expressive cat face, exaggerated long neck and oversized earrings. Sphynx art direction yielded a furred face; source prompt is retained unchanged."
+    },
+    {
+      "characterId": "cast-morgan",
+      "jobId": "be4a1f14-b6d2-4890-8402-e7be3ee43562",
+      "storageVersion": "asv_79779cf654ca4f3c8d4d43ac856c9ab6",
+      "originalSha256": "beb55d455d31381df3c92efb6e8eb7a2f7fcc720948271855e11b3b59944f112",
+      "graphSha256": "aee5d941afb553386cd180b31073407f44ded82f2f5c139b2336c101b16ceb44",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: pointed features, green crop and freckles; restrained Bold example."
+    },
+    {
+      "characterId": "cast-theo",
+      "jobId": "d6659574-a525-4144-aea2-93f134090ca9",
+      "storageVersion": "asv_6ecc41ff5ed246dbaca138da23f18352",
+      "originalSha256": "d81162a842ec59cc692c838062c7fe72ae9ad832a253fe35c81fc7f9972ee191",
+      "graphSha256": "01219f4c9d6f2198d59cd9c176e1cf8629306491bca2db314d562ee011ba8f36",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: broad compact build and bowl cut; less extreme than the tiny-head art direction but good figure quality."
+    },
+    {
+      "characterId": "cast-tess",
+      "jobId": "913ac9f3-d983-45fe-a9fb-1c49ea33ca3f",
+      "storageVersion": "asv_549d98e6f88f4ceb9cd435217e786e90",
+      "originalSha256": "dd6ab762e6c65481dfb5f949cb9a31dbb8cac2312e1cd4721ab9ffde97a72e26",
+      "graphSha256": "ae824638a35aa128e3d692b93489ddb34128d5a6d27e199943a33980df10b53c",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: long narrow face and neck, sculpted braids and strong portrait detail."
+    },
+    {
+      "characterId": "cast-amir",
+      "jobId": "d81bc539-00db-40c6-883a-b894184e115d",
+      "storageVersion": "asv_c9c423af4b114be7a41ea6fdf174a8b2",
+      "originalSha256": "45f5a39183e18af5fc8dcd16e057508ced113db271dea808b5a993e9ec259c87",
+      "graphSha256": "01f545850feb3f7c3bdb9758e7e48e14667b9237e1a678997a150e0a012536f3",
+      "compilerSha256": "e3eab089920ac3a5c2dfbb08df08c798353c6c4a84b8792b6c4a4461eab3c55d",
+      "models": [
+        {
+          "file": "diffusion_models/krea2_turbo_fp8_scaled.safetensors",
+          "sha256": "eb4dd8c612cfd10f64f25b057e6e6bbcb5737c94a7372177e456dbf7579502f1"
+        },
+        {
+          "file": "text_encoders/qwen3vl_4b_fp8_scaled.safetensors",
+          "sha256": "54bd5144df0bbc25dd6ccadfcb826b521445a1b06ae5a42570bdd2974ca87094"
+        },
+        {
+          "file": "vae/qwen_image_vae.safetensors",
+          "sha256": "a70580f0213e67967ee9c95f05bb400e8fb08307e017a924bf3441223e023d1f",
+          "storage_version": "asv_769546757e9d4788b5bd843871dc2790"
+        },
+        {
+          "file": "loras/cast_krea_raw_higgsfield_step4000.safetensors",
+          "sha256": "721606d150c54abc4438e88ed53aad111f69bc75b92ded2a1805587db942337c",
+          "storage_version": "asv_25bc02ca73d84c97a894924933cb4262",
+          "strength": 1,
+          "training_steps": 4000,
+          "training_output_version": "asv_e66d9c49cdf84658a537cfc5ee9b507e"
+        }
+      ],
+      "review": "Selected: square jaw, unibrow and shaped beard; restrained Bold male example."
+    }
+  ]
+}

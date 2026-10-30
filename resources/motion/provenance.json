@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "recipe": "opencast-motion-flux3-v1",
+  "anchor": {
+    "selection": "Original tested official-PUP baseline; generic-prompt refinements not promoted",
+    "inputStorageVersion": "asv_b1123aa557914e719ac531e26ace0cf1",
+    "modelStorageVersion": "asv_5dbeaf26ed95410f885e6806ba159e0a",
+    "resultStorageVersion": "asv_32397a455d2d49f8a8ced28b57b94a6b"
+  },
+  "files": {
+    "resources/motion/source/flux3-edit.api.json": "3a53b18ba050da66148a92a27f6d2f6aea4132091b13045cc38a74ecf69b579a",
+    "resources/motion/source/pika-auto.api.json": "76a060560dd3e0d7b0c043d58818cb9b110efd4c42d80bbf4852aa229be68d6b",
+    "resources/motion/pipeline.flat.api.json": "2c8c106adce020adbcd624a1fce9c26ba9a10c09e4fb66251c9209d0b6c3d65f",
+    "resources/motion/OpenCast-Motion.json": "85fda8d505882358e31ef1fb9d1e787a55eaa90f90559a6093593c0a7b6f61cd",
+    "resources/motion/OpenCast-Motion.api.json": "f135a9fe57f4ff7d3b38fd7a42ada9d4e664ac86a7e013302c1587c9ac8d0ce4",
+    "resources/models.json": "1c9e697d9f37a7c34df978a3825d84c0641eeda5c598f8db4aea221e66a19e08",
+    "resources/motion/worker.py": "782eef74b32abff2b62f8d20164e36b0ca096365cf1a32e2fcf6d5137eebded6",
+    "resources/runtime-fixes/kitchen_int8_offsets.py": "8ae92914692f5f8398d021c07470b6bf6e249212f594f0aff5108758a88b96d7"
+  }
+}

@@ -1,0 +1,184 @@
+[project]
+name = "opencast-krea-runtime"
+version = "0.1.0"
+requires-python = "==3.12.*"
+dependencies = [
+    "aiohttp>=3.11.8",
+    "alembic",
+    "av>=17.0.0",
+    "blake3",
+    "comfy-aimdo==0.5.6",
+    "comfy-angle",
+    "comfy-kitchen==0.2.38",
+    "comfygit-core",
+    "comfyui-embedded-docs==0.5.14",
+    "comfyui-frontend-package==1.55.17",
+    "comfyui-workflow-templates==0.11.89",
+    "einops",
+    "filelock",
+    "kornia>=0.7.1",
+    "numpy>=1.25.0",
+    "pillow",
+    "psutil",
+    "pydantic~=2.0",
+    "pydantic-settings~=2.0",
+    "pyopengl>=3.1.8",
+    "pyyaml",
+    "requests",
+    "safetensors>=0.4.2",
+    "scipy",
+    "sentencepiece",
+    "simpleeval>=1.0.0",
+    "spandrel",
+    "sqlalchemy>=2.0.0",
+    "tokenizers>=0.13.3",
+    "torch==2.14.1",
+    "torchsde",
+    "torchvision",
+    "tqdm",
+    "transformers==5.20.1",
+    "yarl>=1.18.0",
+]
+
+[tool.comfygit]
+schema_version = 2
+comfyui_version = "c9ea36b9d2140c89b2ef84f93f428df474e72ba5"
+comfyui_version_type = "commit"
+comfyui_commit_sha = "c9ea36b9d2140c89b2ef84f93f428df474e72ba5"
+comfyui_repository = "https://github.com/Comfy-Org/ComfyUI.git"
+python_version = "3.12"
+
+[tool.comfygit.nodes.comfygit-manager]
+name = "comfygit-manager"
+registry_id = "comfygit-manager"
+repository = "https://github.com/comfygit-ai/comfygit-manager"
+version = "0.3.2"
+download_url = "https://cdn.comfy.org/akatz/comfygit-manager/0.3.2/node.zip"
+source = "registry"
+criticality = "required"
+
+
+[tool.comfygit.nodes.rebels-krea2-outpaint]
+name = "cast-character-sheet"
+version = "dev"
+source = "development"
+criticality = "required"
+
+[tool.comfygit.workflows.CAST-Character-Sheet]
+path = "workflows/CAST-Character-Sheet.json"
+nodes = ["rebels-krea2-outpaint"]
+
+[tool.comfygit.workflows.CAST-Character-Sheet.custom_node_map]
+RebelsKrea2OutpaintEncode = "rebels-krea2-outpaint"
+RebelsKrea2OutpaintModelPatch = "rebels-krea2-outpaint"
+RebelsKrea2OutpaintComposite = "rebels-krea2-outpaint"
+CastRegisteredCanvas = "rebels-krea2-outpaint"
+CastCharacterSheet = "rebels-krea2-outpaint"
+CastReferenceSize = "rebels-krea2-outpaint"
+
+[[tool.comfygit.workflows.CAST-Character-Sheet.models]]
+filename = "krea2_turbo_fp8_scaled.safetensors"
+category = "diffusion_models"
+criticality = "required"
+status = "resolved"
+nodes = [{node_id = "1", node_type = "UNETLoader", widget_idx = 0, widget_value = "krea2_turbo_fp8_scaled.safetensors"}]
+hash = "d899f34980dd3df1"
+
+[[tool.comfygit.workflows.CAST-Character-Sheet.models]]
+filename = "qwen3vl_4b_fp8_scaled.safetensors"
+category = "text_encoders"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "2", node_type = "CLIPLoader", widget_idx = 0, widget_value = "qwen3vl_4b_fp8_scaled.safetensors"}]
+hash = "770a1668ca609d80"
+
+[[tool.comfygit.workflows.CAST-Character-Sheet.models]]
+filename = "qwen_image_vae.safetensors"
+category = "vae"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "3", node_type = "VAELoader", widget_idx = 0, widget_value = "qwen_image_vae.safetensors"}]
+hash = "8157223ca0c385d4"
+
+[[tool.comfygit.workflows.CAST-Character-Sheet.models]]
+filename = "krea2_opencast_v1.safetensors"
+category = "loras"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "10", node_type = "LoraLoaderModelOnly", widget_idx = 0, widget_value = "krea2_opencast_v1.safetensors"}]
+hash = "82aa828a41254645"
+
+[[tool.comfygit.workflows.CAST-Character-Sheet.models]]
+filename = "krea2_outpaint_rank32.safetensors"
+category = "loras"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "13", node_type = "LoraLoaderModelOnly", widget_idx = 0, widget_value = "krea2_outpaint_rank32.safetensors"}]
+hash = "bfd9832e9e086b15"
+
+[tool.comfygit.workflows.CAST-Portrait-to-Sheet]
+path = "workflows/CAST-Portrait-to-Sheet.json"
+nodes = ["rebels-krea2-outpaint"]
+
+[tool.comfygit.workflows.CAST-Portrait-to-Sheet.custom_node_map]
+RebelsKrea2OutpaintEncode = "rebels-krea2-outpaint"
+RebelsKrea2OutpaintModelPatch = "rebels-krea2-outpaint"
+RebelsKrea2OutpaintComposite = "rebels-krea2-outpaint"
+CastRegisteredCanvas = "rebels-krea2-outpaint"
+CastCharacterSheet = "rebels-krea2-outpaint"
+CastReferenceSize = "rebels-krea2-outpaint"
+
+[[tool.comfygit.workflows.CAST-Portrait-to-Sheet.models]]
+filename = "krea2_turbo_fp8_scaled.safetensors"
+category = "diffusion_models"
+criticality = "required"
+status = "resolved"
+nodes = [{node_id = "1", node_type = "UNETLoader", widget_idx = 0, widget_value = "krea2_turbo_fp8_scaled.safetensors"}]
+hash = "d899f34980dd3df1"
+
+[[tool.comfygit.workflows.CAST-Portrait-to-Sheet.models]]
+filename = "qwen3vl_4b_fp8_scaled.safetensors"
+category = "text_encoders"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "2", node_type = "CLIPLoader", widget_idx = 0, widget_value = "qwen3vl_4b_fp8_scaled.safetensors"}]
+hash = "770a1668ca609d80"
+
+[[tool.comfygit.workflows.CAST-Portrait-to-Sheet.models]]
+filename = "qwen_image_vae.safetensors"
+category = "vae"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "3", node_type = "VAELoader", widget_idx = 0, widget_value = "qwen_image_vae.safetensors"}]
+hash = "8157223ca0c385d4"
+
+[[tool.comfygit.workflows.CAST-Portrait-to-Sheet.models]]
+filename = "krea2_opencast_v1.safetensors"
+category = "loras"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "10", node_type = "LoraLoaderModelOnly", widget_idx = 0, widget_value = "krea2_opencast_v1.safetensors"}]
+hash = "82aa828a41254645"
+
+[[tool.comfygit.workflows.CAST-Portrait-to-Sheet.models]]
+filename = "krea2_outpaint_rank32.safetensors"
+category = "loras"
+criticality = "flexible"
+status = "resolved"
+nodes = [{node_id = "13", node_type = "LoraLoaderModelOnly", widget_idx = 0, widget_value = "krea2_outpaint_rank32.safetensors"}]
+hash = "bfd9832e9e086b15"
+
+[tool.comfygit.models]
+d899f34980dd3df1 = {filename = "krea2_turbo_fp8_scaled.safetensors", size = 13141730784, relative_path = "diffusion_models/krea2_turbo_fp8_scaled.safetensors", category = "diffusion_models"}
+770a1668ca609d80 = {filename = "qwen3vl_4b_fp8_scaled.safetensors", size = 5242467968, relative_path = "text_encoders/qwen3vl_4b_fp8_scaled.safetensors", category = "text_encoders"}
+8157223ca0c385d4 = {filename = "qwen_image_vae.safetensors", size = 253806246, relative_path = "vae/qwen_image_vae.safetensors", category = "vae"}
+82aa828a41254645 = {filename = "krea2_opencast_v1.safetensors", size = 228587488, relative_path = "loras/krea2_opencast_v1.safetensors", category = "loras"}
+bfd9832e9e086b15 = {filename = "krea2_outpaint_rank32.safetensors", size = 228587736, relative_path = "loras/krea2_outpaint_rank32.safetensors", category = "loras"}
+
+[tool.uv]
+override-dependencies = ["uv>=0.11.8"]
+exclude-dependencies = ["opencv-contrib-python", "opencv-python", "opencv-python-headless"]
+
+[dependency-groups]
+comfygit-system = ["uv>=0.11.8"]
+comfygit-manager-b2d41ad7 = ["comfygit-core[keyring]==0.7.1", "comfygit-studio==0.7.1", "watchdog>=6.0.0", "xxhash>=3.5.0"]
