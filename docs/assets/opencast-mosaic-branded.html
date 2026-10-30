@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>OpenCast Studio character collage</title>
+<style>
+  @font-face { font-family: Inter; src: url("../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2"); font-weight: 100 900; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1800px; background: #23262d; }
+  .collage { position: relative; width: 1800px; height: 1561px; overflow: hidden; }
+  .portraits { position: absolute; top: 128px; left: 0; width: 1800px; height: 1433px; }
+  .shade { position: absolute; inset: 0 0 auto; height: 270px; background: linear-gradient(180deg, #171a20 0%, #171a20 35%, #171a20eb 48%, #171a2099 64%, #171a2033 82%, #171a2000 100%); }
+  .brand { position: absolute; top: 27px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 30px; color: #f5f6f7; font-family: Inter, Arial, sans-serif; font-size: 70px; font-weight: 700; letter-spacing: -2px; text-shadow: 0 5px 25px #0009; }
+  .brand-mark { position: relative; display: flex; align-items: center; justify-content: center; width: 91px; height: 98px; border: 5px solid #e3e4e8; border-radius: 25px; font-size: 63px; line-height: 1; }
+  .brand-mark span { position: absolute; right: -10px; top: -10px; width: 24px; height: 24px; background: #2cff05; border: 7px solid #171a20; border-radius: 6px; }
+  .brand i { color: #d553ff; font-style: normal; margin: 0 11px; }
+  .brand em { color: #a4aab5; font-style: normal; font-weight: 400; }
+</style>
+<div class="collage">
+  <img class="portraits" src="opencast-mosaic.png" alt="Eighteen selected Krea 2 OpenCast character portraits">
+  <div class="shade"></div>
+  <div class="brand"><span class="brand-mark">O<span></span></span><span>OpenCast <i>/</i> <em>STUDIO</em></span></div>
+</div>
+</html>

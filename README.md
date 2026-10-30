@@ -9,7 +9,7 @@
 
 Source: [akatz-labs/opencast-studio](https://github.com/akatz-labs/opencast-studio). Generation availability depends on the configured executor and its installed or deployed workflows.
 
-[![Eighteen selected Krea 2 OpenCast character portraits](docs/assets/opencast-mosaic.webp)](docs/assets/opencast-mosaic.png)
+[![Eighteen selected Krea 2 OpenCast character portraits](docs/assets/opencast-mosaic-branded.webp)](docs/assets/opencast-mosaic-branded.png)
 
 Selected portraits generated with the [Krea 2 OpenCast LoRA](https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA) at strength 1.0. Click the collage for the full-resolution image. Exact prompts, seeds, original images, and workflows are available in the [model’s example index](https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA/blob/main/examples/README.md).
 
