@@ -13,6 +13,12 @@ Source: [akatz-labs/opencast-studio](https://github.com/akatz-labs/opencast-stud
 
 Selected portraits generated with the [Krea 2 OpenCast LoRA](https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA) at strength 1.0. Click the collage for the full-resolution image. Exact prompts, seeds, original images, and workflows are available in the [model’s example index](https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA/blob/main/examples/README.md).
 
+## Character swaps
+
+[![Original scene on the left and OpenCast character swap on the right](docs/assets/opencast-swaps.webp)](docs/assets/opencast-swaps.webp)
+
+Original footage on the left; the character-swapped result on the right.
+
 ## Run the interface and API
 
 Requirements: Node.js 22.18 or newer, npm, and `ffprobe` for reference-video validation.
