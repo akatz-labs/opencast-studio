@@ -5,7 +5,7 @@
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub-EA4AAA?style=flat-square&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/akatz-ai)
 [![Ko-fi](https://img.shields.io/badge/Tip-Ko--fi-FF5E5B?style=flat-square&logo=kofi&logoColor=white)](https://ko-fi.com/akatz)
 
-**OpenCast Studio** is an open-source app by Akatz Labs for creating character reference sheets and using those characters in video. This repository includes the frontend, local API, local GPU executor, workflows, and model manifests. It runs on your own workstation or a GPU workstation you connect over SSH. Account, billing, object-storage and cloud execution implementations belong in a separate repository.
+**OpenCast Studio** is an open-source app by Akatz Labs for creating character reference sheets and using those characters in video. This repository includes the frontend, local API, local GPU executor, workflows, and model manifests. It runs on your own workstation or a GPU workstation you connect over SSH.
 
 Source: [akatz-labs/opencast-studio](https://github.com/akatz-labs/opencast-studio). Generation availability depends on the configured executor and its installed or deployed workflows.
 
@@ -31,7 +31,7 @@ npm run build
 npm start
 ```
 
-An interactive `npm start` opens the browser automatically. Set `OPENCAST_OPEN_BROWSER=0` for a headless server, or `1` to request opening explicitly. You can also open `http://localhost:8389` on that machine. State defaults to `~/.local/share/opencast`. The service binds to loopback. This starts the application, not a GPU runtime: generation remains unavailable until a workflow installation is configured. Authentication, billing and a cloud executor are separate integrations; this local entry point is not a public multiuser service.
+An interactive `npm start` opens the browser automatically. Set `OPENCAST_OPEN_BROWSER=0` for a headless server, or `1` to request opening explicitly. You can also open `http://localhost:8389` on that machine. State defaults to `~/.local/share/opencast`. The service binds to loopback. This starts the application, not a GPU runtime: generation remains unavailable until a workflow installation is configured.
 
 Configuration is supplied through environment variables, never baked-in workstation paths. See [.env.example](.env.example); these variables must be exported by your shell or service manager. For a subdirectory deployment, set the same `OPENCAST_BASE_PATH` during both build and startup. For development use `npm run dev`, alongside the API.
 
