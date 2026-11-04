@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "appId": "opencast",
   "title": "OpenCast Studio",
-  "description": "Krea 2 character sheets; FLUX3 edit anchors and Pika H3 Flex motion.",
+  "description": "Krea character sheets; Alisson guide-latent swaps and TARA motion transfer, without generated anchors.",
   "models": [
     {
       "id": "krea2-turbo",
@@ -124,40 +124,6 @@
       ]
     },
     {
-      "id": "h3-video-vae",
-      "name": "H3 video VAE",
-      "group": "motion",
-      "relativePath": "vae/minimax_h3_video_vae_int8_convrot.safetensors",
-      "sizeBytes": 2811065184,
-      "sha256": "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
-      "shortHash": "1fdf2cd705c0dba3",
-      "requirement": "required",
-      "acquisition": "download",
-      "revision": "912b6e38b2092ec4d2e86d24183e0d59ea059d48",
-      "sourcePage": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/912b6e38b2092ec4d2e86d24183e0d59ea059d48/vae/minimax_h3_video_vae_int8_convrot.safetensors",
-      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/912b6e38b2092ec4d2e86d24183e0d59ea059d48/vae/minimax_h3_video_vae_int8_convrot.safetensors",
-      "stages": [
-        "motion"
-      ]
-    },
-    {
-      "id": "pika-flex",
-      "name": "Pika H3 Flex adapter",
-      "group": "motion",
-      "relativePath": "loras/pika_h3_flex_ref2va_comfy_bf16.safetensors",
-      "sizeBytes": 1956172176,
-      "sha256": "e4d058fbd027377b925a0ee607b514ddd9037873fee3afa05d73b302e6f7f8e1",
-      "shortHash": "da82119c1f2eb19e",
-      "requirement": "required",
-      "acquisition": "download",
-      "revision": "3ff166447d5edb1406107ab8370c42000ce173e4",
-      "sourcePage": "https://huggingface.co/Pika-Labs/Pika-H3-Flex/blob/3ff166447d5edb1406107ab8370c42000ce173e4/comfy/loras/pika_h3_flex_ref2va_comfy_bf16.safetensors",
-      "url": "https://huggingface.co/Pika-Labs/Pika-H3-Flex/resolve/3ff166447d5edb1406107ab8370c42000ce173e4/comfy/loras/pika_h3_flex_ref2va_comfy_bf16.safetensors",
-      "stages": [
-        "motion"
-      ]
-    },
-    {
       "id": "krea-outpaint",
       "name": "Krea 2 outpaint adapter",
       "group": "character",
@@ -175,75 +141,74 @@
       ]
     },
     {
-      "id": "flux3-edit",
-      "name": "FLUX3 Klein \u00b7 image edit",
+      "id": "h3-video-vae",
+      "name": "H3 video VAE FP16",
       "group": "motion",
-      "relativePath": "diffusion_models/flux3-image-klein-int8-convrot.safetensors",
-      "sizeBytes": 5827874779,
-      "sha256": "847d8933548afd93df4af2cac2498e70891bf28d9dae06d695f536992e168fe2",
-      "shortHash": "a87c28246d1525af",
-      "requirement": "required",
-      "acquisition": "manual",
-      "revision": "feef60b0aaf63a4773ace96636ebbcf43b881312",
-      "sourcePage": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/blob/feef60b0aaf63a4773ace96636ebbcf43b881312/diffusion_models/flux3-image-klein-int8-convrot.safetensors",
-      "sourceNote": "Accept the FLUX3 access conditions on Hugging Face, download this pinned file into the model folder shown, then select Scan models. Existing matching files are reused.",
-      "stages": [
-        "motion"
-      ],
-      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/feef60b0aaf63a4773ace96636ebbcf43b881312/diffusion_models/flux3-image-klein-int8-convrot.safetensors"
-    },
-    {
-      "id": "flux3-upsampler",
-      "name": "Qwen3.5 9B \u00b7 FLUX3 prompt upsampler",
-      "group": "motion",
-      "relativePath": "text_encoders/qwen3.5_9b_flux3_prompt_upsampler_int8_convrot.safetensors",
-      "sizeBytes": 9748113996,
-      "sha256": "cb8cb9b9dcd2569509de755dca54d96fd93a16a7aabfd2f4051f0a144230620f",
-      "shortHash": "bba9c06f5e72a9d7",
-      "requirement": "required",
-      "acquisition": "manual",
-      "revision": "feef60b0aaf63a4773ace96636ebbcf43b881312",
-      "sourcePage": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/blob/feef60b0aaf63a4773ace96636ebbcf43b881312/text_encoders/qwen3.5_9b_flux3_prompt_upsampler_int8_convrot.safetensors",
-      "sourceNote": "Accept the FLUX3 access conditions on Hugging Face, download this pinned file into the model folder shown, then select Scan models. Existing matching files are reused.",
-      "stages": [
-        "motion"
-      ],
-      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/feef60b0aaf63a4773ace96636ebbcf43b881312/text_encoders/qwen3.5_9b_flux3_prompt_upsampler_int8_convrot.safetensors"
-    },
-    {
-      "id": "flux3-text",
-      "name": "Qwen3-VL 4B \u00b7 FLUX3 text encoder",
-      "group": "motion",
-      "relativePath": "text_encoders/qwen3vl_4b_int8_convrot.safetensors",
-      "sizeBytes": 4858559240,
-      "sha256": "32de113cbf8282b02cbff0794b637b9d6676da09314a1db5a30bcea9bf4ee01c",
-      "shortHash": "b31caaf3180b46ce",
-      "requirement": "required",
-      "acquisition": "manual",
-      "revision": "feef60b0aaf63a4773ace96636ebbcf43b881312",
-      "sourcePage": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/blob/feef60b0aaf63a4773ace96636ebbcf43b881312/text_encoders/qwen3vl_4b_int8_convrot.safetensors",
-      "sourceNote": "Accept the FLUX3 access conditions on Hugging Face, download this pinned file into the model folder shown, then select Scan models. Existing matching files are reused.",
-      "stages": [
-        "motion"
-      ],
-      "url": "https://huggingface.co/black-forest-labs/flux-3-image-klein-comfy/resolve/feef60b0aaf63a4773ace96636ebbcf43b881312/text_encoders/qwen3vl_4b_int8_convrot.safetensors"
-    },
-    {
-      "id": "flux3-vae",
-      "name": "FLUX2 VAE \u00b7 FLUX3 image decoder",
-      "group": "motion",
-      "relativePath": "vae/flux2-vae.safetensors",
-      "sizeBytes": 336213556,
-      "sha256": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5",
-      "shortHash": "eb18063e6259e230",
+      "relativePath": "vae/minimax_h3_video_vae_fp16.safetensors",
+      "sizeBytes": 5207808496,
+      "sha256": "7c1f131492e7eddacaac9069a61b81bdd39de5cc96561e677c5eab1cdce5e522",
       "requirement": "required",
       "acquisition": "download",
-      "revision": "9630c1b4b6e690497ae0c19bb6b1b35d4ebedcb7",
-      "sourcePage": "https://huggingface.co/Comfy-Org/Flux-2-Dev",
-      "url": "https://huggingface.co/Comfy-Org/Flux-2-Dev/resolve/9630c1b4b6e690497ae0c19bb6b1b35d4ebedcb7/split_files/vae/flux2-vae.safetensors",
+      "revision": "912b6e38b2092ec4d2e86d24183e0d59ea059d48",
+      "sourcePage": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/912b6e38b2092ec4d2e86d24183e0d59ea059d48/vae/minimax_h3_video_vae_fp16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/912b6e38b2092ec4d2e86d24183e0d59ea059d48/vae/minimax_h3_video_vae_fp16.safetensors",
       "stages": [
         "motion"
-      ]
+      ],
+      "shortHash": "b14d650b0a0e9d3a"
+    },
+    {
+      "id": "h3-dmd",
+      "name": "H3 DMD eight-step Turbo",
+      "group": "motion",
+      "relativePath": "loras/minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors",
+      "sizeBytes": 2285989092,
+      "sha256": "693f41129785f31a820d32100b698cdcc42182c27c291f37f47d1ca5f38f5c20",
+      "requirement": "required",
+      "acquisition": "download",
+      "revision": "bb2bc497cbaca89dadd0bcf1856eed4f8275be20",
+      "sourcePage": "https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI/blob/bb2bc497cbaca89dadd0bcf1856eed4f8275be20/experimental/minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors",
+      "url": "https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI/resolve/bb2bc497cbaca89dadd0bcf1856eed4f8275be20/experimental/minimax_h3_dmd_ref2va_8step_turbo_pruned.safetensors",
+      "stages": [
+        "motion"
+      ],
+      "shortHash": "5b51dc146e053c4c"
+    },
+    {
+      "id": "alisson-swap",
+      "name": "Alisson Character Swap v1.1",
+      "group": "motion",
+      "relativePath": "loras/minimax_h3_character_swap_v1.1_ref2va_fro.safetensors",
+      "sizeBytes": 80673112,
+      "sha256": "ab21167bed71db99ac09527ad1f26f5f3517687ebf2e1f1bd5e91cc0bdf9b9c3",
+      "requirement": "required",
+      "acquisition": "download",
+      "revision": "4bb14d4a611179d4cf633e74d3ae33e965ae2301",
+      "sourcePage": "https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI/blob/4bb14d4a611179d4cf633e74d3ae33e965ae2301/loras/minimax_h3_character_swap_v1.1_ref2va_fro.safetensors",
+      "url": "https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI/resolve/4bb14d4a611179d4cf633e74d3ae33e965ae2301/loras/minimax_h3_character_swap_v1.1_ref2va_fro.safetensors",
+      "stages": [
+        "motion"
+      ],
+      "licensePage": "https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI/blob/4bb14d4a611179d4cf633e74d3ae33e965ae2301/LICENSE_CHARACTER_SWAP.md",
+      "shortHash": "1b2c676479add90c"
+    },
+    {
+      "id": "alisson-tara",
+      "name": "Alisson TARA Motion Transfer v1.0",
+      "group": "motion",
+      "relativePath": "loras/minimax_h3_motion_transfer_tara_v1.0_ref2va.safetensors",
+      "sizeBytes": 126417912,
+      "sha256": "aca0a0c10387ba9715fc01378b9051d9c0733838a388cb4215d829f6c41d0f35",
+      "requirement": "required",
+      "acquisition": "download",
+      "revision": "4bb14d4a611179d4cf633e74d3ae33e965ae2301",
+      "sourcePage": "https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI/blob/4bb14d4a611179d4cf633e74d3ae33e965ae2301/loras/minimax_h3_motion_transfer_tara_v1.0_ref2va.safetensors",
+      "url": "https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI/resolve/4bb14d4a611179d4cf633e74d3ae33e965ae2301/loras/minimax_h3_motion_transfer_tara_v1.0_ref2va.safetensors",
+      "stages": [
+        "motion"
+      ],
+      "licensePage": "https://huggingface.co/Alissonerdx/Minimax-H3-ComfyUI/blob/4bb14d4a611179d4cf633e74d3ae33e965ae2301/LICENSE_MOTION_TRANSFER.md",
+      "shortHash": "b3455fcd6b880caf"
     }
   ],
   "features": [
@@ -267,11 +232,9 @@
         "h3-text",
         "h3-audio-vae",
         "h3-video-vae",
-        "pika-flex",
-        "flux3-edit",
-        "flux3-upsampler",
-        "flux3-text",
-        "flux3-vae"
+        "h3-dmd",
+        "alisson-swap",
+        "alisson-tara"
       ],
       "optional": false
     }
@@ -279,6 +242,6 @@
   "requiredNodes": [],
   "nodeRuntime": {
     "name": "Workflow runtime",
-    "detail": "Pinned native ComfyUI workflows and dependencies are installed with Resources."
+    "detail": "Pinned ComfyUI core and Alisson TARA node are installed with Resources."
   }
 }

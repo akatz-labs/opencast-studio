@@ -73,7 +73,7 @@ test('one button completes the setup orchestration and resumes without duplicate
   else if(req.url==='/v1/plans'){const id=crypto.randomUUID();plans.set(id,body);value={id,digest:id,installation:body}}
   else if(req.url==='/v1/install'){assert.ok(plans.has(body.planId));value={job:{id:body.planId,phase:'completed'}}}
   else if(req.url.startsWith('/v1/jobs/'))value={id:req.url.split('/').at(-1),phase:'completed'};
-  else if(req.url==='/v1/resources/opencast'&&req.method==='GET')value={models:['flux3-edit','flux3-text','flux3-upsampler'].map(id=>({id,state:'installed'})),storage:{path:modelsRoot}};
+  else if(req.url==='/v1/resources/opencast'&&req.method==='GET')value={models:[].map(id=>({id,state:'installed'})),storage:{path:modelsRoot}};
   else if(req.url==='/v1/resources/opencast/storage'){modelsRoot=body.path;value={id:crypto.randomUUID(),kind:'storage',status:'succeeded'};jobs.push(value)}
   else if(req.url==='/v1/resources/opencast/jobs')value={items:jobs};
   else if(req.url==='/v1/resources/opencast/download'){value={id:crypto.randomUUID(),kind:'download',status:'succeeded',resourceIds:body.resourceIds};jobs.push(value)}
@@ -85,7 +85,7 @@ test('one button completes the setup orchestration and resumes without duplicate
  const first=service.start(),duplicate=service.start();assert.equal(first.id,duplicate.id);
  async function finished(){for(let i=0;i<120;i++){const s=service.status();if(['blocked','failed','succeeded','interrupted'].includes(s?.status))return s;await new Promise(r=>setTimeout(r,50))}throw new Error('Setup fixture timed out')}
  const result=await finished();assert.equal(result.status,'succeeded',result.error);assert.deepEqual(result.pending,[]);
- assert.equal(calls.filter(c=>c.path==='/v1/install').length,2);assert.equal(jobs.filter(j=>j.kind==='download').length,1);assert.equal(jobs.find(j=>j.kind==='download').resourceIds.length,11);
+ assert.equal(calls.filter(c=>c.path==='/v1/install').length,2);assert.equal(jobs.filter(j=>j.kind==='download').length,1);assert.equal(jobs.find(j=>j.kind==='download').resourceIds.length,12);
  assert.ok(calls.findIndex(c=>c.path.endsWith('/storage'))<calls.findIndex(c=>c.path==='/v1/install'));
  assert.ok([...plans.values()].every(p=>p.configuration.modelsRoot===root+'/existing models'));
  assert.ok([...plans.values()].every(p=>p.setup.requiresGpu===false&&p.setup.services.length===0));

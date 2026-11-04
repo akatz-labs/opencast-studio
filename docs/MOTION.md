@@ -1,91 +1,105 @@
-# OpenCast motion workflow
+# OpenCast video workflows
 
-OpenCast Studio uses FLUX3 Klein to edit the opening frame, then Pika H3 Flex to
-produce the video. Both character swap and motion transfer use this pipeline.
-There is no GPT image service, SAM mask, depth model, or character-swap LoRA.
+OpenCast uses Alisson's Character Swap v1.1 for character replacement and TARA
+Motion Transfer v1.0 for motion transfer. Both run MiniMax H3 Ref2VA with the
+8-step DMD Turbo LoRA. They do not generate an anchor image or load Pika Flex.
 
-The editable workflow is `resources/motion/OpenCast-Motion.json`. Double-click
-its FLUX3 anchor subgraph to inspect prompt expansion and image editing. The
-backend runs the equivalent flat API graph in `pipeline.flat.api.json`. The
-native and flat output graphs are compared in the test suite. Source recipes
-are retained under `resources/motion/source`; `scripts/build-motion-graph.mjs`
-rebuilds the combined flat graph.
+Character swap supplies the full source clip as aligned guide latents. Motion
+transfer supplies it as a native video reference with TARA temporal attention.
+The current motion-transfer weights already incorporate the training adapter;
+do not add that adapter a second time.
 
 ## Inputs and output
 
-The existing `/api/v1/jobs` contract accepts `character-swap` or
-`motion-transfer`, asset IDs for `video` and `character`, and an optional
-`background` for motion transfer. `parameters.prompt` is prepended to the
-reusable mode-specific instructions. Blank instructions target the main person.
+`/api/v1/jobs` accepts `character-swap` or `motion-transfer`, asset IDs for
+`video` and `character`, and an optional `background` for motion transfer.
+`parameters.prompt` is prepended to the mode's reusable instructions, for
+example “Replace the boxing man with the fox girl.” The optional **Character details** field (`characterDescription` in the API)
+gives a short description of the reference character. Explore and generated
+characters prefill this field from their recorded traits; uploaded images leave
+it blank for you to describe.
+When blank, the template refers to the replacement character in Picture 1.
+
 `quality: "480p"` selects approximately 0.5 MP; `"720p"` selects approximately
-1 MP. These legacy quality identifiers are pixel budgets, not fixed heights.
-The anchor always uses 1 MP. Optional `seed` and `anchorSeed` allow replay;
-otherwise the backend generates and saves both seeds once per admission.
+1 MP. These compatibility identifiers are pixel budgets, not fixed heights.
+Dimensions follow the source aspect ratio, rounded to multiples of 32.
+The source is normalized to 24 fps without changing its speed, capped at 15
+seconds, then rounded down to H3's 17n + 5 frame grid: at most 345 frames
+(14.375 seconds). Optional `seed` makes sampling reproducible. Legacy
+`anchorSeed` values are accepted but unused by this revision.
 
-The source is normalized to 24 fps without changing its speed. Up to 15 seconds
-are used; the workflow rounds down to H3's 17n + 5 frame grid, at most 345 frames
-(14.375 seconds). It does not detect scene cuts. Source audio conditions H3's
-reference and guide. `keepAudio` includes generated audio in the final MP4;
-turning it off mutes the export without changing model conditioning.
+Character swap preserves the source setting. Motion transfer uses the supplied
+background, or the character reference's setting when it defines one; otherwise
+it preserves the source setting. Single continuous shots are the preferred
+input. The workflow does not detect scene cuts. Inspect identity, pose and
+background throughout the resulting video.
 
-Character swap preserves the source setting. Motion transfer uses the uploaded
-background, or the character image's setting when none is supplied. A neutral
-character sheet does not define a new environment. These generative edits can
-change pose, framing and background details; inspect the result.
+For character swap, available source audio also conditions the guide. Motion
+transfer follows the published TARA recipe without audio conditioning.
+`keepAudio` copies the source soundtrack into the final video; it does not
+request newly generated speech. Silent inputs remain silent.
 
-## Local installation
+## Installation and runtime
 
-Run the app, open Resources, choose the model directory, and select Install
-missing. The shared executor installs an isolated ComfyGit runtime with the
-bundled Python/package lock. It advertises both motion features automatically
-once their dependency probes pass. No hand-written workflow binding is needed.
+In Resources, choose a model directory and select Install missing. The manifest
+pins seven video dependencies: the H3 INT8 model, NVFP4 text encoder, FP16 video
+VAE, audio VAE, DMD Turbo LoRA, Character Swap LoRA and TARA Motion Transfer
+LoRA. Existing matching files are reused. FLUX image-editing models are no
+longer required. Character creation retains its separate Krea dependencies.
 
-The manifest includes the FLUX3 image model, Qwen3-VL image encoder, Qwen3.5
-prompt upsampler and FLUX2 VAE, plus Pika/H3's model, encoder, adapter and VAEs.
-The three FLUX3 weights are gated: accept the conditions at their linked Hugging
-Face repository, download the pinned files into the displayed directories, then
-select Scan models. Public files install automatically; matching existing files
-are reused. Credentials never go through browser job requests.
+Runtime setup supports Linux x64 with an NVIDIA GPU and installs an isolated
+ComfyGit environment. The internal profile ID `pika` remains for compatibility;
+the active workflow version is `opencast-alisson-v1`. Older installed runtimes
+are preserved and are not selected for the new workflow until updated.
 
-Automatic runtime setup currently supports Linux x64 with a suitable NVIDIA GPU.
-Each motion job owns an isolated ComfyUI process, releases it after completion,
-and uses the pinned core revision, compiler-disabled Triton kernels and zero
-reserved VRAM. Normal memory management allows inactive model weights to move
-to system RAM: retaining every model on a 24 GB GPU exhausted VRAM during H3
-loading in the integration test. Resolution and duration are not reduced.
-A trusted deployment can set a `jobLauncher` JSON argument array
-in its resource settings to admit work on a shared GPU scheduler; `{jobId}` is
-expanded to the immutable executor job ID. Personal installs need no fleet names
-or launcher configuration. The same asset/job API works over a local or SSH
-executor transport and can be implemented by a cloud executor later.
+Each job uses an isolated ComfyUI process and releases it on completion. Dynamic
+VRAM, zero reserved VRAM, Triton kernels and the pinned INT8 offset fix remain
+enabled; compilation is disabled. This permits normal model residency management
+and does not guarantee every duration/resolution fits a particular GPU.
+A trusted deployment may set `jobLauncher` in resource settings to integrate
+its GPU admission system. Personal installations need no fleet-specific setup.
 
-The app retains the normalized workflow, both executed API graphs, ComfyUI
-submission/history receipts, expanded prompt, generated anchor, native output,
-playable MP4, poster, seeds and output metadata. No accepted job is automatically
-resubmitted after an uncertain result. Existing character and video histories
-remain readable when the shared motion driver is enabled.
+## Graphs, provenance and licenses
 
-## Recipe provenance
+`resources/motion/alisson/graph.py` builds the active API graphs. The adjacent
+`character-swap.api.json` and `motion-transfer.api.json` are concrete examples.
+The `*_workflow_native_nodes_*.json` files are Alisson's original editable
+ComfyUI examples, retained for reference; they are not the app's generated graph.
+The older `OpenCast-Motion.json` and FLUX graph files are historical recipes.
 
-FLUX3 uses the tested distilled INT8 recipe: official image-edit system prompt,
-Qwen3.5 9B INT8 expansion, 16 Euler/simple steps, CFG 1, native multi-image
-reference latents, 1 MP. The exploratory generic prompt refinements were not
-selected because they did not reliably improve geometry. Pika retains the
-six-step Flex adapter recipe and opening-frame Add Guide. Runtime and model
-revisions, sizes and hashes are pinned in `resources/runtimes/pika` and
-`resources/models.json`. Model licenses remain those of their publishers.
+Both active modes use 8 Euler/simple steps, CFG 1 and video/audio sigma shifts
+12/3. TARA uses strength 2, a 0.2-second window, 0.25-second falloff, penalty cap
+6 and structure guidance 1. Prompts adapt the upstream templates to the app's
+reference inputs and optional background. Model URLs, revisions, hashes and
+licenses are in `resources/models.json`; upstream documentation and licenses
+are retained alongside the graphs. TARA node source and attribution are in
+`custom_nodes/opencast-tara`.
 
-## Integration validation — 2026-10-30
+Model licenses are separate from the application's license. Alisson's published
+terms restrict hosted inference; obtain the author's permission for a hosted
+service. Permission arranged for a particular deployment does not transfer to
+other installers. The bundled BFS TARA source retains its GPL-3.0 license.
 
-Two 5.17-second inputs completed on a 24 GB RTX 4090: character swap at
-544 × 960 (204 seconds), and motion transfer with an uploaded background at
-864 × 1152 (523 seconds). Both produced 124 frames at 24 fps and playable
-MP4s. Browser playback, original-reference display, downloads with matching
-SHA256, HTTP range requests, cancellation, and automatic GPU release passed.
-The 45-test suite and production build passed. The standalone entry point
-discovered the installed motion driver and resolved bundled Explore references.
+Jobs retain the submitted graph, ComfyUI history, expanded prompt, model/runtime
+identities, source/reference inputs, seed, native output, playable video and
+poster. An uncertain submission is not automatically resubmitted.
 
-These checks used an existing Linux executor. Fresh-machine bootstrap, the
-full 15-second input cap, and Comfy Cloud execution were not exercised.
+## Validation — 2026-11-04
 
-Runtime reliability: both character and motion jobs explicitly enable dynamic VRAM (`--enable-dynamic-vram`, reserve 0). This manages residency automatically but does not guarantee arbitrary workloads fit. The pinned Pika environment applies the bundled comfy-kitchen 0.2.39 INT8 offset fix using atomic file replacement, so other environments remain unchanged. INT8 row/column offsets use 64-bit arithmetic before stride multiplication to support outputs exceeding 2^31 elements; Triton remains enabled. The installer checks the exact original source hash and probes the patched state. `tests/int8-offsets-gpu.py` is the explicit GPU regression for this boundary.
+The new package installed into a fresh isolated ComfyGit environment on an
+existing Linux RTX 4090 executor. Both app modes completed the same 107-frame
+boxing/fox test at 544 × 928, 24 fps and seed 42; motion transfer used a separate
+fantasy background. Both inputs were silent. Standalone graph tests also
+completed. Playback, seeking and downloads passed at desktop and phone widths.
+A subsequent browser-submitted swap with only a brief instruction kept the source
+actor. At that same seed, adding a reference-character description produced
+the fox-girl replacement; the brief prompt also worked at seed 42. Successful
+execution therefore does not establish reliable swapping for every prompt or
+seed. The optional Character details field provides this tested prompt control.
+Comfy Cloud also completed both 107-frame modes at 0.5 MP. The hosted app
+submitted both modes through its public UI and retained their videos, workflow
+graphs and manifests. These cloud runs use the same model recipe, with separate
+GPU/runtime versions from the local executor.
+
+Fresh-machine bootstrap, audio-conditioned rendering, 1 MP and full-duration
+rendering require separate runtime validation.

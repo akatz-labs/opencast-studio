@@ -47,13 +47,13 @@ The installer:
 
 1. Starts or reuses the shared local executor and pins its identity.
 2. Installs the bundled, checksum-verified ComfyGit 0.7.1 toolchain in the shared layer's user data directory.
-3. Materializes separate, content-addressed Krea and Pika environments from captured ComfyUI commits and dependency locks. Existing environments are preserved.
+3. Materializes separate, content-addressed Krea and H3 environments from captured ComfyUI commits and dependency locks. Existing environments are preserved.
 4. Installs published model dependencies into the executor's configured shared model store, reusing matching files and verifying downloaded bytes.
 5. Retains setup receipts and progress so closing the browser does not stop installation.
 
-Automatic runtime setup currently targets **Linux x64 with an NVIDIA GPU**. Node.js, Python 3 or uv, Git, a C++ compiler, FFmpeg and FFprobe are prerequisites. CUDA profiles are pinned separately: Krea uses cu130; Pika uses cu128. On other platforms, connect a compatible remote executor. Setup prepares dependencies without starting GPU sessions. The bundled worker connects character generation and both motion modes after installation. See [the motion workflow guide](docs/MOTION.md) for inputs, retained outputs, and runtime requirements.
+Automatic runtime setup currently targets **Linux x64 with an NVIDIA GPU**. Node.js, Python 3 or uv, Git, a C++ compiler, FFmpeg and FFprobe are prerequisites. CUDA profiles are pinned separately: Krea uses cu130; H3 uses cu128. On other platforms, connect a compatible remote executor. Setup prepares dependencies without starting GPU sessions. The bundled worker connects character generation and both motion modes after installation. See [the motion workflow guide](docs/MOTION.md) for inputs, retained outputs, and runtime requirements.
 
-The [OpenCast character LoRA](https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA), Pika/H3 dependencies, and all four FLUX3 anchor dependencies are pinned in [resources/models.json](resources/models.json). Public files install through **Install missing**. The three gated FLUX3 weights require accepting their Hugging Face conditions and placing the pinned files in the displayed model folders; **Scan models** then discovers them. The motion pipeline does not require SAM or Depth Anything.
+The [OpenCast character LoRA](https://huggingface.co/akatz-ai/Krea-2-OpenCast-LoRA), H3 dependencies, and Alisson's Character Swap and TARA Motion Transfer LoRAs are pinned in [resources/models.json](resources/models.json). **Install missing** downloads the pinned public files and reuses matching local models. Video generation uses source guide latents or TARA, without an anchor-image stage. It does not require FLUX, SAM or Depth Anything. Review the [video workflow guide](docs/MOTION.md) for model licenses and hosted-use requirements.
 
 The shared layer chooses the standard workspace and model directory. Existing shared configuration is respected. Private overrides may supply `workspace` or `modelsRoot`, but changing an existing workspace's model store is never implicit. Both runtime recipes, source locks and model checksums are bundled in the repository.
 

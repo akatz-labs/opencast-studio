@@ -7,7 +7,7 @@ import {stageAppRecipe,comfySetup} from '../vendor/shared-runtime/src/executor-r
 const root=fileURLToPath(new URL('../',import.meta.url));
 export const runtimeProfiles=[
  {id:'krea',name:'Krea character sheets',torchBackend:'cu130',nodes:{'rebels-krea2-outpaint':'bundled/nodes/cast-character-sheet'}},
- {id:'pika',name:'Pika H3 Flex',torchBackend:'cu128',nodes:{}},
+ {id:'pika',name:'H3 · Alisson swap and TARA motion',torchBackend:'cu128',nodes:{'opencast-tara':'bundled/nodes/opencast-tara'}},
 ];
 export async function installationPlan(client,profile,settings={}){
  if(!(await client.health()).capabilities?.includes('cpu-only-install-v1'))throw new Error('This executor needs the shared CPU-only installer update before runtime setup. Existing GPU sessions were preserved.');
@@ -22,6 +22,10 @@ export async function installationPlan(client,profile,settings={}){
   if(!/\.(py|json|toml)$/.test(name)&&!['LICENSE','NOTICE'].includes(name))continue;
   extraFiles.push({name:'bundled/nodes/cast-character-sheet/'+(name.includes('.')?name:name+'.txt'),body:fs.readFileSync(root+'custom_nodes/cast-character-sheet/'+name).toString('base64')});
  }
+ if(profile.id==='pika'){
+  for(const name of fs.readdirSync(root+'resources/motion/alisson').filter(n=>/\.(py|json)$/.test(n)))extraFiles.push({name:'bundled/motion/alisson/'+name,body:fs.readFileSync(root+'resources/motion/alisson/'+name).toString('base64')});
+  for(const name of fs.readdirSync(root+'custom_nodes/opencast-tara').filter(n=>/\.(py|json|txt)$/.test(n)))extraFiles.push({name:'bundled/nodes/opencast-tara/'+name,body:fs.readFileSync(root+'custom_nodes/opencast-tara/'+name).toString('base64')});
+ }
  if(profile.id==='pika')extraFiles.push({name:'bundled/fixes/kitchen_int8_offsets.py',body:fs.readFileSync(root+'resources/runtime-fixes/kitchen_int8_offsets.py').toString('base64')});
  const recipe=await stageAppRecipe(client,root+'resources/runtimes/'+profile.id,undefined,{extraFiles});
  const toolHash=crypto.createHash('sha256').update(fs.readFileSync(root+'resources/toolchain/manifest.json')).digest('hex').slice(0,16);
@@ -35,7 +39,7 @@ export async function installationPlan(client,profile,settings={}){
  const adapter=await (await client.request('/v1/adapters/'+adapterHash,{method:'PUT',body:adapterBody})).json();
  const definition={id:environment,appId:'opencast',name:profile.name,revision:adapterHash,adapter:adapter.path,features:profile.id==='pika'?['runtime-installed','character-swap','motion-transfer']:['runtime-installed','character'],
   runtime:{comfyUrls:[]},capabilities:['cooperative-cancel-v1'],
-  configuration:{recipeDigest:recipe.digest,profile:profile.id,...{motionWorker:recipe.directory+'/bundled/motion/worker.py',motionGraph:recipe.directory+'/bundled/motion/pipeline.flat.api.json',jobLauncher:settings.jobLauncher?JSON.parse(settings.jobLauncher):[]}},
+  configuration:{motionVersion:'opencast-alisson-v1',recipeDigest:recipe.digest,profile:profile.id,...{motionWorker:recipe.directory+'/bundled/motion/worker.py',motionGraph:recipe.directory+'/bundled/motion/pipeline.flat.api.json',jobLauncher:settings.jobLauncher?JSON.parse(settings.jobLauncher):[]}},
   probes:[{kind:'file',name:'Pinned ComfyUI environment',path:environmentRoot+'/.cec/pyproject.toml'},
    {kind:'command',name:'ComfyUI dependencies',command:environmentRoot+'/.venv/bin/python',args:['-c','import torch, transformers, comfy_kitchen; print("runtime-dependencies-ready")'],contains:'runtime-dependencies-ready'}]};
  // A private development override must not silently replace the bundled toolchain.

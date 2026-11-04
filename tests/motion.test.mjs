@@ -25,13 +25,14 @@ test('the installer manifest covers every model loaded by the shipped motion gra
  const models=JSON.parse(fs.readFileSync(new URL('../resources/models.json',import.meta.url))).models;
  const folders={unet_name:'diffusion_models',clip_name:'text_encoders',vae_name:'vae',lora_name:'loras'};
  const required=new Set();
- for(const node of Object.values(graph))for(const [key,folder]of Object.entries(folders))if(node.inputs[key])required.add(folder+'/'+node.inputs[key]);
+ for(const node of [...Object.values(read('alisson/character-swap.api.json')),...Object.values(read('alisson/motion-transfer.api.json'))])for(const [key,folder]of Object.entries(folders))if(node.inputs[key])required.add(folder+'/'+node.inputs[key]);
+ required.add('vae/minimax_h3_audio_vae_fp32.safetensors');
  const motion=models.filter(model=>model.group==='motion');
  assert.deepEqual(new Set(motion.map(model=>model.relativePath)),required);
  for(const model of motion){assert.match(model.sha256,/^[a-f0-9]{64}$/);assert.ok(model.sizeBytes>0);assert.ok(model.url.includes(model.revision));}
 });
 function expand(g,id){const n=g[id];assert.ok(n,`Missing node ${id}`);return {class_type:n.class_type,inputs:Object.fromEntries(Object.entries(n.inputs).map(([k,v])=>[k,Array.isArray(v)?[expand(g,v[0]),v[1]]:v]))}}
-test('native subgraphs reopen to the same executable anchor and Pika graph',()=>{
+test('historical native subgraphs reopen to the same executable anchor and Pika graph',()=>{
  const compiled=read('OpenCast-Motion.api.json'),canvas=read('OpenCast-Motion.json');
  assert.equal(canvas.definitions.subgraphs.length,3);
  for(const root of ['23','248'])assert.deepEqual(expand(compiled,root),expand(graph,root));

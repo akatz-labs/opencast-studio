@@ -1,0 +1,3 @@
+ComfyUI-BFSNodes https://github.com/alisson-anjos/ComfyUI-BFSNodes
+Revision 1e76045b19a99882f1331c9d322a26fac60ae9b8
+Python modules unchanged. Package entry point registers only native TARA.

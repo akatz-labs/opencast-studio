@@ -41,6 +41,7 @@ def main(request):
     raw = root / 'motion-raw'
     raw.mkdir(exist_ok=True)
     character = request['kind'] == 'character'
+    alisson = request.get('workflowVersion') == 'opencast-alisson-v1'
     task = 'character' if character else 'motion'
     params = request.get('parameters', {})
     process = None
@@ -68,15 +69,23 @@ def main(request):
                     '-preset', 'fast', '-crf', '18', '-pix_fmt', 'yuv420p', '-c:a', 'aac', str(media/'source.mp4')])
             for role in ['character', *(['background'] if request['background'] else [])]:
                 ffmpeg(['-i', str(inputs/(role+'-upload')), '-frames:v', '1', str(media/(role+'.png'))])
-            graph = json.loads(Path(request['graph']).read_text())
-            graph['10']['inputs']['file'] = 'source.mp4'
-            graph['12']['inputs']['image'] = 'character.png'
-            graph['13']['inputs']['image'] = 'background.png' if request['background'] else 'character.png'
-            graph['25']['inputs']['value'] = params['prompt'].strip() or 'Replace the main person in the video.'
-            for key, value in [('501', params['anchorSeed']), ('502', params['seed']),
-                               ('503', request['kind']=='motion-transfer'), ('504', request['background']),
-                               ('505', params['quality']=='720p')]:
-                graph[key]['inputs']['value'] = value
+            if alisson:
+                from alisson.graph import build
+                probe = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-show_streams', '-of', 'json', str(media/'source.mp4')]))
+                source_stream = next(s for s in probe['streams'] if s['codec_type'] == 'video')
+                has_audio = any(s['codec_type'] == 'audio' for s in probe['streams'])
+                graph = build(request['kind'], params, source_stream['width'], source_stream['height'],
+                              int(source_stream['nb_frames']), request['background'], has_audio)
+            else:
+                graph = json.loads(Path(request['graph']).read_text())
+                graph['10']['inputs']['file'] = 'source.mp4'
+                graph['12']['inputs']['image'] = 'character.png'
+                graph['13']['inputs']['image'] = 'background.png' if request['background'] else 'character.png'
+                graph['25']['inputs']['value'] = params['prompt'].strip() or 'Replace the main person in the video.'
+                for key, value in [('501', params['anchorSeed']), ('502', params['seed']),
+                                   ('503', request['kind']=='motion-transfer'), ('504', request['background']),
+                                   ('505', params['quality']=='720p')]:
+                    graph[key]['inputs']['value'] = value
         save(outputs/'workflow.json', graph)
         check_cancel()
         with socket.socket() as port_socket:
@@ -87,7 +96,7 @@ def main(request):
         command = [request['cg'], '-e', env.name, 'run', '--no-sync', '--', '--listen', '127.0.0.1',
                    '--port', str(port), '--disable-auto-launch', '--reserve-vram', '0',
                    '--enable-dynamic-vram', '--enable-triton-backend', '--disable-comfy-compiler',
-                   *([] if character else ['--disable-all-custom-nodes']),
+                   *([] if character else ['--disable-all-custom-nodes', *(['--whitelist-custom-nodes', 'opencast-tara'] if alisson else [])]),
                    '--input-directory', str(media), '--output-directory', str(raw)]
         save(root/'launch.json', {'command': command, 'workspace': request['workspace'], 'port': port})
         log = (root/'comfy.log').open('w')
@@ -148,26 +157,31 @@ def main(request):
             manifest['details'] = details
             save(outputs/'manifest.json', manifest)
         else:
-            # Execute the packaged anchor subgraph, then release its models before H3.
-            anchor = render('anchor', dependencies(graph, ['248', '7152']))
-            image = anchor['outputs']['248']['images'][0]
-            anchor_file = (raw/image.get('subfolder', '')/image['filename']).resolve()
-            if not anchor_file.is_relative_to(raw.resolve()):
-                raise RuntimeError('Unexpected anchor output path.')
-            shutil.copyfile(anchor_file, outputs/'anchor.png')
-            shutil.copyfile(anchor_file, media/'anchor.png')
-            expanded = anchor['outputs'].get('7152', {})
-            save(outputs/'expanded-prompt.json', expanded)
-            api('/free', {'unload_models': True, 'free_memory': True})
-            # Replace only the anchor edge; all Pika prompts, references and audio stay intact.
-            graph['99991'] = {'class_type': 'LoadImage', 'inputs': {'image': 'anchor.png'}}
-            for node in graph.values():
-                for key, value in node['inputs'].items():
-                    if value == ['7108', 0]:
-                        node['inputs'][key] = ['99991', 0]
-            video = render('video', dependencies(graph, ['23']))
+            if alisson:
+                video = render('video', graph)
+                output_node = '24'
+            else:
+                # Execute the packaged anchor subgraph, then release its models before H3.
+                anchor = render('anchor', dependencies(graph, ['248', '7152']))
+                image = anchor['outputs']['248']['images'][0]
+                anchor_file = (raw/image.get('subfolder', '')/image['filename']).resolve()
+                if not anchor_file.is_relative_to(raw.resolve()):
+                    raise RuntimeError('Unexpected anchor output path.')
+                shutil.copyfile(anchor_file, outputs/'anchor.png')
+                shutil.copyfile(anchor_file, media/'anchor.png')
+                expanded = anchor['outputs'].get('7152', {})
+                save(outputs/'expanded-prompt.json', expanded)
+                api('/free', {'unload_models': True, 'free_memory': True})
+                # Replace only the anchor edge; all Pika prompts, references and audio stay intact.
+                graph['99991'] = {'class_type': 'LoadImage', 'inputs': {'image': 'anchor.png'}}
+                for node in graph.values():
+                    for key, value in node['inputs'].items():
+                        if value == ['7108', 0]:
+                            node['inputs'][key] = ['99991', 0]
+                video = render('video', dependencies(graph, ['23']))
+                output_node = '23'
             status('finalizing', 'Retaining video and provenance')
-            files = video['outputs']['23']
+            files = video['outputs'][output_node]
             reference = next(f for group in files.values() if isinstance(group, list) for f in group
                              if isinstance(f, dict) and str(f.get('filename', '')).endswith(('.mp4', '.webm', '.mkv')))
             source = (raw/reference.get('subfolder', '')/reference['filename']).resolve()
@@ -181,8 +195,13 @@ def main(request):
             stream = next(s for s in probe['streams'] if s['codec_type']=='video')
             details = {**params, 'kind': request['kind'], 'width': stream['width'], 'height': stream['height'],
                        'duration': float(probe['format']['duration']), 'executionSeconds': time.monotonic()-started,
-                       'audio': 'generated' if params['keepAudio'] else 'muted', 'fps': 24,
+                       'audio': ('source' if alisson else 'generated') if params['keepAudio'] else 'muted', 'fps': 24,
                        'workflowVersion': 'opencast-motion-flux3-v1', 'anchorRecipe': 'FLUX3 distilled INT8, official PUP, Euler/simple, 16 steps, CFG 1, 1 MP'}
+            if alisson:
+                details.update(workflowVersion='opencast-alisson-v1', anchorRecipe=None,
+                               conditioning='guide-latents' if request['kind']=='character-swap' else 'native-video-tara',
+                               audioConditioning=has_audio and request['kind']=='character-swap',
+                               sourceAudioPresent=has_audio, steps=8, sampler='euler', scheduler='simple', cfg=1)
             save(outputs/'manifest.json', {'schemaVersion': 1, 'jobId': request['jobId'], **details})
         receipt.update(status='complete', details=details, files=[p.name for p in outputs.iterdir() if p.is_file()])
     except InterruptedError as error:
