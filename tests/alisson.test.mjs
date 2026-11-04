@@ -33,6 +33,14 @@ for kind in ('character-swap','motion-transfer'):
    for node in g.values():
     for value in node['inputs'].values():
      if isinstance(value,list):assert value[0] in g
+for background in (False,True):
+ for direction in ('', 'Follow the dancer on the left.'):
+  g=build('motion-transfer',dict(quality='480p',seed=42,prompt=direction,characterDescription='unwanted descriptive metadata'),406,720,124,background)
+  prompt=g['13']['inputs']['prompt']
+  assert prompt.startswith(direction+'\n' if direction else 'motion_transfer:')
+  assert 'unwanted descriptive metadata' not in prompt
+  assert ('<Picture 2>' in prompt)==background
+  assert not any(n['class_type']=='MiniMaxH3AddGuide' for n in g.values())
 assert geometry(1080,1920,1000,'720p')[2]==345
 assert geometry(1920,1080,124,'480p')[2]==124
 assert geometry(1080,1920,124,'720p')[:2]==(736,1344)

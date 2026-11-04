@@ -103,3 +103,17 @@ GPU/runtime versions from the local executor.
 
 Fresh-machine bootstrap, audio-conditioned rendering, 1 MP and full-duration
 rendering require separate runtime validation.
+
+### Reference-led motion prompt
+
+Motion transfer uses a fixed six-section `motion_transfer:` prompt based on the
+upstream manual example. Picture 1 supplies identity, clothing, proportions and
+rendering style. Optional Picture 2 replaces the environment; without it the guide
+setting is retained unless the user asks for another setting. Video 1 supplies
+performance, timing and camera movement through native reference conditioning and
+TARA, with no source-video Add Guide.
+
+Direction is off by default and blank when enabled for the first time. Only
+explicitly enabled direction text is prepended. Character-trait descriptions are
+neither sent by this mode nor inserted by its recipe; the optional Character details
+field remains available for character swapping.
