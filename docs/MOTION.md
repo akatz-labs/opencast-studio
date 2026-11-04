@@ -96,6 +96,10 @@ actor. At that same seed, adding a reference-character description produced
 the fox-girl replacement; the brief prompt also worked at seed 42. Successful
 execution therefore does not establish reliable swapping for every prompt or
 seed. The optional Character details field provides this tested prompt control.
+Comfy Cloud also completed both 107-frame modes at 0.5 MP. The hosted app
+submitted both modes through its public UI and retained their videos, workflow
+graphs and manifests. These cloud runs use the same model recipe, with separate
+GPU/runtime versions from the local executor.
+
 Fresh-machine bootstrap, audio-conditioned rendering, 1 MP and full-duration
-rendering require separate runtime validation. Hosted validation is tracked
-separately from these local results.
+rendering require separate runtime validation.
