@@ -34,7 +34,7 @@ export async function configuredExecutor({directory,assets,storage,characterNumb
    const health=await client.health();
    if(!resources.executorId||health.executorId!==resources.executorId)return;
    const rows=await client.readiness('opencast');
-   const chosen=rows.find(row=>row.features.includes('character-swap')&&row.features.includes('motion-transfer'));
+   const chosen=rows.find(row=>row.installation.configuration?.motionVersion==='opencast-alisson-v1'&&row.features.includes('character-swap')&&row.features.includes('motion-transfer'));
    const character=rows.find(row=>row.features.includes('character'));
    if(character)recipes.character={installationId:character.installation.id,feature:'character',revision:character.installation.revision,outputs:characterOutputs,prepare:prepareCharacter};
    Object.assign(configuration,{target:resources.target,executorId:health.executorId});

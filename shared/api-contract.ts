@@ -12,7 +12,7 @@ export const characterParameters = z.strictObject({
 });
 const motionParameters = z.strictObject({
  prompt:z.string().max(2000).default(''), quality:z.enum(['480p','720p']), keepAudio:z.boolean(),
- seed:seed.optional(),anchorSeed:seed.optional(),
+ seed:seed.optional(),anchorSeed:seed.optional(),characterDescription:z.string().max(4000).optional(),
 });
 export const generationRequest = z.discriminatedUnion('kind',[
  z.strictObject({idempotencyKey:key,kind:z.literal('character'),parameters:characterParameters}),

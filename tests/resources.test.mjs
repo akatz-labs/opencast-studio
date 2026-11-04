@@ -11,11 +11,11 @@ function fixture(){
 test('resource inspection is read-only and preserves real model and runtime state',async()=>{
  const {service,calls}=fixture();const result=await service.snapshot();assert.equal(result.connection,'connected');assert.equal(result.models.find(m=>m.id==='krea2-turbo').state,'installed');assert.equal(result.models.find(m=>m.id==='opencast-character').state,'unknown');assert.equal(result.runtimes[0].installed,false);assert.equal(result.jobs[0].status,'succeeded');assert.ok(calls.every(c=>!c.body));
 });
-test('resource registration and installs use the pinned catalog including gated dependencies',async()=>{
- const {service,calls}=fixture();await service.action({action:'initialize'});const sent=calls.find(c=>c.path==='/v1/resources').body;assert.equal(sent.models.length,14);assert.equal(sent.models.filter(m=>m.acquisition==='manual').length,3);assert.ok(sent.features.every(f=>f.models.every(id=>sent.models.some(m=>m.id===id))));
- await service.action({action:'download',resourceIds:['opencast-character','flux3-vae']});assert.deepEqual(calls.at(-1).body,{resourceIds:['opencast-character','flux3-vae']});
+test('resource registration and installs use the pinned catalog without anchor-model dependencies',async()=>{
+ const {service,calls}=fixture();await service.action({action:'initialize'});const sent=calls.find(c=>c.path==='/v1/resources').body;assert.equal(sent.models.length,12);assert.equal(sent.models.filter(m=>m.acquisition==='manual').length,0);assert.ok(sent.features.every(f=>f.models.every(id=>sent.models.some(m=>m.id===id))));
+ await service.action({action:'download',resourceIds:['opencast-character','h3-video-vae']});assert.deepEqual(calls.at(-1).body,{resourceIds:['opencast-character','h3-video-vae']});
  await service.action({action:'download',resourceIds:['krea2-turbo']});assert.deepEqual(calls.at(-1).body,{resourceIds:['krea2-turbo']});
- for(const ids of [['flux3-edit'],['unknown'],['krea2-turbo','krea2-turbo']])await assert.rejects(()=>service.action({action:'download',resourceIds:ids}));
+ for(const ids of [['unknown'],['krea2-turbo','krea2-turbo']])await assert.rejects(()=>service.action({action:'download',resourceIds:ids}));
  assert.throws(()=>resourceAction.parse({action:'download',resourceIds:['krea2-turbo'],url:'https://elsewhere.test/model'}));
 });
 test('identity mismatch blocks changes and offline status never implies installed',async()=>{
@@ -23,7 +23,7 @@ test('identity mismatch blocks changes and offline status never implies installe
  const unconfigured=await resourceService({}).snapshot();assert.equal(unconfigured.connection,'unconfigured');assert.ok(unconfigured.models.every(m=>m.state==='unknown'));
 });
 test('model manifest pins complete identities and never invents unpublished sources',()=>{
- assert.equal(catalog.models.length,14);for(const m of catalog.models){assert.match(m.sha256,/^[a-f0-9]{64}$/);assert.match(m.shortHash,/^[a-f0-9]{16}$/);assert.ok(m.sizeBytes>0);assert.ok(!m.relativePath.startsWith('/')&&!m.relativePath.includes('..'));if(m.acquisition==='download'){assert.ok(m.url.includes('/resolve/'+m.revision+'/'));assert.equal(new URL(m.url).protocol,'https:')}else assert.ok(m.sourceNote&&m.url.includes('/resolve/'+m.revision+'/'))}
+ assert.equal(catalog.models.length,12);for(const m of catalog.models){assert.match(m.sha256,/^[a-f0-9]{64}$/);assert.match(m.shortHash,/^[a-f0-9]{16}$/);assert.ok(m.sizeBytes>0);assert.ok(!m.relativePath.startsWith('/')&&!m.relativePath.includes('..'));if(m.acquisition==='download'){assert.ok(m.url.includes('/resolve/'+m.revision+'/'));assert.equal(new URL(m.url).protocol,'https:')}else assert.ok(m.sourceNote&&m.url.includes('/resolve/'+m.revision+'/'))}
  const graph=fs.readFileSync(new URL('../workflows/krea-api.json',import.meta.url),'utf8');
  for(const m of catalog.models.filter(m=>m.group==='character'))assert.ok(graph.includes(m.relativePath.split('/').at(-1)),m.id);
 });

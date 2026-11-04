@@ -35,3 +35,17 @@ The shared runtime includes a documented CPU-only installation patch. It skips G
 ## About badges
 
 Brand icons in `public/badges` are from [Simple Icons](https://simpleicons.org/), distributed under [CC0 1.0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md). Source URLs are recorded in `src/about-links.json`. Brand names and marks belong to their respective owners. The website globe uses the existing Lucide icon library.
+
+## H3 motion adapters and TARA
+
+`custom_nodes/opencast-tara` contains the TARA implementation from
+[alisson-anjos/ComfyUI-BFSNodes](https://github.com/alisson-anjos/ComfyUI-BFSNodes),
+revision `1e76045b19a99882f1331c9d322a26fac60ae9b8`. Its GPL-3.0 license,
+attribution and source provenance are retained in that directory. The narrow
+registration entry point exposes the native H3 temporal node used by this app.
+
+Original workflow examples, documentation and the Character Swap / Motion
+Transfer model licenses from `Alissonerdx/Minimax-H3-ComfyUI` are retained under
+`resources/motion/alisson`. Model files are downloaded separately and retain
+their publishers' terms, including hosted-inference restrictions. The app's
+license does not grant additional model rights.

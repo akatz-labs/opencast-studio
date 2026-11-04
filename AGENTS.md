@@ -12,7 +12,7 @@ Keep the frontend's versioned API contract portable.
    compatible Linux x64 NVIDIA machine, locally or over SSH.
 2. Run `npm ci`, `npm run build`, then `npm start`. Open the printed loopback URL.
 3. On first launch, Settings opens Resources. Let the operator choose a model
-   folder before selecting Install missing. The catalog is approximately 76 GiB;
+   folder before selecting Install missing. The catalog is approximately 60 GiB;
    do not trigger large downloads without the operator choosing setup.
 4. Use the bundled installer and model manifest. Do not silently change pinned
    models, dependency versions, seeds, prompts, dimensions or generation steps.
@@ -28,7 +28,7 @@ Keep the frontend's versioned API contract portable.
 - `server/setup*.mjs`: worker bootstrap, pinned runtimes, models and readiness.
 - `resources/models.json`: authoritative model URLs, revisions, sizes and hashes.
 - `resources/runtimes/`: ComfyGit recipes and dependency locks.
-- `resources/motion/`: editable and executable FLUX3 + Pika workflows and worker.
+- `resources/motion/`: active Alisson H3 API recipes, upstream examples, historical workflows and worker.
 - `resources/runtime-fixes/`: pinned runtime corrections with integrity checks.
 - `workflows/`: character sheet workflows and I/O contracts.
 - `vendor/shared-runtime/`: attributed local/SSH worker infrastructure.

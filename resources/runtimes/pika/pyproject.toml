@@ -55,3 +55,9 @@ exclude-dependencies = ["opencv-contrib-python", "opencv-python", "opencv-python
 
 [dependency-groups]
 comfygit-system = ["uv>=0.11.8"]
+
+[tool.comfygit.nodes.opencast-tara]
+name = "opencast-tara"
+version = "dev"
+source = "development"
+criticality = "required"
